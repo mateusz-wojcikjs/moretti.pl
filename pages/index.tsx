@@ -1,11 +1,16 @@
 import type { NextPage } from "next";
-import Layout from "../components/layout";
+import Hero from "components/Hero";
+import HeroImg from "assets/img/hero_stock.png";
 
 const Home: NextPage = () => {
   return (
-    <Layout>
-      <p>Jan paweł</p>
-    </Layout>
+    <Hero
+      img={HeroImg}
+      title={"It’s high time you told your story"}
+      subtitle={
+        "Storytelling in business has become a field in its own right as industries have grown"
+      }
+    />
   );
 };
 

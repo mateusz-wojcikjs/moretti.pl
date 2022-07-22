@@ -1,9 +1,12 @@
 import React from "react";
+import { StyledFooter } from "./Footer.styled";
 
 const Footer = () => {
   return (
     <footer>
-      <div>Stopka</div>
+      <StyledFooter>
+        <div>Stopka</div>
+      </StyledFooter>
     </footer>
   );
 };

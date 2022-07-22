@@ -8,6 +8,9 @@
     "prettier"
   ],
   "rules": {
+    // suppress error for unused vars in interfaces function declaration
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars-experimental": "off",
     // suppress errors for missing 'import React' in files
     "react/react-in-jsx-scope": "off",
     // allow jsx syntax in js files (for next.js project)

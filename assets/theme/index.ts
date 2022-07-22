@@ -1,4 +1,4 @@
-export const theme = {
+export const index = {
   colors: {
     primary: "#D0281F",
     primaryLight: "#FF817A",
