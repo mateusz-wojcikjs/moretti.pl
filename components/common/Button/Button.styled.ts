@@ -1,0 +1,48 @@
+import styled from "styled-components";
+
+export const StyledButton = styled.a`
+  cursor: pointer;
+  font-size: ${({ theme }) => theme.font.size.m};
+  padding: 1rem 3.5rem;
+  color: ${({ theme }) => theme.colors.white};
+  font-family: ${({ theme }) => theme.font.family.inter};
+  transition: background-color 300ms ease, color 300ms ease;
+  display: inline-block;
+
+  border: 1px solid ${({ theme, type }) =>
+    type === "primary"
+      ? theme.colors.primary
+      : type === "secondary"
+      ? theme.colors.secondary
+      : "black"};
+
+  background-color: ${({ theme, type }) =>
+    type === "primary"
+      ? theme.colors.primary
+      : type === "secondary"
+      ? theme.colors.secondary
+      : theme.colors.black};
+
+
+  &:hover {
+    background-color: ${({ theme, type }) =>
+      type === "primary"
+        ? theme.colors.primaryLight
+        : type === "secondary"
+        ? theme.colors.secondaryLight
+        : "rgba(0,0,0, .3)"};
+
+    color: ${({ theme, type }) =>
+      type === "tertiary" ? theme.colors.white : theme.colors.black}
+  }
+
+  &:active {
+    background-color: ${({ theme, type }) =>
+      type === "primary"
+        ? theme.colors.primaryDark
+        : type === "secondary"
+        ? theme.colors.secondaryDark
+        : "rgba(0,0,0, .75)"};
+  }
+}
+`;
