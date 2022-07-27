@@ -8,6 +8,7 @@ export const StyledButton = styled.a`
   font-family: ${({ theme }) => theme.font.family.inter};
   transition: background-color 300ms ease, color 300ms ease;
   display: inline-block;
+  box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .2);
 
   border: 1px solid ${({ theme, type }) =>
     type === "primary"

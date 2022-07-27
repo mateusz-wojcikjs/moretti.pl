@@ -5,13 +5,15 @@ import { StyledHeading } from "./Heading.styled";
 type headingTag = "h1" | "h2" | "h3";
 
 interface HeadingProps {
-  title: TitleType;
+  title?: TitleType;
+  text?: string;
   headingLevel: headingTag;
+  children?: React.ReactNode;
 }
 
 interface HeadingTagProps {
   headingLevel: headingTag;
-  children: React.ReactNode;
+  children: React.ReactNode | string;
 }
 
 const RenderHeadingTag: FC<HeadingTagProps> = ({ children, headingLevel }) => {
@@ -25,12 +27,11 @@ const RenderHeadingTag: FC<HeadingTagProps> = ({ children, headingLevel }) => {
   }
 };
 
-const Heading: FC<HeadingProps> = ({ title, headingLevel }) => {
+const Heading: FC<HeadingProps> = ({ headingLevel, children }) => {
   return (
     <StyledHeading>
       <RenderHeadingTag headingLevel={headingLevel}>
-        <span className="top">{title.textTop}</span>
-        <span className="bottom">{title.textBottom}</span>
+        {children}
       </RenderHeadingTag>
     </StyledHeading>
   );

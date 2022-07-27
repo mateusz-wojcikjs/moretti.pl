@@ -8,7 +8,7 @@ import Text from "../common/Text/text";
 
 export type TitleType = {
   textTop: string;
-  textBottom: string;
+  textBottom?: string;
 };
 
 interface HeroProps {
@@ -22,7 +22,10 @@ const Hero: FC<HeroProps> = ({ img, title, subtitle }) => {
     <StyledHero>
       <HeroBackground img={img} />
       <HeroContainer>
-        <Heading title={title} headingLevel="h1" />
+        <Heading headingLevel="h1">
+          <span className="top">{title.textTop}</span>
+          <span className="bottom">{title.textBottom}</span>
+        </Heading>
         <Text>{subtitle}</Text>
         <Button link="/oferta" type="primary" text="Zobacz ofertę" />
         <Button link="/oferta" type="secondary" text="Zobacz ofertę" />

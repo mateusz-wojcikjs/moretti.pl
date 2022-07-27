@@ -14,4 +14,8 @@ export const StyledHeading = styled.div`
     color: ${({ theme }) => theme.colors.primary};
     display: block;
   }
+
+  h2 {
+    font-size: ${({ theme }) => theme.font.size.xl};
+  }
 `;

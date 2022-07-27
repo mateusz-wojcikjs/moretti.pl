@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import breakpoints from "assets/theme/breakpoints";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.main`
   width: 100%;
   display: grid;
   grid-template-columns:
@@ -22,11 +22,13 @@ export const Section = styled.section`
 `;
 
 export const Container = styled.div`
-  //max-width: 140rem;
-  //margin: 0 auto;
   padding: 0 1.5rem;
-  //width: 100%;
   grid-column: container-start / container-end;
+
+  p {
+    font-size: ${({ theme }) => theme.font.size.m};
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export const GridContainer = styled(Container)`

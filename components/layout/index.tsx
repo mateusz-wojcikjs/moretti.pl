@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import { GlobalStyle } from "assets/theme/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { index } from "assets/theme";
+import { Wrapper } from "./Layout.styled";
 
 interface Props {
   children: JSX.Element[] | JSX.Element;
@@ -15,8 +16,7 @@ const Layout = ({ children }: Props) => {
       <>
         <GlobalStyle />
         <Navbar />
-        <main>{children}</main>
-        {/*<Wrapper>{children}</Wrapper>*/}
+        <Wrapper>{children}</Wrapper>
         <Footer />
       </>
     </ThemeProvider>
