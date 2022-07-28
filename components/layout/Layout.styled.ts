@@ -21,9 +21,13 @@ export const Section = styled.section`
   width: 100%;
 `;
 
-export const Container = styled.div`
-  padding: 0 1.5rem;
+export const Container = styled.div<{ pt5: boolean }>`
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   grid-column: container-start / container-end;
+
+  padding-top: ${({ pt5 }) => (pt5 ? "20rem" : 0)};
+  padding-bottom: ${({ pt5 }) => (pt5 ? "20rem" : 0)};
 
   p {
     font-size: ${({ theme }) => theme.font.size.m};
@@ -34,4 +38,11 @@ export const Container = styled.div`
 export const GridContainer = styled(Container)`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+`;
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 15rem;
+  align-items: center;
 `;

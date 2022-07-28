@@ -6,6 +6,7 @@ export const index = {
     secondary: "#068747",
     secondaryLight: "#51B684",
     secondaryDark: "#0B6237",
+    secondaryAccent: "#ACD3C0",
     white: "#FFF",
     gray: "#F5F5F5",
     black: "#1D1814",
