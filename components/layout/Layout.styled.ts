@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import breakpoints from "assets/theme/breakpoints";
 
+interface GridProps {
+  colCount: number;
+  gap: number;
+}
+
 export const Wrapper = styled.main`
   width: 100%;
   display: grid;
@@ -14,14 +19,15 @@ export const Wrapper = styled.main`
   }
 `;
 
-export const Section = styled.section`
+export const FullSectionGray = styled.section`
   grid-column: full-start / full-end;
-  padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
+  padding-top: 20rem;
+  padding-bottom: 20rem;
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.gray};
 `;
 
-export const Container = styled.div<{ pt5: boolean }>`
+export const Container = styled.div<{ pt5?: boolean }>`
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   grid-column: container-start / container-end;
@@ -42,7 +48,16 @@ export const GridContainer = styled(Container)`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 15rem;
+  grid-template-columns: ${({ colCount }: GridProps) =>
+    `repeat(${colCount}, 1fr)`};
+  grid-column-gap: ${({ gap }: GridProps) => `${gap}rem`};
   align-items: center;
 `;
+
+export const InnerWrapper = styled.div`
+  max-width: 140rem;
+  margin: 0 auto;
+  width: 100%;
+`;
+
+// export const FullSection = s;

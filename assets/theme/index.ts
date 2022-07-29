@@ -9,6 +9,7 @@ export const index = {
     secondaryAccent: "#ACD3C0",
     white: "#FFF",
     gray: "#F5F5F5",
+    grayDark: "#747474",
     black: "#1D1814",
   },
   font: {

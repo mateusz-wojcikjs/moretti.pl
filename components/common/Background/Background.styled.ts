@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HeroBackgroundStyled = styled.div`
+export const BackgroundStyled = styled.div`
   position: absolute;
   top: 0;
   left: 0;

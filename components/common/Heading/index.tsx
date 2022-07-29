@@ -2,13 +2,14 @@ import React, { FC } from "react";
 import { TitleType } from "../../Hero";
 import { StyledHeading } from "./Heading.styled";
 
-type headingTag = "h1" | "h2" | "h3";
+type headingTag = "h1" | "h2" | "h3" | "h4";
 
 interface HeadingProps {
   title?: TitleType;
   text?: string;
   headingLevel: headingTag;
   children?: React.ReactNode;
+  isSecondary?: boolean;
 }
 
 interface HeadingTagProps {
@@ -24,12 +25,16 @@ const RenderHeadingTag: FC<HeadingTagProps> = ({ children, headingLevel }) => {
       return <h2>{children}</h2>;
     case "h3":
       return <h3>{children}</h3>;
+    case "h4":
+      return <h4>{children}</h4>;
+    default:
+      return <h5>{children}</h5>;
   }
 };
 
-const Heading: FC<HeadingProps> = ({ headingLevel, children }) => {
+const Heading: FC<HeadingProps> = ({ headingLevel, children, isSecondary }) => {
   return (
-    <StyledHeading>
+    <StyledHeading isSecondary={isSecondary}>
       <RenderHeadingTag headingLevel={headingLevel}>
         {children}
       </RenderHeadingTag>
