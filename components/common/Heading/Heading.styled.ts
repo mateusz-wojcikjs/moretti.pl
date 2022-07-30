@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-export const StyledHeading = styled.div<{ isSecondary?: boolean }>`
+interface HeadingProps {
+  isSecondary?: boolean;
+  isDecorated?: boolean;
+  isCenter?: boolean;
+}
+
+export const StyledHeading = styled.div<HeadingProps>`
   font-size: ${({ theme }) => theme.font.size.xxl};
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.font.family.bebasNeue};
@@ -10,6 +16,7 @@ export const StyledHeading = styled.div<{ isSecondary?: boolean }>`
   h2,
   h3 {
     color: ${({ theme, isSecondary }) => isSecondary && theme.colors.secondary};
+    text-align: ${({ isCenter }) => (isCenter ? "center" : "left")};
   }
 
   .top {
@@ -28,6 +35,7 @@ export const StyledHeading = styled.div<{ isSecondary?: boolean }>`
     margin-bottom: 5rem;
 
     &:after {
+      display: ${({ isSecondary }) => (isSecondary ? "block" : "none")};
       content: "";
       background: ${({ theme }) => theme.colors.secondaryAccent};
       height: 3px;

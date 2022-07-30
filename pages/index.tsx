@@ -15,6 +15,9 @@ import Button from "../components/common/Button";
 import DecoratedImg from "components/common/DecoratedImg";
 import ProductItem from "../components/common/ProductItem";
 import Features from "../components/common/Features";
+import Cta from "../components/common/Cta";
+import Testimonials from "../components/Testimonials";
+import Partners from "../components/layout/Partners";
 
 const Home: NextPage = () => {
   const title: TitleType = {
@@ -91,7 +94,13 @@ const Home: NextPage = () => {
             </div>
           </Grid>
         </InnerWrapper>
+        <Cta />
       </FullSectionGray>
+
+      <Container>
+        <Testimonials />
+      </Container>
+      <Partners />
     </>
   );
 };

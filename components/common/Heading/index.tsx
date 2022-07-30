@@ -10,6 +10,8 @@ interface HeadingProps {
   headingLevel: headingTag;
   children?: React.ReactNode;
   isSecondary?: boolean;
+  isDecorated?: boolean;
+  isCenter?: boolean;
 }
 
 interface HeadingTagProps {
@@ -32,9 +34,19 @@ const RenderHeadingTag: FC<HeadingTagProps> = ({ children, headingLevel }) => {
   }
 };
 
-const Heading: FC<HeadingProps> = ({ headingLevel, children, isSecondary }) => {
+const Heading: FC<HeadingProps> = ({
+  headingLevel,
+  children,
+  isSecondary,
+  isDecorated,
+  isCenter,
+}) => {
   return (
-    <StyledHeading isSecondary={isSecondary}>
+    <StyledHeading
+      isSecondary={isSecondary}
+      isDecorated={isDecorated}
+      isCenter={isCenter}
+    >
       <RenderHeadingTag headingLevel={headingLevel}>
         {children}
       </RenderHeadingTag>
