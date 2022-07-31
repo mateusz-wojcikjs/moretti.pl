@@ -1,16 +1,24 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { Container } from "../Layout.styled";
+import { InnerWrapper } from "../Layout.styled";
 import breakpoints from "../../../assets/theme/breakpoints";
 
-export const StyledNavbar = styled.nav`
+const shadow = "1px 1px 1px rgba(0, 0, 0, 0.1)";
+
+export const StyledNavbar = styled.nav<{ isScrolled: boolean }>`
   height: 8rem;
-  background: ${({ theme }) => theme.colors.gray};
+  background: ${({ theme, isScrolled }) =>
+    isScrolled ? theme.colors.gray : "transparent"};
   grid-column: 1 / -1;
   z-index: 100;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: ${({ isScrolled }) => (isScrolled ? shadow : "none")};
+  transition: background-color 300ms ease;
 `;
 
-export const NavigationContainer = styled(Container)`
+export const NavigationContainer = styled(InnerWrapper)`
   display: flex;
   align-items: center;
   height: 100%;

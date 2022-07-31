@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { buttonType, sizeType } from "./index";
 
-export const StyledButton = styled.a`
+export const StyledButton = styled.a<{ size: sizeType; type: buttonType }>`
   cursor: pointer;
   font-size: ${({ theme }) => theme.font.size.m};
   padding: 1rem 3.5rem;
@@ -9,6 +10,8 @@ export const StyledButton = styled.a`
   transition: background-color 300ms ease, color 300ms ease;
   display: inline-block;
   box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .2);
+  text-align: center;
+  min-width: ${({ size }) => (size === "l" ? "24rem" : "auto")};
 
   border: 1px solid ${({ theme, type }) =>
     type === "primary"

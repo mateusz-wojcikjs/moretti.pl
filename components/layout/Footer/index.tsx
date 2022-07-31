@@ -42,9 +42,24 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div>Help</div>
             <div className="footer-social">
-              <Button link="/kontakt" type="secondary" text="Kontakt" />
+              <Button
+                link="/kontakt"
+                type="secondary"
+                text="Kontakt"
+                size="l"
+              />
+              <address>
+                <p>Moretti Macchine</p>
+                <p>ul. Duńska 3</p>
+                <p>64-100 Leszno</p>
+                <p>
+                  <a href="tel:664412061">+48 664 412 061</a>
+                </p>
+                <p>
+                  <a href="mailto:moretti@moretti.pl">moretti@moretti.pl</a>
+                </p>
+              </address>
             </div>
           </Grid>
         </Container>

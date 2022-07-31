@@ -14,6 +14,11 @@ export const Wrapper = styled.main`
     [container-end] 1fr 15px [full-end];
   margin: 0;
   padding: 0;
+  @media only screen and ${breakpoints.device.xl} {
+    grid-template-columns:
+      [full-start] 15px 1fr [container-start] minmax(50rem, 100rem)
+      [container-end] 1fr 15px [full-end];
+  }
   @media only screen and ${breakpoints.device.sm} {
     grid-template-columns: [full-start] 15px 1fr 1fr 1fr 15px [full-end];
   }
@@ -28,10 +33,8 @@ export const FullSectionGray = styled.section`
 `;
 
 export const Container = styled.div<{ pt5?: boolean }>`
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
   grid-column: container-start / container-end;
-
+  position: relative;
   padding-top: ${({ pt5 }) => (pt5 ? "20rem" : 0)};
   padding-bottom: ${({ pt5 }) => (pt5 ? "20rem" : 0)};
 
@@ -58,6 +61,10 @@ export const InnerWrapper = styled.div`
   max-width: 140rem;
   margin: 0 auto;
   width: 100%;
+  padding: 0 15px;
+  @media only screen and ${breakpoints.device.xl} {
+    max-width: 100rem;
+  }
 `;
 
 // export const FullSection = s;

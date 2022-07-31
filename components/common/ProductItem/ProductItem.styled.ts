@@ -4,6 +4,7 @@ export const StyledProductItem = styled.div`
   max-width: 42rem;
   overflow: hidden;
   cursor: pointer;
+  position: relative;
 
   &:hover {
     .item-content:after {
@@ -48,8 +49,11 @@ export const StyledProductItem = styled.div`
     margin: 0 auto;
     background: ${({ theme }) => theme.colors.primary};
     padding: 7.5rem;
-    color: ${({ theme }) => theme.colors.white};
     position: relative;
+
+    p {
+      color: ${({ theme }) => theme.colors.white};
+    }
 
     &:after {
       content: "";
