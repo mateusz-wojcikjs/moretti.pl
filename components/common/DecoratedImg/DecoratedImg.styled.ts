@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "../../../assets/theme/breakpoints";
 
 export const StyledImg = styled.div`
   box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.2);
@@ -9,6 +10,10 @@ export const GreenCross = styled.div`
   position: absolute;
   top: -100px;
   left: 100%;
+
+  @media only screen and ${breakpoints.device.lg} {
+    display: none;
+  }
 
   &::before,
   &::after {
@@ -34,6 +39,10 @@ export const RedCross = styled.div`
   position: absolute;
   bottom: -100px;
   left: -120px;
+
+  @media only screen and ${breakpoints.device.lg} {
+    display: none;
+  }
 
   &::before,
   &::after {

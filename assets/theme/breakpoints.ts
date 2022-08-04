@@ -4,6 +4,7 @@ const size = {
   smallDesktop: "1024px",
   desktop: "1280px",
   monitor: "1440px",
+  xxl: "1740px",
 };
 const device = {
   xs: `(max-width: ${size.mobile})`,
@@ -11,6 +12,7 @@ const device = {
   m: `(max-width: ${size.smallDesktop})`,
   lg: `(max-width: ${size.desktop})`,
   xl: `(max-width: ${size.monitor})`,
+  xxl: `(max-width: ${size.xxl})`,
 };
 
 const breakpoints = { size, device };

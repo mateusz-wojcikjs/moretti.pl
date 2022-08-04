@@ -29,8 +29,6 @@ const Hero: FC<HeroProps> = ({ img, title, subtitle }) => {
         </Heading>
         <Text>{subtitle}</Text>
         <Button link="/oferta" type="primary" text="Zobacz ofertę" />
-        <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
-        <Button link="/oferta" type="tertiary" text="Zobacz ofertę" />
       </InnerWrapper>
     </StyledHero>
   );

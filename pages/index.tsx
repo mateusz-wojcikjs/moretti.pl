@@ -18,6 +18,7 @@ import Features from "../components/common/Features";
 import Cta from "../components/common/Cta";
 import Testimonials from "../components/Testimonials";
 import Partners from "../components/layout/Partners";
+import CounterNumber from "../components/common/CounterNumber";
 
 const Home: NextPage = () => {
   const title: TitleType = {
@@ -70,29 +71,7 @@ const Home: NextPage = () => {
       <FullSectionGray>
         <InnerWrapper>
           <Features />
-          <Grid colCount={3} gap={5}>
-            <div>
-              <p>+200</p>
-              <p>
-                Description of the number. People always pay attention to
-                numbers.{" "}
-              </p>
-            </div>
-            <div>
-              <p>20%</p>
-              <p>
-                Description of the number. People always pay attention to
-                numbers.{" "}
-              </p>
-            </div>
-            <div>
-              <p>12k</p>
-              <p>
-                Description of the number. People always pay attention to
-                numbers.{" "}
-              </p>
-            </div>
-          </Grid>
+          <CounterNumber />
         </InnerWrapper>
         <Cta />
       </FullSectionGray>

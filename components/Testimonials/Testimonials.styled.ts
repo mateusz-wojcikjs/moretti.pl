@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "../../assets/theme/breakpoints";
 
 export const StyledTestimonials = styled.div`
   padding-top: 10rem;
@@ -18,16 +19,26 @@ export const StyledTestimonials = styled.div`
       cursor: pointer;
       top: auto;
       bottom: 0;
+      @media only screen and ${breakpoints.device.sm} {
+        transform: translate(-100%);
+      }
     }
 
     .swiper-button-prev {
       background-color: ${({ theme }) => theme.colors.primary};
       left: 0;
+
+      @media only screen and ${breakpoints.device.sm} {
+        left: 50%;
+      }
     }
 
     .swiper-button-next {
       background-color: ${({ theme }) => theme.colors.black};
       left: 6.4rem;
+      @media only screen and ${breakpoints.device.sm} {
+        left: calc(6.4rem + 50%);
+      }
     }
   }
 
@@ -63,6 +74,10 @@ export const StyledTestimonials = styled.div`
     font-size: ${({ theme }) => theme.font.size.m};
     text-transform: uppercase;
     font-weight: 400;
+
+    @media only screen and ${breakpoints.device.sm} {
+      text-align: center;
+    }
   }
 `;
 
@@ -70,6 +85,12 @@ export const SliderItem = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
+
+  @media only screen and ${breakpoints.device.sm} {
+    grid-template-columns: 1fr;
+    width: 90%;
+    justify-items: center;
+  }
 `;
 
 export const SliderLogo = styled.div`
@@ -97,6 +118,9 @@ export const SliderText = styled.div`
     color: ${({ theme }) => theme.colors.black};
     font-weight: bold;
     position: relative;
+    @media only screen and ${breakpoints.device.sm} {
+      font-size: ${({ theme }) => theme.font.size.l};
+    }
 
     &:before {
       content: "\\275D";

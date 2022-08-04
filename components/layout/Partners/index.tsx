@@ -17,19 +17,19 @@ const Partners = () => {
       </Heading>
       <Grid gap={5} colCount={5}>
         <div>
-          <Image src={ImageCoop1} layout="fixed" />
+          <Image src={ImageCoop1} layout="responsive" />
         </div>
         <div>
-          <Image src={ImageCoop2} layout="fixed" />
+          <Image src={ImageCoop2} layout="responsive" />
         </div>
         <div>
-          <Image src={ImageCoop3} layout="fixed" />
+          <Image src={ImageCoop3} layout="responsive" />
         </div>
         <div>
-          <Image src={ImageCoop4} layout="fixed" />
+          <Image src={ImageCoop4} layout="responsive" />
         </div>
         <div>
-          <Image src={ImageCoop5} layout="fixed" />
+          <Image src={ImageCoop5} layout="responsive" />
         </div>
       </Grid>
     </StyledPartners>

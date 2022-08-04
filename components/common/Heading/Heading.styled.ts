@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "../../../assets/theme/breakpoints";
 
 interface HeadingProps {
   isSecondary?: boolean;
@@ -22,11 +23,19 @@ export const StyledHeading = styled.div<HeadingProps>`
   .top {
     color: ${({ theme }) => theme.colors.white};
     display: block;
+
+    @media only screen and ${breakpoints.device.m} {
+      font-size: ${({ theme }) => theme.font.size.xxl};
+    }
   }
 
   .bottom {
     color: ${({ theme }) => theme.colors.primary};
     display: block;
+
+    @media only screen and ${breakpoints.device.m} {
+      font-size: ${({ theme }) => theme.font.size.xxl};
+    }
   }
 
   h2 {
