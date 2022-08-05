@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { InnerWrapper } from "../Layout.styled";
-import breakpoints from "../../../assets/theme/breakpoints";
+import breakpoints from "assets/theme/breakpoints";
 
 const shadow = "1px 1px 1px rgba(0, 0, 0, 0.1)";
 
@@ -75,8 +75,9 @@ export const MaskNav = styled.div<{ isOpen: boolean }>`
     overflow-y: scroll;
     overflow-x: hidden;
     position: fixed;
-    top: 8rem;
+    top: 0;
     right: 0;
+    padding-top: 8rem;
     height: 100vh;
     width: 100%;
     transition: transform 200ms ease;

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledFooter, StyledSubFooter } from "./Footer.styled";
-import { Container, Grid } from "../Layout.styled";
+import { Container, Grid, StyledGridFooter } from "../Layout.styled";
 import Button from "../../common/Button";
 
 import Logo from "components/layout/Logo";
@@ -13,7 +13,7 @@ const Footer = () => {
     <footer>
       <StyledFooter>
         <Container>
-          <Grid colCount={5} gap={5} className="start">
+          <StyledGridFooter colCount={5} gap={5} className="start">
             <div>
               <h5>Firma</h5>
               <ul>
@@ -61,7 +61,7 @@ const Footer = () => {
                 </p>
               </address>
             </div>
-          </Grid>
+          </StyledGridFooter>
         </Container>
         <StyledSubFooter>
           <Grid gap={1} colCount={6}>

@@ -9,6 +9,7 @@ import {
   FullSectionGray,
   Grid,
   InnerWrapper,
+  StyledGridItems,
 } from "components/layout/Layout.styled";
 import Heading from "../components/common/Heading";
 import Button from "../components/common/Button";
@@ -36,7 +37,7 @@ const Home: NextPage = () => {
         }
       />
       <Container pt5 as="section">
-        <Grid colCount={2} gap={15}>
+        <Grid colCount={2} gap={5}>
           <div>
             <Heading headingLevel="h2">
               Medium length title for building block
@@ -60,11 +61,11 @@ const Home: NextPage = () => {
       </Container>
       <Container pt5 as="section">
         <Heading headingLevel="h2">Nasza oferta</Heading>
-        <Grid colCount={3} gap={5}>
+        <StyledGridItems colCount={3} gap={5}>
           <ProductItem />
           <ProductItem />
           <ProductItem />
-        </Grid>
+        </StyledGridItems>
       </Container>
       <Banner img={BannerImg} text="Dlaczego warto z nami współpracować?" />
 

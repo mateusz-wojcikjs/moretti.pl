@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "../../../assets/theme/breakpoints";
 
 export const StyledCta = styled.div`
   height: 50vh;
@@ -9,10 +10,18 @@ export const StyledCta = styled.div`
   grid-template-rows: 20% 60% 20%;
   margin-top: 25rem;
 
+  @media only screen and ${breakpoints.device.xs} {
+    margin-top: 15rem;
+  }
+
   .cta-bg {
     position: relative;
     grid-column: 2 / -1;
     grid-row: 1 / -1;
+
+    @media only screen and ${breakpoints.device.sm} {
+      grid-column: 1 / -1;
+    }
   }
 
   .cta-container {
@@ -23,6 +32,15 @@ export const StyledCta = styled.div`
     grid-template-columns: 1fr 15px 60rem;
 
     margin-right: 10rem;
+
+    @media only screen and ${breakpoints.device.sm} {
+      grid-template-columns: 15px 1fr 15px;
+      margin-right: 0;
+      grid-column: 1 / -1;
+    }
+
+    @media only screen and ${breakpoints.device.xs} {
+    }
   }
 
   .cta-content {
@@ -36,6 +54,10 @@ export const StyledCta = styled.div`
 
     position: relative;
 
+    @media only screen and ${breakpoints.device.sm} {
+      grid-column: 2;
+    }
+
     &:after {
       content: "";
       background: ${({ theme }) => theme.colors.white};
@@ -43,6 +65,9 @@ export const StyledCta = styled.div`
       width: 10rem;
       position: absolute;
       left: 100%;
+      @media only screen and ${breakpoints.device.sm} {
+        display: none;
+      }
     }
   }
 `;

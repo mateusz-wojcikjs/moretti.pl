@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Container, Wrapper } from "../Layout.styled";
+import breakpoints from "../../../assets/theme/breakpoints";
 
 export const StyledFooter = styled(Wrapper)`
   background-color: ${({ theme }) => theme.colors.gray};
@@ -32,6 +33,11 @@ export const StyledFooter = styled(Wrapper)`
     grid-column: 4 / -1;
     justify-self: end;
 
+    @media only screen and ${breakpoints.device.sm} {
+      grid-column: 1;
+      justify-self: start;
+    }
+
     address {
       margin-top: 2.5rem;
       display: flex;
@@ -63,5 +69,8 @@ export const StyledSubFooter = styled(Container)`
   .copyright {
     grid-column: 2 / -1;
     margin-bottom: 0;
+    @media only screen and ${breakpoints.device.sm} {
+      grid-column: 1;
+    }
   }
 `;

@@ -6,6 +6,7 @@ export const StyledProductItem = styled.div`
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  min-width: 20rem;
 
   &:hover {
     .item-content:after {

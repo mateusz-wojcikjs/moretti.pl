@@ -58,6 +58,10 @@ export const StyledHeading = styled.div<HeadingProps>`
   h3 {
     font-size: ${({ theme }) => theme.font.size.xxl};
     font-weight: 300;
+
+    @media only screen and ${breakpoints.device.m} {
+      font-size: ${({ theme }) => theme.font.size.xl};
+    }
   }
 
   h4 {

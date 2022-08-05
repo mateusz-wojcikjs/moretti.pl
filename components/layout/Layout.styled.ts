@@ -25,7 +25,9 @@ export const Wrapper = styled.main`
       [container-end] 1fr 15px [full-end];
   }
   @media only screen and ${breakpoints.device.sm} {
-    //grid-template-columns: [full-start] 15px 1fr 1fr 1fr 15px [full-end];
+    grid-template-columns:
+      [full-start] 15px 1fr [container-start] minmax(14rem, 70rem)
+      [container-end] 1fr 15px [full-end];
   }
 `;
 
@@ -52,6 +54,15 @@ export const Container = styled.div<{ pt5?: boolean }>`
     font-size: ${({ theme }) => theme.font.size.m};
     margin-bottom: 1.5rem;
   }
+
+  .text-img {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media only screen and ${breakpoints.device.xs} {
+      grid-template-columns: 1fr;
+    }
+  }
 `;
 
 export const GridContainer = styled(Container)`
@@ -65,15 +76,29 @@ export const Grid = styled.div`
     `repeat(${colCount}, 1fr)`};
   grid-column-gap: ${({ gap }: GridProps) => `${gap}rem`};
   align-items: center;
-
-  //repeat(auto-fit, minmax(300px, 1fr));
-  @media only screen and ${breakpoints.device.lg} {
-    grid-column-gap: ${({ gap }: GridProps) => `${gap / 2}rem`};
-  }
-
   @media only screen and ${breakpoints.device.sm} {
-    grid-template-columns: ${({ colCount }) =>
-      colCount === 2 ? `1fr` : `repeat(auto-fit, minmax(100px, 1fr))`};
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const StyledGridItems = styled(Grid)`
+  @media only screen and ${breakpoints.device.sm} {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    row-gap: 2.5rem;
+  }
+`;
+export const StyledGridPartners = styled(Grid)`
+  @media only screen and ${breakpoints.device.sm} {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 25rem));
+    row-gap: 2.5rem;
+    justify-content: center;
+    justify-items: center;
+  }
+`;
+export const StyledGridFooter = styled(Grid)`
+  @media only screen and ${breakpoints.device.sm} {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 25rem));
+    row-gap: 2.5rem;
   }
 `;
 

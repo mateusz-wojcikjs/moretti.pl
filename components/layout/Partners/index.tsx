@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledPartners } from "./Partners.styled";
 import Heading from "../../common/Heading";
-import { Grid } from "../Layout.styled";
+import { StyledGridPartners } from "../Layout.styled";
 import Image from "next/image";
 import ImageCoop1 from "../../../assets/img/bubbble.png";
 import ImageCoop2 from "../../../assets/img/amer.png";
@@ -15,23 +15,23 @@ const Partners = () => {
       <Heading headingLevel="h2" isCenter>
         Nasi partnerzy
       </Heading>
-      <Grid gap={5} colCount={5}>
+      <StyledGridPartners gap={5} colCount={5}>
         <div>
-          <Image src={ImageCoop1} layout="responsive" />
+          <Image src={ImageCoop1} layout="fixed" />
         </div>
         <div>
-          <Image src={ImageCoop2} layout="responsive" />
+          <Image src={ImageCoop2} layout="fixed" />
         </div>
         <div>
-          <Image src={ImageCoop3} layout="responsive" />
+          <Image src={ImageCoop3} layout="fixed" />
         </div>
         <div>
-          <Image src={ImageCoop4} layout="responsive" />
+          <Image src={ImageCoop4} layout="fixed" />
         </div>
         <div>
-          <Image src={ImageCoop5} layout="responsive" />
+          <Image src={ImageCoop5} layout="fixed" />
         </div>
-      </Grid>
+      </StyledGridPartners>
     </StyledPartners>
   );
 };
