@@ -17,7 +17,7 @@ const CounterNumber = () => {
         </p>
       </div>
       <div>
-        <p className="counter-number">12k</p>
+        <p className="counter-number">12 tys.</p>
         <p className="counter-description">
           Description of the number. People always pay attention to numbers.{" "}
         </p>

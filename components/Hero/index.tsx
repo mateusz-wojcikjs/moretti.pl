@@ -12,15 +12,32 @@ export type TitleType = {
   textBottom?: string;
 };
 
+export type PositionType = "center" | "top" | "bottom";
+
 interface HeroProps {
   img: StaticImageData;
   title: TitleType;
   subtitle?: string;
+  offers?: boolean;
+  offer?: boolean;
+  position?: PositionType;
 }
 
-const Hero: FC<HeroProps> = ({ img, title, subtitle }) => {
+const Hero: FC<HeroProps> = ({
+  img,
+  title,
+  subtitle,
+  offers,
+  offer,
+  position,
+}) => {
+  const options = {
+    offers,
+    offer,
+    position: position,
+  };
   return (
-    <StyledHero>
+    <StyledHero options={options}>
       <Background img={img} />
       <InnerWrapper>
         <Heading headingLevel="h1">

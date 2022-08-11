@@ -78,6 +78,7 @@ export const Grid = styled.div`
   align-items: center;
   @media only screen and ${breakpoints.device.sm} {
     grid-template-columns: 1fr;
+    grid-row-gap: 2.5rem;
   }
 `;
 
@@ -85,6 +86,7 @@ export const StyledGridItems = styled(Grid)`
   @media only screen and ${breakpoints.device.sm} {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     row-gap: 2.5rem;
+    justify-items: center;
   }
 `;
 export const StyledGridPartners = styled(Grid)`
@@ -97,7 +99,8 @@ export const StyledGridPartners = styled(Grid)`
 `;
 export const StyledGridFooter = styled(Grid)`
   @media only screen and ${breakpoints.device.sm} {
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 25rem));
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 24rem));
+    column-gap: 2.5rem;
     row-gap: 2.5rem;
   }
 `;

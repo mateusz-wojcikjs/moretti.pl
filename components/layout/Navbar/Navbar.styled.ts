@@ -5,16 +5,20 @@ import breakpoints from "assets/theme/breakpoints";
 
 const shadow = "1px 1px 1px rgba(0, 0, 0, 0.1)";
 
-export const StyledNavbar = styled.nav<{ isScrolled: boolean }>`
+export const StyledNavbar = styled.nav<{
+  isScrolled: boolean;
+  isHomePage: boolean;
+}>`
   height: 8rem;
-  background: ${({ theme, isScrolled }) =>
-    isScrolled ? theme.colors.gray : "transparent"};
+  background: ${({ theme, isScrolled, isHomePage }) =>
+    isScrolled || !isHomePage ? theme.colors.gray : "transparent"};
   grid-column: 1 / -1;
   z-index: 100;
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: ${({ isScrolled }) => (isScrolled ? shadow : "none")};
+  box-shadow: ${({ isScrolled, isHomePage }) =>
+    isScrolled || !isHomePage ? shadow : "none"};
   transition: background-color 300ms ease;
 `;
 

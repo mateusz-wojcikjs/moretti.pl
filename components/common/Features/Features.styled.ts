@@ -1,11 +1,19 @@
 import styled from "styled-components";
 import { Grid } from "../../layout/Layout.styled";
+import breakpoints from "assets/theme/breakpoints";
 
 export const StyledFeatures = styled(Grid)`
+  @media only screen and ${breakpoints.device.sm} {
+    grid-row-gap: 2.5rem;
+  }
+
   .features-box {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem 0.5rem;
+    @media only screen and ${breakpoints.device.xs} {
+      grid-template-columns: 1fr;
+    }
   }
 
   .feature-description {

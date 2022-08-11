@@ -4,12 +4,14 @@ import React from "react";
 
 interface MenuProps {
   isOpen: boolean;
+  // eslint-disable-next-line no-unused-vars
+  onClick: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
-const Menu: React.FC<MenuProps> = ({ isOpen }) => {
+const Menu: React.FC<MenuProps> = ({ isOpen, onClick }) => {
   return (
     <MaskNav isOpen={isOpen}>
-      <StyledMenu>
+      <StyledMenu onClick={onClick}>
         <StyledNavItem>
           <Link href={"/"}>Strona główna</Link>
         </StyledNavItem>

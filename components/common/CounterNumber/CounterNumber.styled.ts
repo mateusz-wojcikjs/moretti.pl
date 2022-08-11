@@ -6,6 +6,10 @@ export const StyledCounterNumber = styled(Grid)`
   text-align: center;
   margin-top: 10rem;
 
+  @media only screen and ${breakpoints.device.sm} {
+    grid-row-gap: 5rem;
+  }
+
   .counter-number {
     color: ${({ theme }) => theme.colors.primary};
     font-size: ${({ theme }) => theme.font.size.xxxl};
