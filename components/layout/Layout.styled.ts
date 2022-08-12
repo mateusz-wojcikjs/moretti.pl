@@ -31,10 +31,10 @@ export const Wrapper = styled.main`
   }
 `;
 
-export const FullSectionGray = styled.section`
+export const FullSectionGray = styled.section<{ pt5?: boolean }>`
   grid-column: full-start / full-end;
-  padding-top: 20rem;
-  padding-bottom: 20rem;
+  padding-top: ${({ pt5 }) => (pt5 ? "20rem" : 0)};
+  padding-bottom: ${({ pt5 }) => (pt5 ? "20rem" : 0)};
   width: 100%;
   background-color: ${({ theme }) => theme.colors.gray};
 `;

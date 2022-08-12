@@ -16,7 +16,7 @@ const Menu: React.FC<MenuProps> = ({ isOpen, onClick }) => {
           <Link href={"/"}>Strona główna</Link>
         </StyledNavItem>
         <StyledNavItem>
-          <Link href={"/o-nas"}>O nas</Link>
+          <Link href={"/o-firmie"}>O nas</Link>
         </StyledNavItem>
         <StyledNavItem>
           <Link href={"/oferta"}>Oferta</Link>

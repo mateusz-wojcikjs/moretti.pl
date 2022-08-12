@@ -18,7 +18,7 @@ const Footer = () => {
               <h5>Firma</h5>
               <ul>
                 <li>
-                  <Link href="/o-nas">O nas</Link>
+                  <Link href="/o-firmie">O nas</Link>
                 </li>
                 <li>
                   <Link href="/kontakt">Kontakt</Link>

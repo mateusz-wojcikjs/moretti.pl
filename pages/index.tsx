@@ -20,6 +20,7 @@ import Cta from "../components/common/Cta";
 import Testimonials from "../components/Testimonials";
 import Partners from "../components/layout/Partners";
 import CounterNumber from "../components/common/CounterNumber";
+import Text from "../components/common/Text/text";
 
 const Home: NextPage = () => {
   const title: TitleType = {
@@ -29,13 +30,17 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Hero
-        img={HeroImg}
-        title={title}
-        subtitle={
-          "Storytelling in business has become a field in its own right as industries have grown"
-        }
-      />
+      <Hero img={HeroImg}>
+        <Heading headingLevel="h1">
+          <span className="top">{title.textTop}</span>
+          <span className="bottom">{title.textBottom}</span>
+        </Heading>
+        <Text>
+          Storytelling in business has become a field in its own right as
+          industries have grown
+        </Text>
+        <Button link="/oferta" type="primary" text="Zobacz ofertę" />
+      </Hero>
       <Container pt5 as="section">
         <Grid colCount={2} gap={5}>
           <div>
@@ -69,7 +74,7 @@ const Home: NextPage = () => {
       </Container>
       <Banner img={BannerImg} text="Dlaczego warto z nami współpracować?" />
 
-      <FullSectionGray>
+      <FullSectionGray pt5>
         <InnerWrapper>
           <Features />
           <CounterNumber />
