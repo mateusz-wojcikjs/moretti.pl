@@ -16,6 +16,7 @@ import Heading from "components/common/Heading";
 import Breadcrumbs from "../components/common/Breadcrumbs";
 import Button from "../components/common/Button";
 import DecoratedImg from "../components/common/DecoratedImg";
+import Timeline from "../components/common/Timeline";
 
 const AboutPage: NextPage = () => {
   return (
@@ -47,6 +48,13 @@ const AboutPage: NextPage = () => {
           </div>
           <DecoratedImg />
         </Grid>
+      </Container>
+      <Container>
+        <Heading headingLevel="h2">
+          Stale poszerzamy gamę produktów i tak kolejno wprowadzaliśmy do naszej
+          oferty:
+        </Heading>
+        <Timeline />
       </Container>
       <FullSectionGray>
         <InnerWrapper>
