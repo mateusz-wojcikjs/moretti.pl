@@ -9,7 +9,7 @@ export const StyledCta = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 20% 60% 20%;
   margin-top: 25rem;
-  min-height: 40rem;
+  min-height: 50rem;
 
   @media only screen and ${breakpoints.device.sm} {
     margin-top: 15rem;

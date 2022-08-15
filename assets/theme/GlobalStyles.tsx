@@ -26,4 +26,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.8rem;
     color: #747474;
   }
+
+  ul li {
+    font-size: 1.6rem;
+  }
 `;

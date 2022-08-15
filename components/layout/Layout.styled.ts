@@ -80,6 +80,25 @@ export const Grid = styled.div`
     grid-template-columns: 1fr;
     grid-row-gap: 2.5rem;
   }
+
+  .temp--text-box {
+    li {
+      list-style-type: none;
+      position: relative;
+      margin-left: 10px;
+
+      &::before {
+        content: "";
+        height: 5px;
+        width: 5px;
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color ${({ theme }) => theme.colors.primary};
+      }
+    }
+  }
 `;
 
 export const StyledGridItems = styled(Grid)`

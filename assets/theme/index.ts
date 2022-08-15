@@ -10,6 +10,7 @@ export const index = {
     white: "#FFF",
     gray: "#F5F5F5",
     grayDark: "#747474",
+    lightBlack: "#2E2B26",
     black: "#1D1814",
   },
   font: {

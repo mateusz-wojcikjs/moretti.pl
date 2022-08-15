@@ -17,6 +17,7 @@ import Breadcrumbs from "../components/common/Breadcrumbs";
 import Button from "../components/common/Button";
 import DecoratedImg from "../components/common/DecoratedImg";
 import Timeline from "../components/common/Timeline";
+import AboutCta from "../components/common/AboutCta";
 
 const AboutPage: NextPage = () => {
   return (
@@ -55,6 +56,42 @@ const AboutPage: NextPage = () => {
           oferty:
         </Heading>
         <Timeline />
+      </Container>
+      <AboutCta />
+      <Container as="section">
+        <Grid colCount={2} gap={5}>
+          <DecoratedImg />
+          <div>
+            <h3>
+              Gwarantujemy autoryzowany serwis wszystkich zainstalowanych
+              rozwiązań i urządzeń
+            </h3>
+            <div className="temp--text-box">
+              <p>
+                Wieloletnia współpraca z czołowymi producentami w poszczególnych
+                branżach umożliwia nam korzystne oferowanie następujących
+                produktów:
+              </p>
+              <ul>
+                <li>automatycznych pakowaczek jednostkowych,</li>
+                <li>wagopakarek do pakowania w worki wentylowe i zaszywane,</li>
+                <li>stacji załadunku i wyładunku Big-Bag,</li>
+                <li>urządzeń paletyzujących i depaletyzatorów,</li>
+                <li>automatycznych owijarek palet,</li>
+                <li>wag przepływowych,</li>
+                <li>szczotek przemysłowych,</li>
+                <li>stacji mikrodozowania,</li>
+                <li>systemów transportu pneumatycznego i mechanicznego,</li>
+                <li>mieszalników,</li>
+                <li>silosów każdego rodzaju,</li>
+                <li>
+                  linii granulujących a także poszczególnych ich elementów,
+                </li>
+                <li> kompletnych zakładów paszowych.</li>
+              </ul>
+            </div>
+          </div>
+        </Grid>
       </Container>
       <FullSectionGray>
         <InnerWrapper>
