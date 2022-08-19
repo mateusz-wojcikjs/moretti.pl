@@ -7,7 +7,7 @@ export const StyledCta = styled.div`
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 20% 60% 20%;
+  grid-template-rows: 1fr minmax(40rem, 60%) 1fr;
   margin-top: 25rem;
   min-height: 50rem;
 
@@ -56,6 +56,7 @@ export const StyledCta = styled.div`
     position: relative;
 
     @media only screen and ${breakpoints.device.sm} {
+      padding: 1.5rem 0;
       grid-column: 2;
     }
 

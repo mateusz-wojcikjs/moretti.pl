@@ -20,6 +20,7 @@ export const index = {
       s: "1.6rem",
       m: "1.8rem",
       l: "2.4rem",
+      lg: "3.6rem",
       xl: "4rem",
       xxl: "5.4rem",
       xxxl: "7.6rem",

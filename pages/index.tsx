@@ -13,7 +13,7 @@ import {
 } from "components/layout/Layout.styled";
 import Heading from "../components/common/Heading";
 import Button from "../components/common/Button";
-import DecoratedImg from "components/common/DecoratedImg";
+import ContentImg from "components/common/ContentImg";
 import ProductItem from "../components/common/ProductItem";
 import Features from "../components/common/Features";
 import Cta from "../components/common/Cta";
@@ -61,7 +61,7 @@ const Home: NextPage = () => {
             </div>
             <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
           </div>
-          <DecoratedImg />
+          <ContentImg isDecorated />
         </Grid>
       </Container>
       <Container pt5 as="section">

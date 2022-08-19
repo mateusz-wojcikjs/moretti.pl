@@ -4,6 +4,7 @@ import breakpoints from "assets/theme/breakpoints";
 interface GridProps {
   colCount: number;
   gap: number;
+  isCentered?: boolean;
 }
 
 export const Wrapper = styled.main`
@@ -63,6 +64,38 @@ export const Container = styled.div<{ pt5?: boolean }>`
       grid-template-columns: 1fr;
     }
   }
+
+  .about {
+
+    h3 {
+      font-size: ${({ theme }) => theme.font.size.lg};
+    }
+
+    p {
+      color: ${({ theme }) => theme.colors.black};
+    }
+
+    &--text-box {
+      padding-left: 5rem;
+      margin-top: 2.5rem;
+
+      li {
+        list-style-type: none;
+        position: relative;
+        margin-left: 10px;
+
+        &::before {
+          content: "";
+          height: 5px;
+          width: 5px;
+          position: absolute;
+          left: -10px;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color ${({ theme }) => theme.colors.primary};
+        }
+      }
+    }
 `;
 
 export const GridContainer = styled(Container)`
@@ -75,30 +108,13 @@ export const Grid = styled.div`
   grid-template-columns: ${({ colCount }: GridProps) =>
     `repeat(${colCount}, 1fr)`};
   grid-column-gap: ${({ gap }: GridProps) => `${gap}rem`};
-  align-items: center;
+  align-items: ${({ isCentered }: GridProps) =>
+    isCentered ? "center" : "start"};
   @media only screen and ${breakpoints.device.sm} {
     grid-template-columns: 1fr;
     grid-row-gap: 2.5rem;
   }
-
-  .temp--text-box {
-    li {
-      list-style-type: none;
-      position: relative;
-      margin-left: 10px;
-
-      &::before {
-        content: "";
-        height: 5px;
-        width: 5px;
-        position: absolute;
-        left: -10px;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color ${({ theme }) => theme.colors.primary};
-      }
-    }
-  }
+}
 `;
 
 export const StyledGridItems = styled(Grid)`
@@ -135,3 +151,15 @@ export const InnerWrapper = styled.div`
 `;
 
 // export const FullSection = s;
+
+export const ImgWrapper = styled.div`
+  overflow: hidden;
+
+  img {
+    transition: transform ease 600ms;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+`;

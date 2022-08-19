@@ -15,7 +15,7 @@ import HeroImg from "../assets/img/about.jpeg";
 import Heading from "components/common/Heading";
 import Breadcrumbs from "../components/common/Breadcrumbs";
 import Button from "../components/common/Button";
-import DecoratedImg from "../components/common/DecoratedImg";
+import ContentImg from "../components/common/ContentImg";
 import Timeline from "../components/common/Timeline";
 import AboutCta from "../components/common/AboutCta";
 
@@ -47,7 +47,7 @@ const AboutPage: NextPage = () => {
             </div>
             <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
           </div>
-          <DecoratedImg />
+          <ContentImg />
         </Grid>
       </Container>
       <Container>
@@ -58,15 +58,15 @@ const AboutPage: NextPage = () => {
         <Timeline />
       </Container>
       <AboutCta />
-      <Container as="section">
+      <Container as="section" pt5>
         <Grid colCount={2} gap={5}>
-          <DecoratedImg />
-          <div>
+          <ContentImg />
+          <div className="about">
             <h3>
               Gwarantujemy autoryzowany serwis wszystkich zainstalowanych
               rozwiązań i urządzeń
             </h3>
-            <div className="temp--text-box">
+            <div className="about--text-box">
               <p>
                 Wieloletnia współpraca z czołowymi producentami w poszczególnych
                 branżach umożliwia nam korzystne oferowanie następujących
