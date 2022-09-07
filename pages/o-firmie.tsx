@@ -22,8 +22,8 @@ import AboutCta from "../components/common/AboutCta";
 const AboutPage: NextPage = () => {
   return (
     <>
-      <Hero img={HeroImg} secondary overlay textCenter>
-        <Heading headingLevel="h1">O Firmie</Heading>
+      <Hero img={HeroImg} secondary overlay>
+        <Heading headingLevel="h1" isCenter>O Firmie</Heading>
         <Breadcrumbs />
       </Hero>
 
