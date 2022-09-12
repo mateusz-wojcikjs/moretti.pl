@@ -9,7 +9,7 @@ import ListIconItem from "../components/common/ListIconItem";
 import PhoneIcon from "../icons/phone";
 import EmailIcon from "../icons/email";
 import ContactIcon from "../icons/contact";
-import Button from "../components/common/Button";
+import ContactForm from "../components/ContactForm";
 
 const ContactPage: NextPage = () => {
   const mockContactData = {
@@ -53,15 +53,7 @@ const ContactPage: NextPage = () => {
               icon={<ContactIcon />}
             />
           </div>
-          <div>
-            <form>
-              <input type="text" />
-              <input type="email" />
-              <input type="text" />
-              <textarea name="message" id="message"></textarea>
-              <Button link="/" type="primary" text="Wyślij" />
-            </form>
-          </div>
+          <ContactForm />
         </Grid>
       </Container>
     </>
