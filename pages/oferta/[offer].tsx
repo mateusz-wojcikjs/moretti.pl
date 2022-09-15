@@ -11,6 +11,8 @@ import {
 import Cta from "../../components/common/Cta";
 import Testimonials from "../../components/Testimonials";
 import Partners from "../../components/layout/Partners";
+import Slider from "../../components/Slider";
+import GridGallery from "../../components/common/GridGallery";
 
 const OfferPage: NextPage = () => {
   return (
@@ -21,6 +23,17 @@ const OfferPage: NextPage = () => {
         </Heading>
         <Breadcrumbs />
       </Hero>
+      <Container>
+        <GridGallery />
+      </Container>
+
+      <Container>
+        <Heading headingLevel="h2" isDecorated>
+          Zobacz zdjęcia
+        </Heading>
+
+        <Slider />
+      </Container>
 
       <FullSectionGray>
         <Cta />
