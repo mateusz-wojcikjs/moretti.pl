@@ -13,6 +13,17 @@ export const StyledHeading = styled.div<HeadingProps>`
   font-family: ${({ theme }) => theme.font.family.bebasNeue};
   position: relative;
 
+  &:after {
+    display: ${({ isDecorated }) => (isDecorated ? "block" : "none")};
+    content: "";
+    background: ${({ theme }) => theme.colors.secondaryAccent};
+    height: 3px;
+    width: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
   h1,
   h2,
   h3 {
