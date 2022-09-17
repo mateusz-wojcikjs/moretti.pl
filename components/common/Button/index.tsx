@@ -10,6 +10,7 @@ export interface ButtonProps {
   type: buttonType;
   text: string;
   size?: sizeType;
+  // eslint-disable-next-line no-unused-vars
   onClick?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

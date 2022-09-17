@@ -14,6 +14,9 @@ import Partners from "../../components/layout/Partners";
 import Slider from "../../components/Slider";
 import GridGallery from "../../components/common/GridGallery";
 import TextBox from "../../components/common/TextBox";
+import Image from "next/image";
+
+import img2 from "assets/img/wagi/20200731_160919.jpg";
 
 const OfferPage: NextPage = () => {
   return (
@@ -29,10 +32,6 @@ const OfferPage: NextPage = () => {
       </Container>
 
       <Container>
-        <Heading headingLevel="h2" isDecorated>
-          Zobacz zdjęcia
-        </Heading>
-
         <TextBox>
           <Heading headingLevel="h2" isDecorated>
             Silosy stalowe do zboża
@@ -48,6 +47,10 @@ const OfferPage: NextPage = () => {
             powodzeniem stosowane na zewnątrz budynku, bez obaw o zniszczenie
             przechowywanych w nich produktów.
           </p>
+
+          <div className="img-text">
+            <Image src={img2} />
+          </div>
           <p>
             Proponowane przez nas silosy stalowe do zboża stanowią doskonałą
             alternatywę dla silosów żelbetowych. Wykorzystanie stali pozwala
@@ -62,6 +65,9 @@ const OfferPage: NextPage = () => {
           </p>
         </TextBox>
 
+        <Heading headingLevel="h2" isDecorated>
+          Zobacz zdjęcia
+        </Heading>
         <Slider />
       </Container>
 

@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
 export const StyledTextBox = styled.div`
+  margin-bottom: 7.5rem;
+
+  .img-text {
+    max-width: 60rem;
+    float: right;
+  }
+
   p {
     color: ${({ theme }) => theme.colors.lightBlack};
   }
