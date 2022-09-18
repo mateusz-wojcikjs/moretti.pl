@@ -6,6 +6,8 @@ import { ThemeProvider } from "styled-components";
 import { index } from "assets/theme";
 import { Wrapper } from "./Layout.styled";
 
+import "aos/dist/aos.css";
+
 interface Props {
   children: JSX.Element[] | JSX.Element;
 }
