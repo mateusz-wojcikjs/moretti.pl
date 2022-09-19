@@ -13,17 +13,81 @@ import Testimonials from "../../components/Testimonials";
 import Partners from "../../components/layout/Partners";
 import Slider from "../../components/Slider";
 import GridGallery from "../../components/common/GridGallery";
-import TextBox from "../../components/common/TextBox";
+import TextBox from "components/common/TextBox";
 import Image from "next/image";
 
 import img2 from "assets/img/wagi/20200731_160919.jpg";
 
-const OfferPage: NextPage = () => {
+interface PageParameters {
+  slug: string;
+}
+
+interface ProductResponse {
+  productData: {
+    data: Product[];
+    meta: {};
+  };
+}
+
+interface ProductAttributes {
+  seoTitle: string;
+  seoDescription: string;
+  name: string;
+  slug: string;
+  descriptionTop: string;
+  descriptionBottom?: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  heroImage?: string;
+  slidersPhotos?: string;
+  gallery?: string;
+}
+
+interface Product {
+  id: number;
+  attributes: ProductAttributes;
+}
+
+export async function getStaticPaths() {
+  const res = await fetch("http://localhost:1337/api/products/");
+  const { data: products } = await res.json();
+
+  const paths = products.map((product: Product) => ({
+    params: {
+      slug: product.attributes.slug,
+    },
+  }));
+
+  return { paths, fallback: false };
+}
+
+export const getStaticProps = async ({
+  params,
+}: {
+  params: PageParameters;
+}) => {
+  const res = await fetch(
+    `http://localhost:1337/api/products?filters[slug][$eq]=${params.slug}`,
+  );
+  const productData = await res.json();
+
+  return {
+    props: {
+      productData,
+    },
+  };
+};
+
+const OfferPage: NextPage<ProductResponse> = (props) => {
+  const [productData] = props.productData.data;
+  const { attributes: product } = productData;
+
   return (
     <>
       <Hero img={HeroImg} secondary textCenter>
         <Heading headingLevel="h1" isCenter>
-          Produkt 1
+          {product.name}
         </Heading>
         <Breadcrumbs />
       </Hero>
