@@ -10,7 +10,9 @@ const TextBox = ({ children }: { children: React.ReactNode }) => {
   }, []);
   return (
     <StyledTextBox>
-      <div data-aos="fade-up">{children}</div>
+      <div data-aos="fade-up">
+        <div className="text-with-image">{children}</div>
+      </div>
     </StyledTextBox>
   );
 };

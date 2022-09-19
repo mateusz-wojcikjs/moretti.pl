@@ -67,9 +67,24 @@ const Home: NextPage = () => {
       <Container pt5 as="section">
         <Heading headingLevel="h2">Nasza oferta</Heading>
         <StyledGridItems colCount={3} gap={5}>
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
+          <ProductItem
+            name={"abc"}
+            descriptionTop={
+              " Provide your customers a story they would enjoy keeping in mind the objectives of your website."
+            }
+          />
+          <ProductItem
+            name={"def"}
+            descriptionTop={
+              " Provide your customers a story they would enjoy keeping in mind the objectives of your website."
+            }
+          />
+          <ProductItem
+            name={"ghi"}
+            descriptionTop={
+              " Provide your customers a story they would enjoy keeping in mind the objectives of your website."
+            }
+          />
         </StyledGridItems>
       </Container>
       <Banner img={BannerImg} text="Dlaczego warto z nami współpracować?" />

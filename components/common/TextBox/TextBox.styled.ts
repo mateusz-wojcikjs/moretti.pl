@@ -3,13 +3,40 @@ import styled from "styled-components";
 export const StyledTextBox = styled.div`
   margin-bottom: 7.5rem;
 
-  .img-text {
-    max-width: 60rem;
-    float: right;
+  .text-with-image {
+    .img-inside {
+      display: grid;
+      grid-template-columns: 66% 1fr;
+      grid-gap: 5rem;
+
+      .content-image {
+        grid-column: 2;
+      }
+    }
   }
 
   p {
     color: ${({ theme }) => theme.colors.lightBlack};
+  }
+
+  h2 {
+    font-size: ${({ theme }) => theme.font.size.xl};
+    font-weight: 400;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    font-family: ${({ theme }) => theme.font.family.bebasNeue};
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      content: "";
+      background: ${({ theme }) => theme.colors.secondaryAccent};
+      height: 3px;
+      width: 33%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
   }
 
   h1,
