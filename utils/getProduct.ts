@@ -17,7 +17,9 @@ export const getProduct = async (slug: string) => {
 };
 
 export const getProducts = async () => {
-  const res = await fetch(`http://localhost:1337/api/products`);
+  const res = await fetch(
+    `http://localhost:1337/api/products?populate[0]=heroImage`,
+  );
   const { data } = await res.json();
 
   return {

@@ -24,6 +24,30 @@ export interface ProductsData {
 export interface IProductItem {
   name: string;
   descriptionTop: string;
+  thumbnail: HeroImage;
+}
+
+export interface HeroImage {
+  data: {
+    attributes: {
+      formats: ImageSizes;
+    };
+  };
+}
+
+export interface ImageSizes {
+  large: {
+    url: string;
+  };
+  medium: {
+    url: string;
+  };
+  small: {
+    url: string;
+  };
+  thumbnail: {
+    url: string;
+  };
 }
 
 export interface ProductResponse {
@@ -49,7 +73,7 @@ export interface ProductAttributes {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  heroImage?: string;
+  heroImage: HeroImage;
   slidersPhotos?: string;
   gallery?: string;
 }

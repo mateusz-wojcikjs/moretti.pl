@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyledAboutCta } from "./AboutCta.styled";
 import Background from "../Background";
 import CtaBg from "assets/img/about-cta.jpeg";
 import Heading from "../Heading";
 import Text from "../Text/text";
 import Box from "icons/box";
+import Aos from "aos";
 
 const AboutCta = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+    });
+  }, []);
   return (
     <StyledAboutCta>
-      <div className="cta-bg">
+      <div data-aos="slide-right" className="cta-bg">
         <Background img={CtaBg} />
       </div>
-      <div className="cta-container">
+      <div data-aos="slide-left" className="cta-container">
         <div className="cta-wrapper">
           <Heading headingLevel="h3">
             Dlaczego warto wybrać nasze produkty?

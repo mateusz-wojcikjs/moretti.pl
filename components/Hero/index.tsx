@@ -12,7 +12,7 @@ export type TitleType = {
 export type PositionType = "center" | "top" | "bottom";
 
 interface HeroProps {
-  img: StaticImageData;
+  img: StaticImageData | string;
   children: React.ReactNode;
   secondary?: boolean;
   textCenter?: boolean;

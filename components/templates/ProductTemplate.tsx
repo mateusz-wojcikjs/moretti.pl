@@ -12,15 +12,22 @@ import Slider from "../Slider";
 import Cta from "../common/Cta";
 import Testimonials from "../Testimonials";
 import Partners from "../layout/Partners";
-import { ProductData } from "../../interfaces/product.interface";
+import { ProductData } from "interfaces/product.interface";
+import Head from "next/head";
 
 const ProductTemplate = ({ data }: ProductData) => {
   const { attributes: product } = data;
   const [{ textContent, image }] = product.descriptionBottomWithImage;
   const url = "http://localhost:1337" + image.data.attributes.url;
+  const heroUrl =
+    "http://localhost:1337" +
+    product.heroImage.data.attributes.formats.large.url;
   return (
     <>
-      <Hero img={HeroImg} secondary textCenter>
+      <Head>
+        <title>Moretti Macchine - {product.seoTitle}</title>
+      </Head>
+      <Hero img={heroUrl || HeroImg} secondary textCenter>
         <Heading headingLevel="h1" isCenter>
           {product.name}
         </Heading>
@@ -43,6 +50,8 @@ const ProductTemplate = ({ data }: ProductData) => {
               height="100%"
               layout="responsive"
               quality={100}
+              placeholder="blur"
+              blurDataURL="rgb(237, 181, 6)"
               className="content-image"
             />
           </div>

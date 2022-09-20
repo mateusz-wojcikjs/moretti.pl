@@ -3,13 +3,21 @@ import React, { FC } from "react";
 import { BackgroundStyled } from "./Background.styled";
 
 interface HeroBackgroundProps {
-  img: StaticImageData;
+  img: StaticImageData | string;
 }
 
 const Background: FC<HeroBackgroundProps> = ({ img }) => {
   return (
     <BackgroundStyled>
-      <Image src={img} layout="fill" objectFit="cover" alt="Hero Index" />
+      <Image
+        src={img}
+        layout="fill"
+        objectFit="cover"
+        alt="Hero Index"
+        quality={100}
+        placeholder="blur"
+        blurDataURL="rgb(237, 181, 6)"
+      />
     </BackgroundStyled>
   );
 };

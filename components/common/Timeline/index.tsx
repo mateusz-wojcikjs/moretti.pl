@@ -1,5 +1,6 @@
 import React from "react";
 import { StyledTimeline, TimelineItem } from "./Timeline.styled";
+import AnimatedOnScroll from "../../AnimatedOnScroll";
 
 const placeholder = [
   { id: 1, year: "1996", content: "szczotki przemysłowe" },
@@ -16,22 +17,24 @@ const placeholder = [
 
 const Timeline = () => {
   return (
-    <StyledTimeline>
-      <ol>
-        {placeholder.map((item, i) => {
-          return (
-            <TimelineItem
-              key={item.id}
-              className={i % 2 === 0 ? "right" : "left"}
-              row={i}
-            >
-              <div className="tl-content">{item.content}</div>
-              <div className="tl-year">{item.year} r.</div>
-            </TimelineItem>
-          );
-        })}
-      </ol>
-    </StyledTimeline>
+    <AnimatedOnScroll>
+      <StyledTimeline>
+        <ol>
+          {placeholder.map((item, i) => {
+            return (
+              <TimelineItem
+                key={item.id}
+                className={i % 2 === 0 ? "right" : "left"}
+                row={i}
+              >
+                <div className="tl-content">{item.content}</div>
+                <div className="tl-year">{item.year} r.</div>
+              </TimelineItem>
+            );
+          })}
+        </ol>
+      </StyledTimeline>
+    </AnimatedOnScroll>
   );
 };
 

@@ -13,6 +13,7 @@ import TestLogo from "assets/img/mediator.png";
 
 import { Keyboard, Mousewheel, Navigation } from "swiper";
 import Image from "next/image";
+import AnimatedOnScroll from "../AnimatedOnScroll";
 
 interface Testimonial {
   id: number;
@@ -84,10 +85,12 @@ const Testimonials = () => {
   ];
 
   return (
-    <StyledTestimonials>
-      <h4>Opinie naszych klientów</h4>
-      <Slider testimonials={data} />
-    </StyledTestimonials>
+    <AnimatedOnScroll>
+      <StyledTestimonials>
+        <h4>Opinie naszych klientów</h4>
+        <Slider testimonials={data} />
+      </StyledTestimonials>
+    </AnimatedOnScroll>
   );
 };
 

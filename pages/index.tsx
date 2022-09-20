@@ -21,6 +21,7 @@ import Testimonials from "../components/Testimonials";
 import Partners from "../components/layout/Partners";
 import CounterNumber from "../components/common/CounterNumber";
 import Text from "../components/common/Text/text";
+import AnimatedOnScroll from "../components/AnimatedOnScroll";
 
 const Home: NextPage = () => {
   const title: TitleType = {
@@ -42,27 +43,29 @@ const Home: NextPage = () => {
         <Button link="/oferta" type="primary" text="Zobacz ofertę" />
       </Hero>
       <Container pt5 as="section">
-        <Grid colCount={2} gap={5}>
-          <div>
-            <Heading headingLevel="h2">
-              Medium length title for building block
-            </Heading>
-            <div className="temp--text-box">
-              <p>
-                A paragraph or two with information on your product/service or
-                describes a problem your product/service is designed to solve.
-              </p>
-              <p>
-                Provide your customers a story they would enjoy keeping in mind
-                the objectives of your website. Pay special attention to the
-                tone of voice. Try to win the customers’ trust by being
-                positive.
-              </p>
+        <AnimatedOnScroll>
+          <Grid colCount={2} gap={5}>
+            <div>
+              <Heading headingLevel="h2">
+                Medium length title for building block
+              </Heading>
+              <div className="temp--text-box">
+                <p>
+                  A paragraph or two with information on your product/service or
+                  describes a problem your product/service is designed to solve.
+                </p>
+                <p>
+                  Provide your customers a story they would enjoy keeping in
+                  mind the objectives of your website. Pay special attention to
+                  the tone of voice. Try to win the customers’ trust by being
+                  positive.
+                </p>
+              </div>
+              <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
             </div>
-            <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
-          </div>
-          <ContentImg isDecorated />
-        </Grid>
+            <ContentImg isDecorated />
+          </Grid>
+        </AnimatedOnScroll>
       </Container>
       <Container pt5 as="section">
         <Heading headingLevel="h2">Nasza oferta</Heading>
@@ -96,7 +99,6 @@ const Home: NextPage = () => {
         </InnerWrapper>
         <Cta />
       </FullSectionGray>
-
       <Container>
         <Testimonials />
       </Container>
