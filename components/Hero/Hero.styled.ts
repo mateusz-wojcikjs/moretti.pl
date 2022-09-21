@@ -37,7 +37,7 @@ export const StyledHero = styled.header<{
 
   h1 {
     color: ${({ theme }) => theme.colors.white};
-    text-align: ${({ options }) => (options.textCenter ? "center" : "left")};
+    //text-align: ${({ options }) => (options.textCenter ? "center" : "left")};
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
   }
 

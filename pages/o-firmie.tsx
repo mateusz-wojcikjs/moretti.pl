@@ -19,13 +19,20 @@ import ContentImg from "../components/common/ContentImg";
 import Timeline from "../components/common/Timeline";
 import AboutCta from "../components/common/AboutCta";
 import AnimatedOnScroll from "../components/AnimatedOnScroll";
+import { getPageData } from "../utils/getPageData";
+import { Page } from "interfaces/page.interface";
+import ReactMarkdown from "react-markdown";
 
-const AboutPage: NextPage = () => {
+export const getStaticProps = () => {
+  return getPageData();
+};
+
+const AboutPage: NextPage<Page> = ({ page }) => {
   return (
     <>
       <Hero img={HeroImg} secondary overlay>
         <Heading headingLevel="h1" isCenter>
-          O Firmie
+          {page.title}
         </Heading>
         <Breadcrumbs />
       </Hero>
@@ -57,51 +64,30 @@ const AboutPage: NextPage = () => {
       </Container>
       <Container>
         <AnimatedOnScroll>
-          <Heading headingLevel="h2">
-            Stale poszerzamy gamę produktów i tak kolejno wprowadzaliśmy do
-            naszej oferty:
+          <Heading headingLevel="h2" isCenter>
+            {page.timelineHeading}
           </Heading>
         </AnimatedOnScroll>
-        <Timeline />
+        <Timeline timelineItems={page.timelineItems} />
       </Container>
-      <AboutCta />
+      <AboutCta data={page.ctaAbout} img={page.ctaImage} />
       <Container as="section" pt5>
         <AnimatedOnScroll>
           <Grid colCount={2} gap={5}>
             <ContentImg />
             <div className="about">
-              <h3>
-                Gwarantujemy autoryzowany serwis wszystkich zainstalowanych
-                rozwiązań i urządzeń
-              </h3>
+              <h3>{page.aboutContentWithImage.title}</h3>
               <div className="about--text-box">
-                <p>
-                  Wieloletnia współpraca z czołowymi producentami w
-                  poszczególnych branżach umożliwia nam korzystne oferowanie
-                  następujących produktów:
-                </p>
-                <ul>
-                  <li>automatycznych pakowaczek jednostkowych,</li>
-                  <li>
-                    wagopakarek do pakowania w worki wentylowe i zaszywane,
-                  </li>
-                  <li>stacji załadunku i wyładunku Big-Bag,</li>
-                  <li>urządzeń paletyzujących i depaletyzatorów,</li>
-                  <li>automatycznych owijarek palet,</li>
-                  <li>wag przepływowych,</li>
-                  <li>szczotek przemysłowych,</li>
-                  <li>stacji mikrodozowania,</li>
-                  <li>systemów transportu pneumatycznego i mechanicznego,</li>
-                  <li>mieszalników,</li>
-                  <li>silosów każdego rodzaju,</li>
-                  <li>
-                    linii granulujących a także poszczególnych ich elementów,
-                  </li>
-                  <li> kompletnych zakładów paszowych.</li>
-                </ul>
+                <p>{page.aboutContentWithImage.listTitle}</p>
+                <ReactMarkdown>
+                  {page.aboutContentWithImage.textContent}
+                </ReactMarkdown>
               </div>
             </div>
           </Grid>
+          <Heading headingLevel="h3" isCenter>
+            {page.aboutContentWithImage.wideText}
+          </Heading>
         </AnimatedOnScroll>
       </Container>
       <FullSectionGray>

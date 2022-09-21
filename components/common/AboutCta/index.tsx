@@ -1,49 +1,55 @@
 import React, { useEffect } from "react";
 import { StyledAboutCta } from "./AboutCta.styled";
 import Background from "../Background";
-import CtaBg from "assets/img/about-cta.jpeg";
 import Heading from "../Heading";
 import Text from "../Text/text";
-import Box from "icons/box";
 import Aos from "aos";
+import { CtaAbout, FileUrl } from "interfaces/page.interface";
+import Image from "next/image";
 
-const AboutCta = () => {
+interface AboutCtaProps {
+  data: CtaAbout;
+  img: FileUrl;
+}
+
+const AboutCta = ({ data, img }: AboutCtaProps) => {
   useEffect(() => {
     Aos.init({
       duration: 1000,
     });
   }, []);
+  const { url } = img.data.attributes;
+  const link = "http://localhost:1337" + url;
   return (
     <StyledAboutCta>
       <div data-aos="slide-right" className="cta-bg">
-        <Background img={CtaBg} />
+        <Background img={link} />
       </div>
       <div data-aos="slide-left" className="cta-container">
         <div className="cta-wrapper">
-          <Heading headingLevel="h3">
-            Dlaczego warto wybrać nasze produkty?
-          </Heading>
-          <Text>
-            Jesteśmy w stanie zapewnić kompleksową obsługę wszystkim klientom
-            zajmującym się produkcją, transportem i przechowywaniem produktów
-            sypkich oraz granulowanych.
-          </Text>
+          <Heading headingLevel="h3">{data.title}</Heading>
+          <Text>{data.ctaAboutContent}</Text>
           <div className="bar" />
           <div className="icons-container">
-            <div className="icon-box">
-              <Box />
-              <div>
-                <h4>Fachowe doradztwo</h4>
-                <p>Kompleksowa obsługa wszystkich klientów.</p>
-              </div>
-            </div>
-            <div className="icon-box">
-              <Box />
-              <div>
-                <h4>Fachowe doradztwo</h4>
-                <p>Kompleksowa obsługa wszystkich klientów.</p>
-              </div>
-            </div>
+            {data.iconWithText.map((item) => {
+              const { url: iconUrl } = item.icon.data.attributes;
+              const iconLink = "http://localhost:1337" + iconUrl;
+              return (
+                <div className="icon-box" key={item.id}>
+                  <Image
+                    layout="fixed"
+                    height="100%"
+                    width="100%"
+                    src={iconLink}
+                    alt={item.title + " ikona"}
+                  />
+                  <div>
+                    <h4>{item.title}</h4>
+                    <p>{item.subTitle}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
