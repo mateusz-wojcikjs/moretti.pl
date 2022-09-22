@@ -13,7 +13,7 @@ const Background: FC<HeroBackgroundProps> = ({ img }) => {
         src={img}
         layout="fill"
         objectFit="cover"
-        alt="Hero Index"
+        alt="Hero Image"
         quality={100}
         placeholder="blur"
         blurDataURL="rgb(237, 181, 6)"

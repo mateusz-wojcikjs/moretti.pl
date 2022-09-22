@@ -1,16 +1,28 @@
 import React from "react";
 import Image from "next/image";
-import AboutImg from "assets/img/grain-silos-7007434.jpg";
 import { GreenCross, RedCross, StyledImg } from "./ContentImg.styled";
-import { ImgWrapper } from "../../layout/Layout.styled";
+import { ImgWrapper } from "components/layout/Layout.styled";
 
-const ContentImg = ({ isDecorated }: { isDecorated?: boolean }) => {
+interface ContentImgProps {
+  isDecorated?: boolean;
+  img: string;
+}
+
+const ContentImg = ({ isDecorated, img }: ContentImgProps) => {
+  const imgUrl = process.env.BASE_URL + img;
   return (
     <StyledImg>
       {isDecorated && <GreenCross />}
       {isDecorated && <RedCross />}
       <ImgWrapper>
-        <Image src={AboutImg} layout="responsive" />
+        <Image
+          src={imgUrl}
+          layout="responsive"
+          width="100%"
+          height="100%"
+          objectFit="cover"
+          objectPosition="left"
+        />
       </ImgWrapper>
     </StyledImg>
   );

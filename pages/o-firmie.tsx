@@ -20,16 +20,24 @@ import Timeline from "../components/common/Timeline";
 import AboutCta from "../components/common/AboutCta";
 import AnimatedOnScroll from "../components/AnimatedOnScroll";
 import { getPageData } from "../utils/getPageData";
-import { Page } from "interfaces/page.interface";
+import { IAboutPage } from "interfaces/page.interface";
 import ReactMarkdown from "react-markdown";
+import * as Constants from "../constants";
+import Seo from "../components/Seo";
 
 export const getStaticProps = () => {
-  return getPageData();
+  return getPageData(Constants.PAGE_TYPES.ABOUT);
 };
 
-const AboutPage: NextPage<Page> = ({ page }) => {
+const AboutPage: NextPage<IAboutPage> = ({ page }) => {
+  const img = page.ctaImage.data.attributes.url;
   return (
     <>
+      <Seo
+        seoTitle={page.seoTitle}
+        seoDescription={page.seoDescription}
+        ogImage={HeroImg}
+      />
       <Hero img={HeroImg} secondary overlay>
         <Heading headingLevel="h1" isCenter>
           {page.title}
@@ -40,25 +48,11 @@ const AboutPage: NextPage<Page> = ({ page }) => {
       <Container pt5 as="section">
         <AnimatedOnScroll>
           <Grid colCount={2} gap={5}>
-            <div>
-              <Heading headingLevel="h2">
-                Medium length title for building block
-              </Heading>
-              <div className="temp--text-box">
-                <p>
-                  A paragraph or two with information on your product/service or
-                  describes a problem your product/service is designed to solve.
-                </p>
-                <p>
-                  Provide your customers a story they would enjoy keeping in
-                  mind the objectives of your website. Pay special attention to
-                  the tone of voice. Try to win the customers’ trust by being
-                  positive.
-                </p>
-              </div>
+            <div className="text-box">
+              <ReactMarkdown>{page.aboutContent}</ReactMarkdown>
               <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
             </div>
-            <ContentImg />
+            <ContentImg img={img} />
           </Grid>
         </AnimatedOnScroll>
       </Container>
@@ -70,11 +64,13 @@ const AboutPage: NextPage<Page> = ({ page }) => {
         </AnimatedOnScroll>
         <Timeline timelineItems={page.timelineItems} />
       </Container>
-      <AboutCta data={page.ctaAbout} img={page.ctaImage} />
+      <AboutCta data={page.ctaAbout} img={page.ctaImage.data.attributes.url} />
       <Container as="section" pt5>
         <AnimatedOnScroll>
           <Grid colCount={2} gap={5}>
-            <ContentImg />
+            <ContentImg
+              img={page.aboutContentWithImage.image.data.attributes.url}
+            />
             <div className="about">
               <h3>{page.aboutContentWithImage.title}</h3>
               <div className="about--text-box">

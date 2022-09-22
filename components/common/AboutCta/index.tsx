@@ -4,12 +4,12 @@ import Background from "../Background";
 import Heading from "../Heading";
 import Text from "../Text/text";
 import Aos from "aos";
-import { CtaAbout, FileUrl } from "interfaces/page.interface";
+import { CtaAbout } from "interfaces/page.interface";
 import Image from "next/image";
 
 interface AboutCtaProps {
   data: CtaAbout;
-  img: FileUrl;
+  img: string;
 }
 
 const AboutCta = ({ data, img }: AboutCtaProps) => {
@@ -18,8 +18,7 @@ const AboutCta = ({ data, img }: AboutCtaProps) => {
       duration: 1000,
     });
   }, []);
-  const { url } = img.data.attributes;
-  const link = "http://localhost:1337" + url;
+  const link = process.env.BASE_URL + img;
   return (
     <StyledAboutCta>
       <div data-aos="slide-right" className="cta-bg">

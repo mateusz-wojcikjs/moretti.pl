@@ -1,8 +1,7 @@
 import React from "react";
 import type { NextPage } from "next";
-import Hero, { TitleType } from "components/Hero";
+import Hero from "components/Hero";
 import Banner from "components/common/Banner";
-import HeroImg from "assets/img/hero_stock.png";
 import BannerImg from "assets/img/banner.png";
 import {
   Container,
@@ -14,7 +13,6 @@ import {
 import Heading from "../components/common/Heading";
 import Button from "../components/common/Button";
 import ContentImg from "components/common/ContentImg";
-import ProductItem from "../components/common/ProductItem";
 import Features from "../components/common/Features";
 import Cta from "../components/common/Cta";
 import Testimonials from "../components/Testimonials";
@@ -22,72 +20,53 @@ import Partners from "../components/layout/Partners";
 import CounterNumber from "../components/common/CounterNumber";
 import Text from "../components/common/Text/text";
 import AnimatedOnScroll from "../components/AnimatedOnScroll";
+import { getPageData } from "../utils/getPageData";
+import * as Constants from "../constants";
+import { IHomePage } from "interfaces/page.interface";
+import ReactMarkdown from "react-markdown";
+import Seo from "components/Seo";
 
-const Home: NextPage = () => {
-  const title: TitleType = {
-    textTop: "It’s high time you told",
-    textBottom: "your story",
-  };
+export const getStaticProps = () => {
+  return getPageData(Constants.PAGE_TYPES.HOME);
+};
+
+const Home: NextPage<IHomePage> = ({ page }) => {
+  const heroImg =
+    process.env.BASE_URL +
+    page.header.heroImage.data.attributes.formats.large.url;
+
+  const img = page.image.data.attributes.url;
 
   return (
     <>
-      <Hero img={HeroImg}>
+      <Seo
+        seoTitle={page.seoTitle}
+        seoDescription={page.seoDescription}
+        ogImage={heroImg}
+      />
+      <Hero img={heroImg}>
         <Heading headingLevel="h1">
-          <span className="top">{title.textTop}</span>
-          <span className="bottom">{title.textBottom}</span>
+          <span className="top">{page.header.title.top}</span>
+          <span className="bottom">{page.header.title.bottom}</span>
         </Heading>
-        <Text>
-          Storytelling in business has become a field in its own right as
-          industries have grown
-        </Text>
+        <Text>{page.header.subTitle}</Text>
         <Button link="/oferta" type="primary" text="Zobacz ofertę" />
       </Hero>
       <Container pt5 as="section">
         <AnimatedOnScroll>
           <Grid colCount={2} gap={5}>
-            <div>
-              <Heading headingLevel="h2">
-                Medium length title for building block
-              </Heading>
-              <div className="temp--text-box">
-                <p>
-                  A paragraph or two with information on your product/service or
-                  describes a problem your product/service is designed to solve.
-                </p>
-                <p>
-                  Provide your customers a story they would enjoy keeping in
-                  mind the objectives of your website. Pay special attention to
-                  the tone of voice. Try to win the customers’ trust by being
-                  positive.
-                </p>
-              </div>
+            <div className="text-box">
+              <ReactMarkdown>{page.mainText}</ReactMarkdown>
               <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
             </div>
-            <ContentImg isDecorated />
+            <ContentImg isDecorated img={img} />
           </Grid>
         </AnimatedOnScroll>
       </Container>
       <Container pt5 as="section">
         <Heading headingLevel="h2">Nasza oferta</Heading>
         <StyledGridItems colCount={3} gap={5}>
-          <ProductItem
-            name={"abc"}
-            descriptionTop={
-              " Provide your customers a story they would enjoy keeping in mind the objectives of your website."
-            }
-          />
-          <ProductItem
-            name={"def"}
-            descriptionTop={
-              " Provide your customers a story they would enjoy keeping in mind the objectives of your website."
-            }
-          />
-          <ProductItem
-            name={"ghi"}
-            descriptionTop={
-              " Provide your customers a story they would enjoy keeping in mind the objectives of your website."
-            }
-          />
+          dd
         </StyledGridItems>
       </Container>
       <Banner img={BannerImg} text="Dlaczego warto z nami współpracować?" />

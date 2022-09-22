@@ -1,4 +1,5 @@
 import { HeroImage } from "./product.interface";
+import { PageType } from "../types/page";
 
 export interface TimelineItem {
   id: number;
@@ -17,6 +18,13 @@ export interface IconWithText {
   icon: FileUrl;
 }
 
+export interface ContactIcon {
+  id: number;
+  title: string;
+  subTitle: string;
+  type: string;
+}
+
 export interface CtaAbout {
   id: number;
   title: string;
@@ -30,7 +38,7 @@ export interface AboutContentWithImage {
   listTitle: string;
   textContent: string;
   wideText: string;
-  image: string;
+  image: FileUrl;
 }
 
 export interface AboutPageProps extends PageProps {
@@ -39,11 +47,39 @@ export interface AboutPageProps extends PageProps {
   timelineItems: TimelineItem[];
   aboutContentWithImage: AboutContentWithImage;
   ctaAbout: CtaAbout;
-  ctaImage: any;
+  ctaImage: FileUrl;
 }
 
-export interface Page {
+interface ContactPageProps extends PageProps {
+  H2: string;
+  contactValues: ContactIcon[];
+}
+
+export interface IAboutPage {
   page: AboutPageProps;
+}
+
+interface Header {
+  subTitle: string;
+  title: {
+    top: string;
+    bottom: string;
+  };
+  heroImage: HeroImage;
+}
+
+interface HomePageProps extends PageProps {
+  header: Header;
+  mainText: string;
+  image: FileUrl;
+}
+
+export interface IHomePage {
+  page: HomePageProps;
+}
+
+export interface IContactPage {
+  page: ContactPageProps;
 }
 
 export interface PageProps {
@@ -55,4 +91,12 @@ export interface PageProps {
 
 export interface FileUrl {
   data: { attributes: { url: string } };
+}
+
+export interface Pages {
+  HOME: PageType;
+  CONTACT: PageType;
+  ABOUT: PageType;
+  OFFER: PageType;
+  PRIVACY: PageType;
 }

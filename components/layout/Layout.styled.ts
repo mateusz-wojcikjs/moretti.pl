@@ -115,6 +115,31 @@ export const Grid = styled.div`
     grid-row-gap: 2.5rem;
   }
 }
+
+.text-box {
+  h2 {
+    font-size: ${({ theme }) => theme.font.size.xl};
+    font-weight: 400;
+    margin-bottom: 5rem;
+    font-family: ${({ theme }) => theme.font.family.bebasNeue};
+    position: relative;
+
+    &:after {
+      content: "";
+      background: ${({ theme }) => theme.colors.secondaryAccent};
+      height: 3px;
+      width: 200px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  a {
+    margin-top: 5rem;
+  }
+
+}
 `;
 
 export const StyledGridItems = styled(Grid)`

@@ -13,20 +13,21 @@ import Cta from "../common/Cta";
 import Testimonials from "../Testimonials";
 import Partners from "../layout/Partners";
 import { ProductData } from "interfaces/product.interface";
-import Head from "next/head";
+import Seo from "components/Seo";
 
 const ProductTemplate = ({ data }: ProductData) => {
   const { attributes: product } = data;
   const [{ textContent, image }] = product.descriptionBottomWithImage;
-  const url = "http://localhost:1337" + image.data.attributes.url;
+  const url = process.env.BASE_URL + image.data.attributes.url;
   const heroUrl =
-    "http://localhost:1337" +
-    product.heroImage.data.attributes.formats.large.url;
+    process.env.BASE_URL + product.heroImage.data.attributes.formats.large.url;
   return (
     <>
-      <Head>
-        <title>Moretti Macchine - {product.seoTitle}</title>
-      </Head>
+      <Seo
+        seoTitle={product.seoTitle}
+        seoDescription={product.seoDescription}
+        ogImage={product.heroImage}
+      />
       <Hero img={heroUrl || HeroImg} secondary textCenter>
         <Heading headingLevel="h1" isCenter>
           {product.name}

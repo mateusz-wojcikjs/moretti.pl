@@ -9,31 +9,44 @@ import Cta from "components/common/Cta";
 import Testimonials from "components/Testimonials";
 import Partners from "components/layout/Partners";
 import Hero from "components/Hero";
-import HeroImg from "assets/img/banner_2.jpg";
-import Text from "../../components/common/Text/text";
-import Heading from "../../components/common/Heading";
-import ProductItem from "../../components/common/ProductItem";
-import { getProducts } from "../../utils/getProduct";
+import Text from "components/common/Text/text";
+import Heading from "components/common/Heading";
+import ProductItem from "components/common/ProductItem";
+import { getProducts } from "utils/getProduct";
 import { Product, ProductsData } from "../../interfaces/product.interface";
 import AnimatedOnScroll from "../../components/AnimatedOnScroll";
+import { getPageData } from "../../utils/getPageData";
+import * as Constants from "../../constants";
+import Seo from "../../components/Seo";
 
 export const getStaticProps = async () => {
-  return getProducts();
+  const pageData = await getPageData(Constants.PAGE_TYPES.OFFER);
+  const productsData = await getProducts();
+  return {
+    props: { pageData, productsData },
+  };
 };
 
-const OffersPage: NextPage<ProductsData> = ({ data }) => {
+const OffersPage: NextPage<ProductsData> = ({ pageData, productsData }) => {
+  const { data } = productsData.props;
+  const { page } = pageData.props;
+
+  const img = process.env.BASE_URL + page.header.heroImage.data.attributes.url;
   return (
     <>
-      <Hero img={HeroImg} secondary position="center">
+      <Seo
+        seoTitle={page.seoTitle}
+        seoDescription={page.seoDescription}
+        ogImage={img}
+      />
+      <Hero img={img} secondary position="center">
         <AnimatedOnScroll type="slide-right">
           <div className="hero-content">
             <Heading headingLevel="h1">
-              <span className="decorated">Nasza</span> oferta
+              <span className="decorated">{page.header.title.top}</span>{" "}
+              {page.header.title.bottom}
             </Heading>
-            <Text>
-              Zapraszamy do zapoznania się z produktami znajdującymi się w
-              naszej ofercie.
-            </Text>
+            <Text>{page.header.subTitle}</Text>
           </div>
         </AnimatedOnScroll>
       </Hero>

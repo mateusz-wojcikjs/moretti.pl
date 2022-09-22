@@ -1,43 +1,33 @@
 import React from "react";
 import { NextPage } from "next";
-import Hero from "../components/Hero";
-import HeroImg from "../assets/img/about.jpeg";
-import Heading from "../components/common/Heading";
-import Breadcrumbs from "../components/common/Breadcrumbs";
+import Hero from "components/Hero";
+import Heading from "components/common/Heading";
+import Breadcrumbs from "components/common/Breadcrumbs";
 import { Container, Grid } from "components/layout/Layout.styled";
 import ListIconItem from "../components/common/ListIconItem";
-import PhoneIcon from "../icons/phone";
-import EmailIcon from "../icons/email";
-import ContactIcon from "../icons/contact";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "components/ContactForm";
+import { getPageData } from "utils/getPageData";
+import { IContactPage } from "interfaces/page.interface";
+import * as Constants from "../constants";
+import Seo from "../components/Seo";
 
-const ContactPage: NextPage = () => {
-  const mockContactData = {
-    tel: {
-      type: "tel",
-      icon: "ICON",
-      title: "Numer telefonu",
-      content: "+48 664 412 061",
-    },
-    email: {
-      type: "email",
-      icon: "ICON",
-      title: "Adres e-mail",
-      content: "moretti@moretti.pl",
-    },
-    company: {
-      type: "company",
-      icon: "ICON",
-      title: "Dane firmy",
-      content: "Moretti Machine\nul. Duńska 3\n64-100 Leszno",
-    },
-  };
+export const getStaticProps = () => {
+  return getPageData(Constants.PAGE_TYPES.CONTACT);
+};
+const ContactPage: NextPage<IContactPage> = ({ page }) => {
+  const heroUrl =
+    process.env.BASE_URL + page.heroImage.data.attributes.formats.medium.url;
 
   return (
     <>
-      <Hero img={HeroImg} secondary textCenter>
+      <Seo
+        seoTitle={page.seoTitle}
+        seoDescription={page.seoDescription}
+        ogImage={heroUrl}
+      />
+      <Hero img={heroUrl} secondary textCenter>
         <Heading headingLevel="h1" isCenter>
-          Kontakt
+          {page.title}
         </Heading>
         <Breadcrumbs />
       </Hero>
@@ -45,13 +35,12 @@ const ContactPage: NextPage = () => {
       <Container pt5 as="section">
         <Grid colCount={2} gap={5}>
           <div>
-            <Heading headingLevel="h2">Skontaktuj się z nami!</Heading>
-            <ListIconItem data={mockContactData.tel} icon={<PhoneIcon />} />
-            <ListIconItem data={mockContactData.email} icon={<EmailIcon />} />
-            <ListIconItem
-              data={mockContactData.company}
-              icon={<ContactIcon />}
-            />
+            <Heading headingLevel="h2" isDecorated>
+              {page.H2}
+            </Heading>
+            {page.contactValues.map((item) => (
+              <ListIconItem key={item.id} data={item} />
+            ))}
           </div>
           <ContactForm />
         </Grid>
