@@ -66,7 +66,6 @@ export const Container = styled.div<{ pt5?: boolean }>`
   }
 
   .about {
-
     h3 {
       font-size: ${({ theme }) => theme.font.size.lg};
     }
@@ -92,10 +91,45 @@ export const Container = styled.div<{ pt5?: boolean }>`
           left: -10px;
           top: 50%;
           transform: translateY(-50%);
-          background-color ${({ theme }) => theme.colors.primary};
+          background-color: ${({ theme }) => theme.colors.primary};
         }
       }
     }
+  }
+
+  .privacy {
+    margin: 15rem 0;
+
+    h1,
+    h2,
+    h3 {
+      margin: 5rem 0 2.5rem;
+      color: ${({ theme }) => theme.colors.secondary};
+      font-family: ${({ theme }) => theme.font.family.bebasNeue};
+    }
+
+    li {
+      color: ${({ theme }) => theme.colors.grayDark};
+      margin-left: 1rem;
+    }
+
+    p,
+    li {
+      font-family: ${({ theme }) => theme.font.family.inter};
+    }
+
+    ul {
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-size: ${({ theme }) => theme.font.size.lg};
+    }
+
+    h2 {
+      font-size: ${({ theme }) => theme.font.size.l};
+    }
+  }
 `;
 
 export const GridContainer = styled(Container)`
@@ -155,6 +189,11 @@ export const StyledGridPartners = styled(Grid)`
     row-gap: 2.5rem;
     justify-content: center;
     justify-items: center;
+  }
+
+  .item {
+    position: relative;
+    height: 5rem;
   }
 `;
 export const StyledGridFooter = styled(Grid)`

@@ -12,11 +12,14 @@ import Slider from "../Slider";
 import Cta from "../common/Cta";
 import Testimonials from "../Testimonials";
 import Partners from "../layout/Partners";
-import { ProductData } from "interfaces/product.interface";
 import Seo from "components/Seo";
+import { ProductResponse } from "interfaces/product.interface";
 
-const ProductTemplate = ({ data }: ProductData) => {
-  const { attributes: product } = data;
+const ProductTemplate = ({ data }: { data: ProductResponse }) => {
+  const testimonials = data.testimonials;
+  const customers = data.customers;
+  const cta = data.cta;
+  const product = data.product.attributes;
   const [{ textContent, image }] = product.descriptionBottomWithImage;
   const url = process.env.BASE_URL + image.data.attributes.url;
   const heroUrl =
@@ -26,7 +29,7 @@ const ProductTemplate = ({ data }: ProductData) => {
       <Seo
         seoTitle={product.seoTitle}
         seoDescription={product.seoDescription}
-        ogImage={product.heroImage}
+        ogImage={heroUrl}
       />
       <Hero img={heroUrl || HeroImg} secondary textCenter>
         <Heading headingLevel="h1" isCenter>
@@ -65,13 +68,13 @@ const ProductTemplate = ({ data }: ProductData) => {
       </Container>
 
       <FullSectionGray>
-        <Cta />
+        <Cta content={cta} />
       </FullSectionGray>
 
       <Container>
-        <Testimonials />
+        <Testimonials data={testimonials} />
       </Container>
-      <Partners />
+      <Partners partners={customers} />
     </>
   );
 };

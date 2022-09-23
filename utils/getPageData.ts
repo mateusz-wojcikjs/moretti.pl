@@ -20,15 +20,11 @@ export const getPageData = async (pageType: PageType) => {
       uri = Constants.URI.OFFER;
       break;
     default:
+      uri = "";
       break;
   }
 
-  const res = await fetch("http://localhost:1337/api/" + uri);
+  const res = await fetch(process.env.API_URL + uri);
   const pageData = await res.json();
-  const page = pageData.data.attributes;
-  return {
-    props: {
-      page,
-    },
-  };
+  return pageData.data.attributes;
 };

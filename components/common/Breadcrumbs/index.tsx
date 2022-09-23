@@ -14,19 +14,19 @@ const Breadcrumbs = () => {
             Home
           </Link>
         ) : i === pathElements.length - 1 ? (
-          <>
+          <React.Fragment key={i}>
             <span className="arrow-breadcrumb">&#10095;</span>
             <span className="current-breadcrumb">
-              {element.replace("-", " ")}
+              {element.replaceAll("-", " ")}
             </span>
-          </>
+          </React.Fragment>
         ) : (
-          <>
+          <React.Fragment key={i}>
             <span className="arrow-breadcrumb">&#10095;</span>
-            <Link key={i} href={`/${element}`}>
-              <a className="">{element.replace("-", " ")}</a>
+            <Link href={`/${element}`}>
+              <a className="">{element.replaceAll("-", " ")}</a>
             </Link>
-          </>
+          </React.Fragment>
         );
       })}
     </StyledBreadcrumbs>

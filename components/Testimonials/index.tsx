@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+import AnimatedOnScroll from "components/AnimatedOnScroll";
 import {
   SliderItem,
   SliderLogo,
@@ -6,20 +8,22 @@ import {
   StyledTestimonials,
 } from "./Testimonials.styled";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Keyboard, Mousewheel, Navigation } from "swiper";
+import { FileUrl } from "interfaces/page.interface";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import TestLogo from "assets/img/mediator.png";
 
-import { Keyboard, Mousewheel, Navigation } from "swiper";
-import Image from "next/image";
-import AnimatedOnScroll from "../AnimatedOnScroll";
-
-interface Testimonial {
-  id: number;
-  logo: string;
-  company: string;
+interface TestimonialAttributes {
+  logo: FileUrl;
+  companyName: string;
   content: string;
+}
+
+export interface Testimonial {
+  id: number;
+  attributes: TestimonialAttributes;
 }
 
 interface SliderProps {
@@ -39,51 +43,37 @@ const Slider = ({ testimonials }: SliderProps) => {
       modules={[Navigation, Mousewheel, Keyboard]}
       className="mySwiper"
     >
-      {testimonials.map((testimonial: Testimonial) => (
-        <SwiperSlide key={testimonial.id}>
-          {" "}
-          <SliderItem>
-            <SliderLogo>
-              <div className="item">
-                <Image src={TestLogo} layout="responsive" />
-              </div>
-            </SliderLogo>
+      {testimonials.map((testimonial: Testimonial) => {
+        const logo =
+          process.env.BASE_URL +
+          testimonial.attributes.logo.data.attributes.url;
+        return (
+          <SwiperSlide key={testimonial.id}>
+            <SliderItem>
+              <SliderLogo>
+                <div className="item">
+                  <Image
+                    src={logo}
+                    layout="fill"
+                    alt={testimonial.attributes.companyName}
+                    objectFit="contain"
+                  />
+                </div>
+              </SliderLogo>
 
-            <SliderText>
-              <p className="content">{testimonial.content}</p>
-            </SliderText>
-          </SliderItem>
-        </SwiperSlide>
-      ))}
+              <SliderText>
+                <p className="content">{testimonial.attributes.content}</p>
+              </SliderText>
+            </SliderItem>
+          </SwiperSlide>
+        );
+      })}
+      ;
     </Swiper>
   );
 };
 
-const Testimonials = () => {
-  const data: Testimonial[] = [
-    {
-      id: 1,
-      logo: "A",
-      company: "Company 1",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem ducimus quasi quisquam repellat.",
-    },
-    {
-      id: 2,
-      logo: "B",
-      company: "Company 2",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem ducimus quasi quisquam repellat.",
-    },
-    {
-      id: 3,
-      logo: "C",
-      company: "Company 3",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium autem ducimus quasi quisquam repellat.",
-    },
-  ];
-
+const Testimonials = ({ data }: { data: Testimonial[] }) => {
   return (
     <AnimatedOnScroll>
       <StyledTestimonials>

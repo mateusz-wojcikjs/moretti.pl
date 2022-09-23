@@ -4,15 +4,18 @@ import Hero from "components/Hero";
 import Heading from "components/common/Heading";
 import Breadcrumbs from "components/common/Breadcrumbs";
 import { Container, Grid } from "components/layout/Layout.styled";
-import ListIconItem from "../components/common/ListIconItem";
+import ListIconItem from "components/common/ListIconItem";
 import ContactForm from "components/ContactForm";
+import Seo from "components/Seo";
 import { getPageData } from "utils/getPageData";
 import { IContactPage } from "interfaces/page.interface";
 import * as Constants from "../constants";
-import Seo from "../components/Seo";
 
-export const getStaticProps = () => {
-  return getPageData(Constants.PAGE_TYPES.CONTACT);
+export const getStaticProps = async () => {
+  const page = await getPageData(Constants.PAGE_TYPES.CONTACT);
+  return {
+    props: { page },
+  };
 };
 const ContactPage: NextPage<IContactPage> = ({ page }) => {
   const heroUrl =

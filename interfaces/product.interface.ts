@@ -1,3 +1,7 @@
+import { Testimonial } from "../components/Testimonials";
+import { Partner } from "../components/layout/Partners";
+import { CtaProps } from "../components/common/Cta";
+
 export interface PageParameters {
   params: { slug: string };
 }
@@ -51,7 +55,10 @@ export interface ImageSizes {
 }
 
 export interface ProductResponse {
-  productData: ProductData;
+  product: Product;
+  testimonials: Testimonial[];
+  customers: Partner[];
+  cta: CtaProps;
 }
 
 export interface RichTextComp {

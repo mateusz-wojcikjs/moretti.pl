@@ -1,5 +1,5 @@
-import { NextPage } from "next";
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import {
   Container,
   FullSectionGray,
@@ -7,38 +7,58 @@ import {
   InnerWrapper,
 } from "components/layout/Layout.styled";
 import CounterNumber from "components/common/CounterNumber";
-import Cta from "components/common/Cta";
-import Testimonials from "components/Testimonials";
-import Partners from "components/layout/Partners";
+import Cta, { CtaProps } from "components/common/Cta";
+import Testimonials, { Testimonial } from "components/Testimonials";
+import Partners, { Partner } from "components/layout/Partners";
 import Hero from "components/Hero";
-import HeroImg from "../assets/img/about.jpeg";
 import Heading from "components/common/Heading";
-import Breadcrumbs from "../components/common/Breadcrumbs";
-import Button from "../components/common/Button";
-import ContentImg from "../components/common/ContentImg";
-import Timeline from "../components/common/Timeline";
-import AboutCta from "../components/common/AboutCta";
-import AnimatedOnScroll from "../components/AnimatedOnScroll";
-import { getPageData } from "../utils/getPageData";
-import { IAboutPage } from "interfaces/page.interface";
-import ReactMarkdown from "react-markdown";
+import Breadcrumbs from "components/common/Breadcrumbs";
+import Button from "components/common/Button";
+import ContentImg from "components/common/ContentImg";
+import Timeline from "components/common/Timeline";
+import AboutCta from "components/common/AboutCta";
+import AnimatedOnScroll from "components/AnimatedOnScroll";
+import Seo from "components/Seo";
+import { AboutPageProps, CountersProps } from "interfaces/page.interface";
+import { NextPage } from "next";
 import * as Constants from "../constants";
-import Seo from "../components/Seo";
+import * as Utils from "utils";
 
-export const getStaticProps = () => {
-  return getPageData(Constants.PAGE_TYPES.ABOUT);
+export const getStaticProps = async () => {
+  const page = await Utils.getPageData(Constants.PAGE_TYPES.ABOUT);
+  const testimonials = await Utils.getTestimonials();
+  const customers = await Utils.getCustomers();
+  const cta = await Utils.getCta();
+  const counters = await Utils.getCounters();
+  return {
+    props: { page, testimonials, customers, cta, counters },
+  };
 };
 
-const AboutPage: NextPage<IAboutPage> = ({ page }) => {
+interface AboutPageStaticProps {
+  page: AboutPageProps;
+  testimonials: Testimonial[];
+  customers: Partner[];
+  cta: CtaProps;
+  counters: CountersProps;
+}
+
+const AboutPage: NextPage<AboutPageStaticProps> = (props) => {
+  const page = props.page;
+  const counters = props.counters;
+  const cta = props.cta;
+  const testimonials = props.testimonials;
+  const customers = props.customers;
   const img = page.ctaImage.data.attributes.url;
+  const heroImg = process.env.BASE_URL + page.ctaImage.data.attributes.url;
   return (
     <>
       <Seo
         seoTitle={page.seoTitle}
         seoDescription={page.seoDescription}
-        ogImage={HeroImg}
+        ogImage={heroImg}
       />
-      <Hero img={HeroImg} secondary overlay>
+      <Hero img={heroImg} secondary overlay>
         <Heading headingLevel="h1" isCenter>
           {page.title}
         </Heading>
@@ -88,15 +108,15 @@ const AboutPage: NextPage<IAboutPage> = ({ page }) => {
       </Container>
       <FullSectionGray>
         <InnerWrapper>
-          <CounterNumber />
+          <CounterNumber data={counters} />
         </InnerWrapper>
-        <Cta />
+        <Cta content={cta} />
       </FullSectionGray>
 
       <Container>
-        <Testimonials />
+        <Testimonials data={testimonials} />
       </Container>
-      <Partners />
+      <Partners partners={customers} />
     </>
   );
 };

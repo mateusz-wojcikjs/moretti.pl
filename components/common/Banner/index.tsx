@@ -1,12 +1,11 @@
 import React from "react";
-import { StaticImageData } from "next/image";
-import { StyledBanner } from "./Banner.styled";
-import { InnerWrapper } from "components/layout/Layout.styled";
 import Background from "components/common/Background";
-import Heading from "../Heading";
+import Heading from "components/common/Heading";
+import { InnerWrapper } from "components/layout/Layout.styled";
+import { StyledBanner } from "./Banner.styled";
 
 interface BannerProps {
-  img: StaticImageData;
+  img: string;
   text: string;
 }
 

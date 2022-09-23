@@ -104,6 +104,8 @@ export const SliderLogo = styled.div`
     display: block;
     width: 100%;
     min-width: 100%;
+    height: 100%;
+    position: relative;
   }
 `;
 export const SliderText = styled.div`

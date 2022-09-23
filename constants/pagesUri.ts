@@ -3,6 +3,6 @@ export const URI = {
   ABOUT:
     "about?populate=heroImage,timelineItems,ctaImage,ctaAbout.iconWithText.icon,ctaAbout.iconWithText.icon,aboutContentWithImage.image",
   CONTACT: "contact?populate=heroImage,contactValues",
-  PRIVACY: "",
+  PRIVACY: "privacy",
   OFFER: "offer?populate=header.heroImage,header.title",
 };

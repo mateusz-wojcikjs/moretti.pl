@@ -1,8 +1,8 @@
 import React from "react";
-import type { NextPage } from "next";
+import ReactMarkdown from "react-markdown";
+import Seo from "components/Seo";
 import Hero from "components/Hero";
 import Banner from "components/common/Banner";
-import BannerImg from "assets/img/banner.png";
 import {
   Container,
   FullSectionGray,
@@ -10,32 +10,63 @@ import {
   InnerWrapper,
   StyledGridItems,
 } from "components/layout/Layout.styled";
-import Heading from "../components/common/Heading";
-import Button from "../components/common/Button";
+import Heading from "components/common/Heading";
+import Button from "components/common/Button";
 import ContentImg from "components/common/ContentImg";
-import Features from "../components/common/Features";
-import Cta from "../components/common/Cta";
-import Testimonials from "../components/Testimonials";
-import Partners from "../components/layout/Partners";
-import CounterNumber from "../components/common/CounterNumber";
-import Text from "../components/common/Text/text";
-import AnimatedOnScroll from "../components/AnimatedOnScroll";
-import { getPageData } from "../utils/getPageData";
+import Features from "components/common/Features";
+import Cta from "components/common/Cta";
+import Testimonials from "components/Testimonials";
+import Partners from "components/layout/Partners";
+import CounterNumber from "components/common/CounterNumber";
+import Text from "components/common/Text/text";
+import AnimatedOnScroll from "components/AnimatedOnScroll";
+import ProductItem from "components/common/ProductItem";
 import * as Constants from "../constants";
-import { IHomePage } from "interfaces/page.interface";
-import ReactMarkdown from "react-markdown";
-import Seo from "components/Seo";
+import * as Utils from "utils";
+import type { NextPage } from "next";
+import { HomePageStaticProps } from "interfaces/page.interface";
+import { Product } from "interfaces/product.interface";
 
-export const getStaticProps = () => {
-  return getPageData(Constants.PAGE_TYPES.HOME);
+export const getStaticProps = async () => {
+  const page = await Utils.getPageData(Constants.PAGE_TYPES.HOME);
+  const products = await Utils.getProducts();
+  const testimonials = await Utils.getTestimonials();
+  const customers = await Utils.getCustomers();
+  const cta = await Utils.getCta();
+  const banner = await Utils.getBanner();
+  const counters = await Utils.getCounters();
+  const features = await Utils.getFeatures();
+  return {
+    props: {
+      page,
+      products,
+      testimonials,
+      customers,
+      cta,
+      banner,
+      counters,
+      features,
+    },
+  };
 };
 
-const Home: NextPage<IHomePage> = ({ page }) => {
+const Home: NextPage<HomePageStaticProps> = (props) => {
+  const products = props.products;
+  const page = props.page;
+  const testimonials = props.testimonials;
+  const customers = props.customers;
+  const cta = props.cta;
+  const banner = props.banner;
+  const features = props.features;
+  const counters = props.counters;
   const heroImg =
     process.env.BASE_URL +
     page.header.heroImage.data.attributes.formats.large.url;
 
   const img = page.image.data.attributes.url;
+  const bannerImg =
+    process.env.BASE_URL +
+    banner.attributes.backgroundImage.data.attributes.url;
 
   return (
     <>
@@ -65,23 +96,30 @@ const Home: NextPage<IHomePage> = ({ page }) => {
       </Container>
       <Container pt5 as="section">
         <Heading headingLevel="h2">Nasza oferta</Heading>
-        <StyledGridItems colCount={3} gap={5}>
-          dd
+        <StyledGridItems colCount={products?.length} gap={5}>
+          {products.map((product: Product) => (
+            <ProductItem
+              key={product.id}
+              name={product.attributes.name}
+              descriptionTop={product.attributes.seoDescription}
+              thumbnail={product.attributes.heroImage}
+            />
+          ))}
         </StyledGridItems>
       </Container>
-      <Banner img={BannerImg} text="Dlaczego warto z nami współpracować?" />
+      <Banner img={bannerImg} text={banner.attributes.title} />
 
       <FullSectionGray pt5>
         <InnerWrapper>
-          <Features />
-          <CounterNumber />
+          <Features data={features} />
+          <CounterNumber data={counters} />
         </InnerWrapper>
-        <Cta />
+        <Cta content={cta} />
       </FullSectionGray>
       <Container>
-        <Testimonials />
+        <Testimonials data={testimonials} />
       </Container>
-      <Partners />
+      <Partners partners={customers} />
     </>
   );
 };
