@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, MouseEventHandler } from "react";
 import { StyledButton } from "./Button.styled";
 import Link from "next/link";
 
@@ -11,10 +11,16 @@ export interface ButtonProps {
   text: string;
   size?: sizeType;
   // eslint-disable-next-line no-unused-vars
-  onClick?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-const Button: FC<ButtonProps> = ({ link, type, text, size = "m" }) =>
+const Button: FC<ButtonProps> = ({
+  link,
+  type,
+  text,
+  size = "m",
+  handleClick,
+}) =>
   link ? (
     <Link href={link}>
       <StyledButton type={type} size={size}>
@@ -22,9 +28,11 @@ const Button: FC<ButtonProps> = ({ link, type, text, size = "m" }) =>
       </StyledButton>
     </Link>
   ) : (
-    <StyledButton type={type} size={size}>
-      {text}
-    </StyledButton>
+    <div onClick={handleClick}>
+      <StyledButton type={type} size={size}>
+        {text}
+      </StyledButton>
+    </div>
   );
 
 export default Button;

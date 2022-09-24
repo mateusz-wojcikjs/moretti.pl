@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Cookies from "./cookies";
 import { GlobalStyle } from "assets/theme/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { index } from "assets/theme";
@@ -20,6 +21,7 @@ const Layout = ({ children }: Props) => {
         <Navbar />
         <Wrapper>{children}</Wrapper>
         <Footer />
+        <Cookies />
       </>
     </ThemeProvider>
   );
