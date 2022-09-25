@@ -1,4 +1,4 @@
-import { HeroImage, Product } from "./product.interface";
+import { HeroImage, ImageProps, Product } from "./product.interface";
 import { PageType } from "../types/page";
 import { Testimonial } from "../components/Testimonials";
 import { Partner } from "../components/layout/Partners";
@@ -41,7 +41,7 @@ export interface AboutContentWithImage {
   listTitle: string;
   textContent: string;
   wideText: string;
-  image: FileUrl;
+  image: { data: ImageProps };
 }
 
 export interface AboutPageProps extends PageProps {
@@ -50,7 +50,7 @@ export interface AboutPageProps extends PageProps {
   timelineItems: TimelineItem[];
   aboutContentWithImage: AboutContentWithImage;
   ctaAbout: CtaAbout;
-  ctaImage: FileUrl;
+  ctaImage: { data: ImageProps };
 }
 
 interface ContactPageProps extends PageProps {
@@ -74,7 +74,7 @@ interface Header {
 export interface HomePageProps extends PageProps {
   header: Header;
   mainText: string;
-  image: FileUrl;
+  image: { data: ImageProps };
 }
 
 export interface IHomePage {

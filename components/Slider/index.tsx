@@ -11,15 +11,12 @@ import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 // If you want you can use SCSS instead of css
-// import "lightgallery/scss/lightgallery.scss";
-// import "lightgallery/scss/lg-zoom.scss";
 // import plugins if you need
 import { StyledSlider } from "./Slider.styled";
-
-import img1 from "assets/img/wagi/IMG_2568.jpg";
 import Image from "next/image";
+import { ImageProps } from "../../interfaces/product.interface";
 
-const Slider = () => {
+const Slider = ({ content }: { content: ImageProps[] }) => {
   const [slidesCount, setSlidesCount] = useState(4);
   const [windowWidth, setWindowWidth] = useState(1000);
 
@@ -48,41 +45,20 @@ const Slider = () => {
         modules={[Pagination, Navigation]}
         navigation={true}
       >
-        <SwiperSlide>
-          <div className="slider-item">
-            <Image src={img1} layout="fill" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider-item">
-            <Image src={img1} layout="fill" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider-item">
-            <Image src={img1} layout="fill" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider-item">
-            <Image src={img1} layout="fill" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider-item">
-            <Image src={img1} layout="fill" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider-item">
-            <Image src={img1} layout="fill" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slider-item">
-            <Image src={img1} layout="fill" />
-          </div>
-        </SwiperSlide>
+        {content.map((image) => {
+          const img = process.env.BASE_URL + image.attributes.formats.small.url;
+          return (
+            <SwiperSlide key={image.attributes.hash}>
+              <div className="slider-item">
+                <Image
+                  src={img}
+                  layout="fill"
+                  alt={image.attributes.alternativeText}
+                />
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </StyledSlider>
   );

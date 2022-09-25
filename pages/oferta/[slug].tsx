@@ -1,6 +1,9 @@
 import React from "react";
 import { NextPage } from "next";
-import { PageParameters, ProductResponse } from "interfaces/product.interface";
+import {
+  PageParameters,
+  ProductTemplateProps,
+} from "interfaces/product.interface";
 import ProductTemplate from "components/templates/ProductTemplate";
 import { getProductsPaths } from "utils/getProductsPaths";
 import * as Utils from "../../utils";
@@ -21,7 +24,7 @@ export const getStaticProps = async ({ params }: PageParameters) => {
   };
 };
 
-const OfferPage: NextPage<ProductResponse> = (props) => {
+const OfferPage: NextPage<ProductTemplateProps> = (props) => {
   return <ProductTemplate data={props} />;
 };
 

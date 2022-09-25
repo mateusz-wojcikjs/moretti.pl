@@ -13,43 +13,30 @@ import "lightgallery/css/lg-thumbnail.css";
 // import plugins if you need
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
-
-import img1 from "assets/img/wagi/20200731_160925.jpg";
-import img2 from "assets/img/wagi/20200731_160919.jpg";
-import img3 from "assets/img/wagi/20190826_154433.jpg";
 import { BsZoomIn } from "react-icons/bs";
+import { ImageProps } from "interfaces/product.interface";
 
-const GridGallery = () => {
+const GridGallery = ({ content }: { content: ImageProps[] }) => {
   return (
     <StyledGirdGallery>
       <LightGallery speed={500} plugins={[lgThumbnail, lgZoom]}>
-        <a
-          className="gallery-item"
-          href="http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F20200731_160925.3361670d.jpg&w=3840&q=75"
-        >
-          <i>
-            <BsZoomIn />
-          </i>
-          <Image src={img1} />
-        </a>
-        <a
-          className="gallery-item"
-          href="http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F20200731_160919.6f610629.jpg&w=3840&q=75"
-        >
-          <i>
-            <BsZoomIn />
-          </i>
-          <Image src={img2} />
-        </a>
-        <a
-          className="gallery-item"
-          href="http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F20190826_154433.59755afd.jpg&w=3840&q=75"
-        >
-          <i>
-            <BsZoomIn />
-          </i>
-          <Image src={img3} />
-        </a>
+        {content.map((image) => {
+          const thumbnail =
+            process.env.BASE_URL + image.attributes.formats.medium.url;
+          const img = process.env.BASE_URL + image.attributes.url;
+          return (
+            <a key={image.attributes.hash} className="gallery-item" href={img}>
+              <i>
+                <BsZoomIn />
+              </i>
+              <Image
+                src={thumbnail}
+                alt={image.attributes.alternativeText}
+                layout="fill"
+              />
+            </a>
+          );
+        })}
       </LightGallery>
     </StyledGirdGallery>
   );

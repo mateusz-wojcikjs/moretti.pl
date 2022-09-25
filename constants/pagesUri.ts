@@ -5,4 +5,8 @@ export const URI = {
   CONTACT: "contact?populate=heroImage,contactValues",
   PRIVACY: "privacy",
   OFFER: "offer?populate=header.heroImage,header.title",
+  PRODUCT_FILTER_BY_SLUG: "products?filters[slug][$eq]=",
+  PRODUCT: "products/",
+  PRODUCT_DATA:
+    "?populate[0]=gallery,heroImage,descriptionBottomWithImage.image,slidersPhotos",
 };

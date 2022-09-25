@@ -63,7 +63,7 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
     process.env.BASE_URL +
     page.header.heroImage.data.attributes.formats.large.url;
 
-  const img = page.image.data.attributes.url;
+  const img = page.image.data.attributes.formats.large.url;
   const bannerImg =
     process.env.BASE_URL +
     banner.attributes.backgroundImage.data.attributes.url;
@@ -90,7 +90,11 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
               <ReactMarkdown>{page.mainText}</ReactMarkdown>
               <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
             </div>
-            <ContentImg isDecorated img={img} />
+            <ContentImg
+              isDecorated
+              img={img}
+              alt={page.image.data.attributes.alternativeText}
+            />
           </Grid>
         </AnimatedOnScroll>
       </Container>

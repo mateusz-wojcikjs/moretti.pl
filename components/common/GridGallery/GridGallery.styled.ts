@@ -29,6 +29,7 @@ export const StyledGirdGallery = styled.div`
   .gallery-item {
     overflow: hidden;
     position: relative;
+    min-height: 400px;
 
     i {
       position: absolute;

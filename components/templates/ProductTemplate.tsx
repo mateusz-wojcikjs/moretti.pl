@@ -1,25 +1,25 @@
-import React from "react";
-import Hero from "../Hero";
-import HeroImg from "../../assets/img/about.jpeg";
-import Heading from "../common/Heading";
-import Breadcrumbs from "../common/Breadcrumbs";
-import { Container, FullSectionGray } from "../layout/Layout.styled";
-import GridGallery from "../common/GridGallery";
-import TextBox from "../common/TextBox";
-import ReactMarkdown from "react-markdown";
 import Image from "next/image";
-import Slider from "../Slider";
-import Cta from "../common/Cta";
-import Testimonials from "../Testimonials";
-import Partners from "../layout/Partners";
+import ReactMarkdown from "react-markdown";
+import Hero from "components/Hero";
+import Heading from "components/common/Heading";
+import Breadcrumbs from "components/common/Breadcrumbs";
+import GridGallery from "components/common/GridGallery";
+import TextBox from "components/common/TextBox";
+import Slider from "components/Slider";
+import Cta from "components/common/Cta";
+import Testimonials from "components/Testimonials";
+import Partners from "components/layout/Partners";
 import Seo from "components/Seo";
-import { ProductResponse } from "interfaces/product.interface";
+import { Container, FullSectionGray } from "components/layout/Layout.styled";
+import { ProductTemplateProps } from "interfaces/product.interface";
 
-const ProductTemplate = ({ data }: { data: ProductResponse }) => {
+const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
   const testimonials = data.testimonials;
   const customers = data.customers;
   const cta = data.cta;
   const product = data.product.attributes;
+  const gallery = product.gallery.data;
+  const sliderPhotos = product.slidersPhotos.data;
   const [{ textContent, image }] = product.descriptionBottomWithImage;
   const url = process.env.BASE_URL + image.data.attributes.url;
   const heroUrl =
@@ -31,14 +31,14 @@ const ProductTemplate = ({ data }: { data: ProductResponse }) => {
         seoDescription={product.seoDescription}
         ogImage={heroUrl}
       />
-      <Hero img={heroUrl || HeroImg} secondary textCenter>
+      <Hero img={heroUrl} secondary textCenter>
         <Heading headingLevel="h1" isCenter>
           {product.name}
         </Heading>
         <Breadcrumbs />
       </Hero>
       <Container>
-        <GridGallery />
+        <GridGallery content={gallery} />
       </Container>
 
       <Container>
@@ -55,8 +55,8 @@ const ProductTemplate = ({ data }: { data: ProductResponse }) => {
               layout="responsive"
               quality={100}
               placeholder="blur"
-              blurDataURL="rgb(237, 181, 6)"
               className="content-image"
+              alt={image.data.attributes.alternativeText}
             />
           </div>
         </TextBox>
@@ -64,7 +64,7 @@ const ProductTemplate = ({ data }: { data: ProductResponse }) => {
         <Heading headingLevel="h2" isDecorated>
           Zobacz zdjęcia
         </Heading>
-        <Slider />
+        <Slider content={sliderPhotos} />
       </Container>
 
       <FullSectionGray>

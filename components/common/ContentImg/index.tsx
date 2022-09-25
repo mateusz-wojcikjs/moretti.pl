@@ -6,9 +6,10 @@ import { ImgWrapper } from "components/layout/Layout.styled";
 interface ContentImgProps {
   isDecorated?: boolean;
   img: string;
+  alt?: string;
 }
 
-const ContentImg = ({ isDecorated, img }: ContentImgProps) => {
+const ContentImg = ({ isDecorated, img, alt }: ContentImgProps) => {
   const imgUrl = process.env.BASE_URL + img;
   return (
     <StyledImg>
@@ -22,6 +23,7 @@ const ContentImg = ({ isDecorated, img }: ContentImgProps) => {
           height="100%"
           objectFit="cover"
           objectPosition="left"
+          alt={alt || ""}
         />
       </ImgWrapper>
     </StyledImg>

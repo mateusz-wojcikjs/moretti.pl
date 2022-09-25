@@ -11,6 +11,7 @@ export interface ImageData {
     id: number;
     attributes: {
       url: string;
+      formats: ImageSizes;
     };
   };
 }
@@ -35,6 +36,7 @@ export interface HeroImage {
   data: {
     attributes: {
       formats: ImageSizes;
+      url: string;
     };
   };
 }
@@ -54,7 +56,7 @@ export interface ImageSizes {
   };
 }
 
-export interface ProductResponse {
+export interface ProductTemplateProps {
   product: Product;
   testimonials: Testimonial[];
   customers: Partner[];
@@ -64,7 +66,7 @@ export interface ProductResponse {
 export interface RichTextComp {
   id: number;
   textContent: string;
-  image: ImageData;
+  image: { data: ImageProps };
 }
 
 type RTC = RichTextComp;
@@ -81,11 +83,21 @@ export interface ProductAttributes {
   updatedAt: string;
   publishedAt: string;
   heroImage: HeroImage;
-  slidersPhotos?: string;
-  gallery?: string;
+  slidersPhotos: { data: ImageProps[] };
+  gallery: { data: ImageProps[] };
 }
 
 export interface Product {
   id: number;
   attributes: ProductAttributes;
+}
+
+export interface ImageProps {
+  id: number;
+  attributes: {
+    url: string;
+    formats: ImageSizes;
+    hash: string;
+    alternativeText: string;
+  };
 }

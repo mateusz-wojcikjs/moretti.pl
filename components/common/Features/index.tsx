@@ -4,7 +4,7 @@ import Button from "../Button";
 import Box from "icons/box";
 import { Feature, StyledFeatures } from "./Features.styled";
 import AnimatedOnScroll from "../../AnimatedOnScroll";
-import { FeaturesProps } from "../../../pages";
+import { FeaturesProps } from "interfaces/page.interface";
 
 const Features = ({ data }: { data: FeaturesProps }) => {
   return (

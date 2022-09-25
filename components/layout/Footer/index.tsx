@@ -5,8 +5,22 @@ import Button from "../../common/Button";
 
 import Logo from "components/layout/Logo";
 import Link from "next/link";
+import slugify from "slugify";
 
-const Footer = () => {
+export interface Company {
+  companyName: string;
+  firstAddressLine: string;
+  secondAddressLine: string;
+  phoneNumber: string;
+  emailAddress: string;
+}
+
+interface FooterProps {
+  links: string[];
+  company: Company;
+}
+
+const Footer = ({ links, company }: FooterProps) => {
   const date = new Date();
 
   return (
@@ -28,18 +42,14 @@ const Footer = () => {
             <div>
               <h5>Oferta</h5>
               <ul>
-                <li>
-                  <Link href="/">Link</Link>
-                </li>
-                <li>
-                  <Link href="/">Link</Link>
-                </li>
-                <li>
-                  <Link href="/">Link</Link>
-                </li>
-                <li>
-                  <Link href="/">Link</Link>
-                </li>
+                {links.map((link: string) => {
+                  const slug = slugify(link).toLowerCase();
+                  return (
+                    <li key={slug}>
+                      <Link href={`/oferta/${slug}`}>{link}</Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <div className="footer-social">
@@ -50,14 +60,18 @@ const Footer = () => {
                 size="l"
               />
               <address>
-                <p>Moretti Macchine</p>
-                <p>ul. Duńska 3</p>
-                <p>64-100 Leszno</p>
+                <p>{company.companyName}</p>
+                <p>{company.firstAddressLine}</p>
+                <p>{company.secondAddressLine}</p>
                 <p>
-                  <a href="tel:664412061">+48 664 412 061</a>
+                  <a href={`tel:${company.phoneNumber.replaceAll(" ", "")}`}>
+                    {company.phoneNumber}
+                  </a>
                 </p>
                 <p>
-                  <a href="mailto:moretti@moretti.pl">moretti@moretti.pl</a>
+                  <a href={`mailto:${company.emailAddress}`}>
+                    {company.emailAddress}
+                  </a>
                 </p>
               </address>
             </div>

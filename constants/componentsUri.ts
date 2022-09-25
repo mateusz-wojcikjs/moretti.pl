@@ -6,4 +6,5 @@ export const COMPONENT_URI = {
   FEATURE: "feature?populate=iconWithText",
   BANNER: "banner?populate=backgroundImage",
   COUNTER: "counter?populate=counter",
+  COMPANY: "company",
 };

@@ -72,7 +72,10 @@ const AboutPage: NextPage<AboutPageStaticProps> = (props) => {
               <ReactMarkdown>{page.aboutContent}</ReactMarkdown>
               <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
             </div>
-            <ContentImg img={img} />
+            <ContentImg
+              img={img}
+              alt={page.ctaImage.data.attributes.alternativeText}
+            />
           </Grid>
         </AnimatedOnScroll>
       </Container>
@@ -90,6 +93,9 @@ const AboutPage: NextPage<AboutPageStaticProps> = (props) => {
           <Grid colCount={2} gap={5}>
             <ContentImg
               img={page.aboutContentWithImage.image.data.attributes.url}
+              alt={
+                page.aboutContentWithImage.image.data.attributes.alternativeText
+              }
             />
             <div className="about">
               <h3>{page.aboutContentWithImage.title}</h3>
