@@ -89,11 +89,7 @@ const ContactForm = () => {
           Wyrażam zgodę na przetwarzanie danych osobowych.
         </div>
 
-        <Button
-          type="secondary"
-          text="Wyślij"
-          onClick={(e) => e.preventDefault()}
-        />
+        <Button type="secondary" text="Wyślij" />
       </form>
     </StyledContactForm>
   );
