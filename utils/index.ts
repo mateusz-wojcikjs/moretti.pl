@@ -9,3 +9,4 @@ export * from "./getCounters";
 export * from "./getTestimonials";
 export * from "./getPageData";
 export * from "./getCompanyData";
+export * from "./imagePlaceholder";

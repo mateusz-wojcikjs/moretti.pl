@@ -12,6 +12,7 @@ import Partners from "components/layout/Partners";
 import Seo from "components/Seo";
 import { Container, FullSectionGray } from "components/layout/Layout.styled";
 import { ProductTemplateProps } from "interfaces/product.interface";
+import * as Utils from "utils";
 
 const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
   const testimonials = data.testimonials;
@@ -55,6 +56,7 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
               layout="responsive"
               quality={100}
               placeholder="blur"
+              blurDataURL={Utils.placeholder}
               className="content-image"
               alt={image.data.attributes.alternativeText}
             />
