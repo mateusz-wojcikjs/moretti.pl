@@ -11,7 +11,7 @@ const ProductItem = ({ name, descriptionTop, thumbnail }: IProductItem) => {
   const getUrl = (img: any) => {
     if (img) {
       const { small } = img.data.attributes.formats;
-      return "http://localhost:1337" + small.url;
+      return process.env.BASE_URL + small.url;
     }
     return false;
   };

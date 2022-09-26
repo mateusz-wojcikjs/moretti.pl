@@ -32,7 +32,7 @@ const AboutCta = ({ data, img }: AboutCtaProps) => {
           <div className="icons-container">
             {data.iconWithText.map((item) => {
               const { url: iconUrl } = item.icon.data.attributes;
-              const iconLink = "http://localhost:1337" + iconUrl;
+              const iconLink = process.env.BASE_URL + iconUrl;
               return (
                 <div className="icon-box" key={item.id}>
                   <Image
