@@ -32,10 +32,19 @@ const Footer = ({ links, company }: FooterProps) => {
               <h5>Firma</h5>
               <ul>
                 <li>
+                  <Link href="/">Strona główna</Link>
+                </li>
+                <li>
                   <Link href="/o-firmie">O nas</Link>
                 </li>
                 <li>
+                  <Link href="/oferta">Oferta</Link>
+                </li>
+                <li>
                   <Link href="/kontakt">Kontakt</Link>
+                </li>
+                <li>
+                  <Link href="/privacy">Polityka prywatności</Link>
                 </li>
               </ul>
             </div>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { buttonType, sizeType } from "./index";
+import Link from "next/link";
 
 export const StyledButton = styled.a<{ size: sizeType; type: buttonType }>`
   cursor: pointer;
@@ -49,4 +50,10 @@ export const StyledButton = styled.a<{ size: sizeType; type: buttonType }>`
         : "rgba(0,0,0, .75)"};
   }
 }
+`;
+
+export const StyledLink = styled(Link)<{ size: sizeType; type: buttonType }>`
+  ${StyledButton}: {
+    text-decoration: underline;
+  }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "assets/theme/breakpoints";
 
 export const StyledCookies = styled.div<{ className: string }>`
   position: fixed;
@@ -13,6 +14,12 @@ export const StyledCookies = styled.div<{ className: string }>`
   opacity: 1;
   transition: opacity 300ms, transform 300ms, z-index 300ms 300ms,
     visibility 300ms 300ms;
+
+  @media only screen and ${breakpoints.device.sm} {
+    max-width: 90vw;
+    padding: 3rem;
+  }
+
   //@include tablet {
   //  max-width: 85vw;
   //}

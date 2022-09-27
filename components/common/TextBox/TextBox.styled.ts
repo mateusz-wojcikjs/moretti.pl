@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "assets/theme/breakpoints";
 
 export const StyledTextBox = styled.div`
   margin-bottom: 7.5rem;
@@ -8,6 +9,13 @@ export const StyledTextBox = styled.div`
       display: grid;
       grid-template-columns: 66% 1fr;
       grid-gap: 5rem;
+
+      @media only screen and ${breakpoints.device.m} {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media only screen and ${breakpoints.device.sm} {
+        grid-template-columns: 1fr;
+      }
 
       .content-image {
         grid-column: 2;

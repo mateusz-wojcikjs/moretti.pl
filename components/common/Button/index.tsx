@@ -20,10 +20,10 @@ const Button: FC<ButtonProps> = ({
   text,
   size = "m",
   handleClick,
-}) =>
-  link ? (
+}) => {
+  return link ? (
     <Link href={link}>
-      <StyledButton type={type} size={size}>
+      <StyledButton type={type} size={size} href={link} as="a">
         {text}
       </StyledButton>
     </Link>
@@ -34,5 +34,6 @@ const Button: FC<ButtonProps> = ({
       </StyledButton>
     </div>
   );
+};
 
 export default Button;

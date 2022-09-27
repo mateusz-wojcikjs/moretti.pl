@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import breakpoints from "assets/theme/breakpoints";
 
 export const StyledGirdGallery = styled.div`
   margin: 5rem 0;
@@ -9,6 +10,10 @@ export const StyledGirdGallery = styled.div`
     grid-template-rows: 1fr 1fr;
     grid-gap: 3rem;
 
+    @media only screen and ${breakpoints.device.sm} {
+      grid-template-columns: 1fr;
+    }
+
     a span {
       height: 100% !important;
     }
@@ -16,6 +21,10 @@ export const StyledGirdGallery = styled.div`
     & :nth-child(2) {
       grid-row: 1 / 3;
       grid-column: 2;
+      @media only screen and ${breakpoints.device.sm} {
+        grid-row: auto;
+        grid-column: auto;
+      }
     }
   }
 

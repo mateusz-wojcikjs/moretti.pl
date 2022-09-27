@@ -14,11 +14,12 @@ const Seo = ({ seoTitle, seoDescription, ogImage }: ISeo) => {
   const domain = process.env.BASE_URL;
   const { asPath } = useRouter();
   const canonical = domain + asPath;
+  const title = `${seoTitle} - ${siteName}`;
   return (
     <Head>
-      <title>
-        {seoTitle} - {siteName}
-      </title>
+      <title>{title}</title>
+      {/*TODO: remove robots noindex when page will be on correct domain*/}
+      <meta name="robots" content="noindex" />
       <meta name="description" content={seoDescription} />
       <meta key="og_type" property="og:type" content={ogType} />
       <meta property="og:locale" content="pl_PL" />
@@ -40,9 +41,7 @@ const Seo = ({ seoTitle, seoDescription, ogImage }: ISeo) => {
       />
       <meta key="og_image:width" property="og:image:width" content="1200" />
       <meta key="og_image:height" property="og:image:height" content="630" />
-
       <meta name="robots" content="index,follow" />
-
       <meta
         key="twitter:card"
         name="twitter:card"
@@ -54,9 +53,7 @@ const Seo = ({ seoTitle, seoDescription, ogImage }: ISeo) => {
         property="twitter:description"
         content={seoDescription}
       />
-
       <link rel="canonical" href={canonical ?? domain} />
-
       <link rel="shortcut icon" href="/favicon.ico" />
     </Head>
   );
