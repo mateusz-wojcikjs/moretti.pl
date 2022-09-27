@@ -195,6 +195,7 @@ export const StyledGridPartners = styled(Grid)`
   .item {
     position: relative;
     height: 5rem;
+    width: 100%;
   }
 `;
 export const StyledGridFooter = styled(Grid)`
