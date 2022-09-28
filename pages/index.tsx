@@ -60,8 +60,7 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
   const features = props.features;
   const counters = props.counters;
   const heroImg =
-    process.env.BASE_URL +
-    page.header.heroImage.data.attributes.formats.large.url;
+    process.env.BASE_URL + page.header.heroImage.data.attributes.url;
 
   const img = page.image.data.attributes.formats.large.url;
   const bannerImg =

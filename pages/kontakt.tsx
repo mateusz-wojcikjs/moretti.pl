@@ -18,8 +18,7 @@ export const getStaticProps = async () => {
   };
 };
 const ContactPage: NextPage<IContactPage> = ({ page }) => {
-  const heroUrl =
-    process.env.BASE_URL + page.heroImage.data.attributes.formats.medium.url;
+  const heroUrl = process.env.BASE_URL + page.heroImage.data.attributes.url;
 
   return (
     <>

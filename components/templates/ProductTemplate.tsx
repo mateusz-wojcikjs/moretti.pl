@@ -23,8 +23,7 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
   const sliderPhotos = product.slidersPhotos.data;
   const [{ textContent, image }] = product.descriptionBottomWithImage;
   const url = process.env.BASE_URL + image.data.attributes.url;
-  const heroUrl =
-    process.env.BASE_URL + product.heroImage.data.attributes.formats.large.url;
+  const heroUrl = process.env.BASE_URL + product.heroImage.data.attributes.url;
   return (
     <>
       <Seo
