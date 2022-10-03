@@ -8,8 +8,7 @@ Designed by me on [Figma](https://www.figma.com/file/HYXvaCy0LDBxLT9ylCbCbY/more
 - Next.js,
 - Styled-components.
 
-Back-end not chosen yet, but there will be one of headless CMS.
-For now there's no env variables.
+Back-end and cms is strapi.
 
 ## Getting Started
 
