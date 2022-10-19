@@ -17,7 +17,7 @@ interface HeroProps {
   secondary?: boolean;
   textCenter?: boolean;
   position?: PositionType;
-  overlay?: boolean;
+  overlay?: number;
 }
 
 const Hero: FC<HeroProps> = ({

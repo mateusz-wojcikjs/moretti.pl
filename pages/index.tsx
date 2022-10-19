@@ -74,7 +74,7 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
         seoDescription={page.seoDescription}
         ogImage={heroImg}
       />
-      <Hero img={heroImg}>
+      <Hero img={heroImg} overlay={0.33}>
         <Heading headingLevel="h1">
           <span className="top">{page.header.title.top}</span>
           <span className="bottom">{page.header.title.bottom}</span>

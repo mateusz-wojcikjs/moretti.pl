@@ -48,7 +48,31 @@ export const StyledMenu = styled.ul`
 `;
 
 export const StyledNavItem = styled.li`
-  font-size: ${({ theme }) => theme.font.size.s};
+  font-size: ${({ theme }) => theme.font.size.l};
+  text-shadow: 0 0 2px ${({ theme }) => theme.colors.white};
+
+  a {
+    letter-spacing: 1px;
+    font-family: ${({ theme }) => theme.font.family.bebasNeue};
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background-color: transparent;
+      bottom: 0;
+      left: 0;
+      transition: background-color 300ms ease;
+    }
+
+    &:hover {
+      &::after {
+        background-color: ${({ theme }) => theme.colors.primary};
+      }
+    }
+  }
 
   &:not(:last-child) {
     margin-right: 3.2rem;

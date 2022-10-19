@@ -7,7 +7,7 @@ export const StyledHero = styled.header<{
     secondary?: boolean;
     textCenter?: boolean;
     position?: PositionType;
-    overlay?: boolean;
+    overlay?: number;
   };
 }>`
   position: relative;
@@ -27,7 +27,7 @@ export const StyledHero = styled.header<{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: ${({ options }) => `rgba(0, 0, 0, ${options.overlay})`};
     z-index: -1;
   }
 

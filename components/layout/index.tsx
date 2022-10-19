@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Footer, { Company } from "./Footer";
 import Cookies from "./Cookies";
+import Loader from "./Loader";
 import { GlobalStyle } from "assets/theme/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { index } from "assets/theme";
@@ -19,6 +20,7 @@ const Layout = ({ children, links, company }: LayoutProps) => {
   return (
     <ThemeProvider theme={index}>
       <>
+        <Loader />
         <GlobalStyle />
         <Navbar />
         <Wrapper>{children}</Wrapper>

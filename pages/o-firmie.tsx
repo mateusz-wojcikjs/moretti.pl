@@ -58,7 +58,7 @@ const AboutPage: NextPage<AboutPageStaticProps> = (props) => {
         seoDescription={page.seoDescription}
         ogImage={heroImg}
       />
-      <Hero img={heroImg} secondary overlay>
+      <Hero img={heroImg} secondary overlay={0.4}>
         <Heading headingLevel="h1" isCenter>
           {page.title}
         </Heading>
