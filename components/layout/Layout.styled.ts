@@ -15,7 +15,6 @@ export const Wrapper = styled.main`
     [container-end] 1fr 15px [full-end];
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   @media only screen and ${breakpoints.device.xxl} {
     grid-template-columns:
       [full-start] 15px 1fr [container-start] minmax(57.5rem, 115rem)
