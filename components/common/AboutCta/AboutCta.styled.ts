@@ -12,6 +12,7 @@ export const StyledAboutCta = styled.div`
   grid-template-rows: 1fr minmax(50rem, 60%) 1fr;
   margin-top: 15rem;
   min-height: 60rem;
+  overflow: hidden;
 
   @media only screen and ${breakpoints.device.sm} {
     grid-template-columns: 2.5rem repeat(4, 1fr) 2.5rem;

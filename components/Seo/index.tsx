@@ -54,7 +54,7 @@ const Seo = ({ seoTitle, seoDescription, ogImage }: ISeo) => {
         content={seoDescription}
       />
       <link rel="canonical" href={canonical ?? domain} />
-      <link rel="shortcut icon" href="/favicon.ico" />
+      <link rel="shortcut icon" href="/favicon.png" />
     </Head>
   );
 };
