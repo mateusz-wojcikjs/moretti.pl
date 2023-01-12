@@ -52,7 +52,7 @@ export const StyledCta = styled.div`
     justify-content: space-around;
     align-items: flex-start;
     padding: 7.5rem 0;
-
+    background: ${({ theme }) => theme.colors.white};
     position: relative;
 
     @media only screen and ${breakpoints.device.sm} {

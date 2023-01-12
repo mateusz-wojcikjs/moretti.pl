@@ -131,6 +131,8 @@ export interface CounterProps {
   id: number;
   count: string;
   description: string;
+  prefix?: string;
+  suffix?: string;
 }
 
 export interface CountersProps {

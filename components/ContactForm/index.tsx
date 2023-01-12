@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Button from "../common/Button";
+import React, { FormEvent, useState } from "react";
 import { StyledContactForm } from "./ContactForm.styled";
 
 const ContactForm = () => {
@@ -27,9 +26,14 @@ const ContactForm = () => {
     });
   };
 
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(e);
+  };
+
   return (
     <StyledContactForm>
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="input-group">
           <label htmlFor="name">Imię i nazwisko</label>
           <input
@@ -88,8 +92,7 @@ const ContactForm = () => {
           />
           Wyrażam zgodę na przetwarzanie danych osobowych.
         </div>
-
-        <Button type="secondary" text="Wyślij" />
+        <button type="submit">Wyślij</button>
       </form>
     </StyledContactForm>
   );
