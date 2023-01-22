@@ -10,10 +10,10 @@ const AnimatedOnScroll = ({
 }) => {
   useEffect(() => {
     Aos.init({
-      duration: 1000,
+      duration: 700,
     });
   }, []);
-  return <div data-aos={`${type || "fade-up"}`}>{children}</div>;
+  return <div data-aos={`${type || "fade-in"}`}>{children}</div>;
 };
 
 export default AnimatedOnScroll;

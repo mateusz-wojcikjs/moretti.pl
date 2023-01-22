@@ -52,7 +52,6 @@ export const Container = styled.div<{ pt5?: boolean }>`
   }
 
   p {
-    font-size: ${({ theme }) => theme.font.size.m};
     margin-bottom: 1.5rem;
   }
 

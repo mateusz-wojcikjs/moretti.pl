@@ -1,9 +1,9 @@
 import React, { MouseEventHandler, useEffect, useState } from "react";
 import Heading from "components/common/Heading";
-import Button from "components/common/Button";
 import Cookies from "js-cookie";
 
 import { StyledCookies } from "./Cookies.styled";
+import Button from "../../common/Button";
 
 const USER_CONSENT_COOKIE_KEY = "cookie_consent_is_true";
 const USER_CONSENT_COOKIE_EXPIRE_DATE = 365;
@@ -16,7 +16,7 @@ const CookieConsent = () => {
     setCookieConsentIsTrue(consentIsTrue);
   }, []);
 
-  const handleClick: MouseEventHandler<HTMLDivElement> = () => {
+  const onAcceptCookies: MouseEventHandler<HTMLDivElement> = () => {
     if (!cookieConsentIsTrue) {
       Cookies.set(USER_CONSENT_COOKIE_KEY, "true", {
         expires: USER_CONSENT_COOKIE_EXPIRE_DATE,
@@ -35,7 +35,14 @@ const CookieConsent = () => {
         blokujące zapisywanie plików cookies jest jednoznaczne z wyrażeniem
         zgody na ich zapisywanie.
       </p>
-      <Button type="primary" text="Akceptuję" handleClick={handleClick} />
+      <Button
+        onClick={onAcceptCookies}
+        htmlType="button"
+        size="l"
+        type="primary"
+      >
+        Akceptuję
+      </Button>
     </StyledCookies>
   );
 };

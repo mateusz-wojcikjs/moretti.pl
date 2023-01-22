@@ -36,9 +36,9 @@ const AboutCta = ({ data, img }: AboutCtaProps) => {
               return (
                 <div className="icon-box" key={item.id}>
                   <Image
-                    layout="fixed"
-                    height="100%"
-                    width="100%"
+                    height={0}
+                    width={0}
+                    className="responsive-fill-img"
                     src={iconLink}
                     alt={item.title + " ikona"}
                   />

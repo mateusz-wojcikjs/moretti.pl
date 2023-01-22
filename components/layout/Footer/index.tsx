@@ -1,11 +1,11 @@
 import React from "react";
 import { StyledFooter, StyledSubFooter } from "./Footer.styled";
 import { Container, Grid, StyledGridFooter } from "../Layout.styled";
-import Button from "../../common/Button";
 
 import Logo from "components/layout/Logo";
 import Link from "next/link";
 import slugify from "slugify";
+import ButtonLink from "components/common/ButtonLink";
 
 export interface Company {
   companyName: string;
@@ -62,12 +62,9 @@ const Footer = ({ links, company }: FooterProps) => {
               </ul>
             </div>
             <div className="footer-social">
-              <Button
-                link="/kontakt"
-                type="secondary"
-                text="Kontakt"
-                size="l"
-              />
+              <ButtonLink type="secondary" size="l" href="/kontakt">
+                Kontakt
+              </ButtonLink>
               <address>
                 <p>{company.companyName}</p>
                 <p>{company.firstAddressLine}</p>

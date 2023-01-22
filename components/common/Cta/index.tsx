@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { StyledCta } from "./Cta.styled";
 import Background from "../Background";
 import Heading from "../Heading";
-import Button from "../Button";
 import Aos from "aos";
 import { FileUrl } from "interfaces/page.interface";
+import ButtonLink from "../ButtonLink";
 
 export interface CtaProps {
   id: number;
@@ -38,7 +38,9 @@ const Cta = ({ content }: ICta) => {
         <div className="cta-content">
           <Heading headingLevel="h3">{content.attributes.title}</Heading>
           <p>{content.attributes.description}</p>
-          <Button link="/kontakt" type="primary" text="Skontaktuj się" />
+          <ButtonLink href="/kontakt" size="l" type="primary">
+            Skontaktuj się
+          </ButtonLink>
         </div>
       </div>
       <div className="cta-bg">

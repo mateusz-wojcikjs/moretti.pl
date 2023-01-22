@@ -14,3 +14,21 @@ a {
 * {
     box-sizing: border-box;
 }
+
+.responsive-cover-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.responsive-fill-img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+.responsive-contain-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

@@ -10,6 +10,7 @@ import Seo from "components/Seo";
 import { getPageData } from "utils/getPageData";
 import { IContactPage } from "interfaces/page.interface";
 import * as Constants from "../constants";
+import AnimatedOnScroll from "../components/AnimatedOnScroll";
 
 export const getStaticProps = async () => {
   const page = await getPageData(Constants.PAGE_TYPES.CONTACT);
@@ -33,19 +34,20 @@ const ContactPage: NextPage<IContactPage> = ({ page }) => {
         </Heading>
         <Breadcrumbs />
       </Hero>
-
       <Container pt5 as="section">
-        <Grid colCount={2} gap={5}>
-          <div>
-            <Heading headingLevel="h2" isDecorated>
-              {page.H2}
-            </Heading>
-            {page.contactValues.map((item) => (
-              <ListIconItem key={item.id} data={item} />
-            ))}
-          </div>
-          <ContactForm />
-        </Grid>
+        <AnimatedOnScroll>
+          <Grid colCount={2} gap={5}>
+            <div>
+              <Heading headingLevel="h2" isDecorated>
+                {page.H2}
+              </Heading>
+              {page.contactValues.map((item) => (
+                <ListIconItem key={item.id} data={item} />
+              ))}
+            </div>
+            <ContactForm />
+          </Grid>
+        </AnimatedOnScroll>
       </Container>
     </>
   );

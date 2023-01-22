@@ -18,12 +18,10 @@ const ContentImg = ({ isDecorated, img, alt }: ContentImgProps) => {
       <ImgWrapper>
         <Image
           src={imgUrl}
-          layout="responsive"
-          width="100%"
-          height="100%"
-          objectFit="cover"
-          objectPosition="left"
           alt={alt || ""}
+          height={500}
+          width={500}
+          className="responsive-cover-img"
         />
       </ImgWrapper>
     </StyledImg>

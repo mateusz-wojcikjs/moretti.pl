@@ -3,6 +3,7 @@ import { StaticImageData } from "next/image";
 import Background from "../common/Background";
 import { StyledHero } from "./Hero.styled";
 import { InnerWrapper } from "components/layout/Layout.styled";
+import AnimatedOnScroll from "../AnimatedOnScroll";
 
 export type TitleType = {
   textTop: string;
@@ -37,7 +38,9 @@ const Hero: FC<HeroProps> = ({
   return (
     <StyledHero options={options}>
       <Background img={img} />
-      <InnerWrapper>{children}</InnerWrapper>
+      <InnerWrapper>
+        <AnimatedOnScroll>{children}</AnimatedOnScroll>
+      </InnerWrapper>
     </StyledHero>
   );
 };

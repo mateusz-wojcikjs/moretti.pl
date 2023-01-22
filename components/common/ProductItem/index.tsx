@@ -18,29 +18,25 @@ const ProductItem = ({ name, descriptionTop, thumbnail }: IProductItem) => {
   const url = getUrl(thumbnail);
   return (
     <Link href={`/oferta/${slugify(name).toLowerCase()}`}>
-      <a>
-        <StyledProductItem>
-          <div className="item-img-mask">
-            <div className="item-img">
-              <Image
-                src={url || ProductSampleImg}
-                layout="responsive"
-                height="100%"
-                width="100%"
-                alt={name}
-                objectFit="cover"
-              />
-            </div>
+      <StyledProductItem>
+        <div className="item-img-mask">
+          <div className="item-img">
+            <Image
+              src={url || ProductSampleImg}
+              alt={name}
+              fill
+              className="responsive-cover-img"
+            />
           </div>
-          <div className="item-content">
-            <div className="item-icon">
-              <Box />
-            </div>
-            <p className="item-title">{name}</p>
-            <p>{descriptionTop.slice(0, 200)}</p>
+        </div>
+        <div className="item-content">
+          <div className="item-icon">
+            <Box />
           </div>
-        </StyledProductItem>
-      </a>
+          <p className="item-title">{name}</p>
+          <p>{descriptionTop.slice(0, 200)}</p>
+        </div>
+      </StyledProductItem>
     </Link>
   );
 };

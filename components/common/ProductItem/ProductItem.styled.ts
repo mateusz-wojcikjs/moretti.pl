@@ -32,6 +32,11 @@ export const StyledProductItem = styled.div`
 
   .item-img {
     transition: transform 300ms ease;
+    height: 100%;
+    width: 100%;
+    min-width: 3rem;
+    min-height: 40rem;
+    position: relative;
 
     &:after {
       content: "";

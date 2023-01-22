@@ -54,13 +54,13 @@ const Slider = ({ testimonials }: SliderProps) => {
                 <div className="item">
                   <Image
                     src={logo}
-                    layout="fill"
+                    height={300}
+                    width={300}
+                    className="responsive-contain-img"
                     alt={testimonial.attributes.companyName}
-                    objectFit="contain"
                   />
                 </div>
               </SliderLogo>
-
               <SliderText>
                 <p className="content">{testimonial.attributes.content}</p>
               </SliderText>

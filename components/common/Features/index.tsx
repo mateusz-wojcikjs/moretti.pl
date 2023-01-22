@@ -1,10 +1,10 @@
 import React from "react";
 import Heading from "../Heading";
-import Button from "../Button";
 import Box from "icons/box";
 import { Feature, StyledFeatures } from "./Features.styled";
 import AnimatedOnScroll from "../../AnimatedOnScroll";
 import { FeaturesProps } from "interfaces/page.interface";
+import ButtonLink from "../ButtonLink";
 
 const Features = ({ data }: { data: FeaturesProps }) => {
   return (
@@ -12,7 +12,9 @@ const Features = ({ data }: { data: FeaturesProps }) => {
       <StyledFeatures colCount={2} gap={1}>
         <div>
           <Heading headingLevel="h3">{data.attributes.title}</Heading>
-          <Button link="/oferta" type="primary" text="Czytaj więcej" />
+          <ButtonLink href="/oferta" size="l" type="primary">
+            Czytaj więcej
+          </ButtonLink>
         </div>
         <div className="features-box">
           {data.attributes.iconWithText.map((feature) => {

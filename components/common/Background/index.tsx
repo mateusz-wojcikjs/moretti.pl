@@ -11,9 +11,10 @@ const Background: FC<HeroBackgroundProps> = ({ img }) => {
   return (
     <BackgroundStyled>
       <Image
+        height={900}
+        width={900}
+        className="responsive-cover-img"
         src={img}
-        layout="fill"
-        objectFit="cover"
         alt="Hero Image"
         quality={70}
         placeholder="blur"

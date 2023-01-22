@@ -13,6 +13,7 @@ import Seo from "components/Seo";
 import { Container, FullSectionGray } from "components/layout/Layout.styled";
 import { ProductTemplateProps } from "interfaces/product.interface";
 import * as Utils from "utils";
+import AnimatedOnScroll from "../AnimatedOnScroll";
 
 const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
   const testimonials = data.testimonials;
@@ -50,22 +51,21 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
             <ReactMarkdown className="with-img">{textContent}</ReactMarkdown>
             <Image
               src={url}
-              width="100%"
-              height="100%"
-              layout="responsive"
-              quality={100}
+              height={250}
+              width={250}
+              className="responsive-fill-img content-image"
               placeholder="blur"
               blurDataURL={Utils.placeholder}
-              className="content-image"
               alt={image.data.attributes.alternativeText}
             />
           </div>
         </TextBox>
-
-        <Heading headingLevel="h2" isDecorated>
-          Zobacz zdjęcia
-        </Heading>
-        <Slider content={sliderPhotos} />
+        <AnimatedOnScroll>
+          <Heading headingLevel="h2" isDecorated>
+            Zobacz zdjęcia
+          </Heading>
+          <Slider content={sliderPhotos} />
+        </AnimatedOnScroll>
       </Container>
 
       <FullSectionGray>

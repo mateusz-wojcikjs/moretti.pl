@@ -23,9 +23,7 @@ const Breadcrumbs = () => {
         ) : (
           <React.Fragment key={i}>
             <span className="arrow-breadcrumb">&#10095;</span>
-            <Link href={`/${element}`}>
-              <a className="">{element.replaceAll("-", " ")}</a>
-            </Link>
+            <Link href={`/${element}`}>{element.replaceAll("-", " ")}</Link>
           </React.Fragment>
         );
       })}

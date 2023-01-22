@@ -10,15 +10,15 @@ import CounterNumber from "components/common/CounterNumber";
 import Cta, { CtaProps } from "components/common/Cta";
 import Testimonials, { Testimonial } from "components/Testimonials";
 import Partners, { Partner } from "components/layout/Partners";
-import Hero from "components/Hero";
 import Heading from "components/common/Heading";
-import Breadcrumbs from "components/common/Breadcrumbs";
-import Button from "components/common/Button";
 import ContentImg from "components/common/ContentImg";
 import Timeline from "components/common/Timeline";
 import AboutCta from "components/common/AboutCta";
-import AnimatedOnScroll from "components/AnimatedOnScroll";
 import Seo from "components/Seo";
+import Hero from "components/Hero";
+import Breadcrumbs from "components/common/Breadcrumbs";
+import ButtonLink from "components/common/ButtonLink";
+import AnimatedOnScroll from "components/AnimatedOnScroll";
 import { AboutPageProps, CountersProps } from "interfaces/page.interface";
 import { NextPage } from "next";
 import * as Constants from "../constants";
@@ -70,7 +70,9 @@ const AboutPage: NextPage<AboutPageStaticProps> = (props) => {
           <Grid colCount={2} gap={5}>
             <div className="text-box">
               <ReactMarkdown>{page.aboutContent}</ReactMarkdown>
-              <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
+              <ButtonLink href="/oferta" size="l" type="secondary">
+                Zobacz ofertę
+              </ButtonLink>
             </div>
             <ContentImg
               img={img}

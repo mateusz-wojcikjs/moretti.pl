@@ -1,38 +1,33 @@
-import React, { FC, MouseEventHandler } from "react";
+import React, { FC, MouseEventHandler, ReactNode } from "react";
 import { StyledButton } from "./Button.styled";
-import Link from "next/link";
 
 export type buttonType = "primary" | "secondary" | "tertiary";
 export type sizeType = "l" | "m";
 
-export interface ButtonProps {
-  link?: string;
+export interface StyledButtonProps {
+  size: sizeType;
   type: buttonType;
-  text: string;
-  size?: sizeType;
-  // eslint-disable-next-line no-unused-vars
-  handleClick?: MouseEventHandler<HTMLDivElement>;
+  children: ReactNode;
 }
 
-const Button: FC<ButtonProps> = ({
-  link,
-  type,
-  text,
-  size = "m",
-  handleClick,
-}) => {
-  return link ? (
-    <Link href={link}>
-      <StyledButton type={type} size={size} href={link} as="a">
-        {text}
-      </StyledButton>
-    </Link>
-  ) : (
-    <div onClick={handleClick}>
-      <StyledButton type={type} size={size}>
-        {text}
-      </StyledButton>
-    </div>
+export interface LinkButtonProps extends StyledButtonProps {
+  href: string;
+}
+
+export interface ButtonProps extends StyledButtonProps {
+  onClick?: MouseEventHandler<HTMLDivElement>;
+  htmlType: string;
+  disabled?: boolean;
+}
+
+const Button: FC<ButtonProps> = (
+  { type, size, onClick, children, disabled },
+  props,
+) => {
+  return (
+    <StyledButton {...props} {...{ onClick, size, type, disabled }}>
+      {children}
+    </StyledButton>
   );
 };
 

@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { buttonType, sizeType } from "./index";
+import styled, { css } from "styled-components";
+import { StyledButtonProps } from "./index";
 import Link from "next/link";
 
-export const StyledButton = styled.a<{ size: sizeType; type: buttonType }>`
+const ButtonStyles = css<StyledButtonProps>`
   cursor: pointer;
   font-size: ${({ theme }) => theme.font.size.m};
   padding: 1rem 3.5rem;
@@ -49,11 +49,21 @@ export const StyledButton = styled.a<{ size: sizeType; type: buttonType }>`
         ? theme.colors.secondaryDark
         : "rgba(0,0,0, .75)"};
   }
+
+  &:disabled {
+    border: 1px solid ${({ theme }) => theme.colors.grayDark};
+    background-color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.grayDark};
+    cursor: not-allowed;
+  }
 }
 `;
 
-export const StyledLink = styled(Link)<{ size: sizeType; type: buttonType }>`
-  ${StyledButton}: {
-    text-decoration: underline;
-  }
+export const StyledButtonLink = styled(Link)`
+  ${ButtonStyles}
+`;
+
+export const StyledButton = styled.button`
+  position: relative;
+  ${ButtonStyles}
 `;

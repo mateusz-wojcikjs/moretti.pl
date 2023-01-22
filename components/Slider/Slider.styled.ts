@@ -37,13 +37,6 @@ export const StyledSlider = styled.div`
     align-items: center;
   }
 
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   .swiper-pagination {
     bottom: 60px;
   }

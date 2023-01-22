@@ -62,13 +62,6 @@ export const StyledTestimonials = styled.div`
     align-items: center;
   }
 
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   h4 {
     color: ${({ theme }) => theme.colors.grayDark};
     font-size: ${({ theme }) => theme.font.size.m};

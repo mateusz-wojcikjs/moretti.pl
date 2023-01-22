@@ -36,8 +36,9 @@ const Partners = ({ partners }: IPartners) => {
               <div className="item" key={partner.id}>
                 <Image
                   src={img}
-                  layout="fill"
-                  objectFit="contain"
+                  height={300}
+                  width={300}
+                  className="responsive-contain-img"
                   alt={partner.attributes.companyName}
                 />
               </div>

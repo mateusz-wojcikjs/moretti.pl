@@ -11,7 +11,6 @@ import {
   StyledGridItems,
 } from "components/layout/Layout.styled";
 import Heading from "components/common/Heading";
-import Button from "components/common/Button";
 import ContentImg from "components/common/ContentImg";
 import Features from "components/common/Features";
 import Cta from "components/common/Cta";
@@ -26,6 +25,7 @@ import * as Utils from "utils";
 import type { NextPage } from "next";
 import { HomePageStaticProps } from "interfaces/page.interface";
 import { Product } from "interfaces/product.interface";
+import ButtonLink from "../components/common/ButtonLink";
 
 export const getStaticProps = async () => {
   const page = await Utils.getPageData(Constants.PAGE_TYPES.HOME);
@@ -80,14 +80,18 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
           <span className="bottom">{page.header.title.bottom}</span>
         </Heading>
         <Text>{page.header.subTitle}</Text>
-        <Button link="/oferta" type="primary" text="Zobacz ofertę" />
+        <ButtonLink href="/oferta" size="l" type="primary">
+          Zobacz ofertę
+        </ButtonLink>
       </Hero>
       <Container pt5 as="section">
         <AnimatedOnScroll>
           <Grid colCount={2} gap={5}>
             <div className="text-box">
               <ReactMarkdown>{page.mainText}</ReactMarkdown>
-              <Button link="/oferta" type="secondary" text="Zobacz ofertę" />
+              <ButtonLink href="/oferta" size="l" type="secondary">
+                Zobacz ofertę
+              </ButtonLink>
             </div>
             <ContentImg
               isDecorated
@@ -98,17 +102,19 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
         </AnimatedOnScroll>
       </Container>
       <Container pt5 as="section">
-        <Heading headingLevel="h2">Nasza oferta</Heading>
-        <StyledGridItems colCount={products?.length} gap={5}>
-          {products.map((product: Product) => (
-            <ProductItem
-              key={product.id}
-              name={product.attributes.name}
-              descriptionTop={product.attributes.seoDescription}
-              thumbnail={product.attributes.heroImage}
-            />
-          ))}
-        </StyledGridItems>
+        <AnimatedOnScroll>
+          <Heading headingLevel="h2">Nasza oferta</Heading>
+          <StyledGridItems colCount={products?.length} gap={5}>
+            {products.map((product: Product) => (
+              <ProductItem
+                key={product.id}
+                name={product.attributes.name}
+                descriptionTop={product.attributes.seoDescription}
+                thumbnail={product.attributes.heroImage}
+              />
+            ))}
+          </StyledGridItems>
+        </AnimatedOnScroll>
       </Container>
       <Banner img={bannerImg} text={banner.attributes.title} />
 

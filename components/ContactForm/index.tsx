@@ -1,99 +1,110 @@
-import React, { FormEvent, useState } from "react";
-import { StyledContactForm } from "./ContactForm.styled";
+import React, { useRef } from "react";
+import { StyledContactForm, StyledFormMessage } from "./ContactForm.styled";
+import { CSSTransition } from "react-transition-group";
+import { useContactForm } from "./useContactForm";
+import Button from "../common/Button";
+import LoadingSpinner from "../layout/LoadingSpinner";
+import FormField from "../common/FormField";
 
 const ContactForm = () => {
-  const [data, setData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    agree: false,
-  });
+  const {
+    onSubmit,
+    onChange,
+    values,
+    errors,
+    isLoading,
+    message,
+    formVisible,
+    internalError,
+  } = useContactForm();
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.checked,
-    });
-  };
-
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(e);
-  };
+  const nodeRef = useRef(null);
+  const nodeMessageRef = useRef(null);
 
   return (
     <StyledContactForm>
-      <form onSubmit={onSubmit}>
-        <div className="input-group">
-          <label htmlFor="name">Imię i nazwisko</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Twoje imię i nazwisko"
-            onChange={handleChange}
-            value={data.name}
+      <CSSTransition
+        nodeRef={nodeRef}
+        in={formVisible}
+        timeout={100}
+        classNames="form-fade"
+      >
+        <form onSubmit={onSubmit} ref={nodeRef}>
+          <FormField
+            value={values.name}
+            error={errors.name}
+            name={"name"}
+            placeholder={"Twoje imię i nazwisko"}
+            label={"Imię i nazwisko"}
             required
+            type="text"
+            {...{ onChange }}
           />
-        </div>
-        <div className="input-group">
-          <label htmlFor="email">E-mail</label>
-          <input
+
+          <FormField
+            value={values.email}
+            error={errors.email}
+            name={"email"}
+            placeholder={"Twój adres e-mail"}
+            label={"E-mail"}
+            required
             type="email"
-            id="email"
-            name="email"
-            placeholder="Twój adres e-mail"
-            onChange={handleChange}
-            value={data.email}
-            required
+            {...{ onChange }}
           />
-        </div>
-        <div className="input-group">
-          <label htmlFor="phone">Numer telefonu</label>
-          <input
+          <FormField
+            value={values.phone}
+            error={errors.phone}
+            name={"phone"}
+            placeholder={"Twój numer telefonu"}
+            label={"Numer telefonu"}
             type="text"
-            id="phone"
-            name="phone"
-            placeholder="Twój numer telefonu"
-            onChange={handleChange}
-            value={data.phone}
+            {...{ onChange }}
           />
-        </div>
-        <div className="input-group">
-          <label htmlFor="message">Wiadomość</label>
-          <textarea
-            name="message"
-            id="message"
-            placeholder="Napisz do nas..."
-            rows={8}
-            onChange={handleChange}
-            value={data.message}
+          <FormField
+            value={values.message}
+            error={errors.message}
+            name={"message"}
+            placeholder={"Napisz do nas..."}
+            label={"Wiadomość"}
             required
-          ></textarea>
-        </div>
-        <div className="input-group form-agree">
-          <input
+            type="text"
+            {...{ onChange }}
+          />
+          <FormField
+            value={values.agree?.toString() || ""}
+            error={errors.agree?.toString() || ""}
+            name={"agree"}
+            label={"Wyrażam zgodę na przetwarzanie danych osobowych."}
+            required
             type="checkbox"
-            id="agree"
-            name="agree"
-            onChange={handleCheckbox}
-            checked={data.agree}
-            required
+            {...{ onChange }}
           />
-          Wyrażam zgodę na przetwarzanie danych osobowych.
-        </div>
-        <button type="submit">Wyślij</button>
-      </form>
+
+          <Button
+            htmlType="submit"
+            size="l"
+            type="tertiary"
+            disabled={isLoading}
+          >
+            {isLoading || !formVisible ? (
+              <>
+                Wysyłanie... <LoadingSpinner />
+              </>
+            ) : (
+              "Wyślij"
+            )}
+          </Button>
+        </form>
+      </CSSTransition>
+      {internalError && <p>{internalError}</p>}
+      <CSSTransition
+        nodeRef={nodeMessageRef}
+        in={formVisible}
+        timeout={300}
+        classNames="message-fade"
+      >
+        <StyledFormMessage ref={nodeMessageRef}>{message}</StyledFormMessage>
+      </CSSTransition>
     </StyledContactForm>
   );
 };

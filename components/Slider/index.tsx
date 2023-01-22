@@ -51,8 +51,10 @@ const Slider = ({ content }: { content: ImageProps[] }) => {
             <SwiperSlide key={image.attributes.hash}>
               <div className="slider-item">
                 <Image
+                  className="responsive-cover-img"
                   src={img}
-                  layout="fill"
+                  height={600}
+                  width={600}
                   alt={image.attributes.alternativeText}
                 />
               </div>
