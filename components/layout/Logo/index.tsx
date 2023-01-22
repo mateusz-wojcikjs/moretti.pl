@@ -7,7 +7,13 @@ const Logo = () => {
   return (
     <Link href={"/"}>
       <StyledLogo>
-        <Image src={logo} layout="fixed" alt="Moretti.pl logo" />
+        <Image
+          src={logo}
+          width={150}
+          height={150}
+          alt="Moretti.pl logo"
+          className="responsive-img"
+        />
       </StyledLogo>
     </Link>
   );

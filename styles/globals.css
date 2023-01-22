@@ -15,6 +15,12 @@ a {
     box-sizing: border-box;
 }
 
+.responsive-img {
+    height: 100%;
+    width: 100%;
+    object-fit: none;
+}
+
 .responsive-cover-img {
     height: 100%;
     width: 100%;
