@@ -14,6 +14,8 @@ import { Container, FullSectionGray } from "components/layout/Layout.styled";
 import { ProductTemplateProps } from "interfaces/product.interface";
 import * as Utils from "utils";
 import AnimatedOnScroll from "../AnimatedOnScroll";
+import React from "react";
+import { useImageViewer } from "react-image-viewer-hook";
 
 const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
   const testimonials = data.testimonials;
@@ -25,6 +27,7 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
   const [{ textContent, image }] = product.descriptionBottomWithImage;
   const url = process.env.BASE_URL + image.data.attributes.url;
   const heroUrl = process.env.BASE_URL + product.heroImage.data.attributes.url;
+  const { getOnClick, ImageViewer } = useImageViewer();
   return (
     <>
       <Seo
@@ -64,7 +67,7 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
           <Heading headingLevel="h2" isDecorated>
             Zobacz zdjęcia
           </Heading>
-          <Slider content={sliderPhotos} />
+          <Slider {...{ getOnClick }} content={sliderPhotos} />
         </AnimatedOnScroll>
       </Container>
 
@@ -76,6 +79,7 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
         <Testimonials data={testimonials} />
       </Container>
       <Partners partners={customers} />
+      <ImageViewer />
     </>
   );
 };

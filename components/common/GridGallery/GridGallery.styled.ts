@@ -9,6 +9,7 @@ export const StyledGirdGallery = styled.div`
     grid-template-columns: 45% 1fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 3rem;
+    cursor: pointer;
 
     @media only screen and ${breakpoints.device.sm} {
       grid-template-columns: 1fr;
