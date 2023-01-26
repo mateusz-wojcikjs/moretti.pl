@@ -11,7 +11,7 @@ export const StyledSlider = styled.div`
     height: 100%;
 
     .slider-item {
-      height: 50rem;
+      height: 30rem;
       display: block;
       width: 100%;
     }

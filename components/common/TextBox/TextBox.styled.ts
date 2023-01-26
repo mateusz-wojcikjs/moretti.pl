@@ -16,10 +16,6 @@ export const StyledTextBox = styled.div`
       @media only screen and ${breakpoints.device.sm} {
         grid-template-columns: 1fr;
       }
-
-      .content-image {
-        grid-column: 2;
-      }
     }
   }
 
