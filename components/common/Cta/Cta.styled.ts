@@ -19,6 +19,7 @@ export const StyledCta = styled.div`
     position: relative;
     grid-column: 2 / -1;
     grid-row: 1 / -1;
+    z-index: -1;
 
     @media only screen and ${breakpoints.device.sm} {
       grid-column: 1 / -1;

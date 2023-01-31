@@ -1,15 +1,9 @@
 import React from "react";
 import { NextPage } from "next";
-import {
-  Container,
-  FullSectionGray,
-  StyledGridItems,
-} from "components/layout/Layout.styled";
-import Cta, { CtaProps } from "components/common/Cta";
-import Testimonials, { Testimonial } from "components/Testimonials";
-import Partners, { Partner } from "components/layout/Partners";
-import Hero from "components/Hero";
-import Text from "components/common/Text/text";
+import { Container, StyledGridItems } from "components/layout/Layout.styled";
+import { CtaProps } from "components/common/Cta";
+import { Testimonial } from "components/Testimonials";
+import { Partner } from "components/layout/Partners";
 import Heading from "components/common/Heading";
 import ProductItem from "components/common/ProductItem";
 import Seo from "components/Seo";
@@ -18,6 +12,7 @@ import { Product } from "interfaces/product.interface";
 import { OffersPageProps } from "interfaces/page.interface";
 import * as Constants from "../../constants";
 import * as Utils from "utils";
+import BodyBackground from "../../components/layout/BodyBackground";
 
 export const getStaticProps = async () => {
   const page = await Utils.getPageData(Constants.PAGE_TYPES.OFFER);
@@ -41,9 +36,6 @@ interface OffersPageStaticProps {
 const OffersPage: NextPage<OffersPageStaticProps> = (props) => {
   const products = props.products;
   const page = props.page;
-  const testimonials = props.testimonials;
-  const customers = props.customers;
-  const cta = props.cta;
   const img = process.env.BASE_URL + page.header.heroImage.data.attributes.url;
   return (
     <>
@@ -52,17 +44,7 @@ const OffersPage: NextPage<OffersPageStaticProps> = (props) => {
         seoDescription={page.seoDescription}
         ogImage={img}
       />
-      <Hero img={img} secondary position="center">
-        <AnimatedOnScroll type="slide-right">
-          <div className="hero-content">
-            <Heading headingLevel="h1">
-              <span className="decorated">{page.header.title.top}</span>{" "}
-              {page.header.title.bottom}
-            </Heading>
-            <Text>{page.header.subTitle}</Text>
-          </div>
-        </AnimatedOnScroll>
-      </Hero>
+      <BodyBackground {...{ img }} />
       <Container pt5 as="section">
         <AnimatedOnScroll>
           <Heading headingLevel="h2">Nasza oferta</Heading>
@@ -78,14 +60,6 @@ const OffersPage: NextPage<OffersPageStaticProps> = (props) => {
           </StyledGridItems>
         </AnimatedOnScroll>
       </Container>
-      <FullSectionGray>
-        <Cta content={cta} />
-      </FullSectionGray>
-
-      <Container>
-        <Testimonials data={testimonials} />
-      </Container>
-      <Partners partners={customers} />
     </>
   );
 };

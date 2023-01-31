@@ -28,7 +28,7 @@ const Navbar = () => {
   }, [windowGlobal]);
 
   return (
-    <StyledNavbar isScrolled={isScrolled} isHomePage={isHomePage}>
+    <StyledNavbar isScrolled={isScrolled}>
       <NavigationContainer>
         <Logo />
         <Menu isOpen={isOpen} onClick={onClick} />

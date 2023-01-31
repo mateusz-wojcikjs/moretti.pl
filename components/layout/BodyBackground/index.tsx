@@ -1,18 +1,14 @@
-import React, { FC } from "react";
+import React from "react";
+import { StyledBodyBackground } from "./BodyBackground.styled";
 import Image, { StaticImageData } from "next/image";
-import { BackgroundStyled } from "./Background.styled";
 import * as Utils from "utils";
 
-interface HeroBackgroundProps {
-  img: StaticImageData | string;
-}
-
-const Background: FC<HeroBackgroundProps> = ({ img }) => {
+const BodyBackground = ({ img }: { img: StaticImageData | string }) => {
   return (
-    <BackgroundStyled>
+    <StyledBodyBackground>
       <Image
         height={900}
-        width={1900}
+        width={2900}
         className="responsive-cover-img"
         src={img}
         alt="Hero Image"
@@ -20,8 +16,8 @@ const Background: FC<HeroBackgroundProps> = ({ img }) => {
         placeholder="blur"
         blurDataURL={Utils.placeholder}
       />
-    </BackgroundStyled>
+    </StyledBodyBackground>
   );
 };
 
-export default Background;
+export default BodyBackground;

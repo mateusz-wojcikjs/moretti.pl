@@ -12,7 +12,7 @@ export const StyledHero = styled.header<{
 }>`
   position: relative;
   height: ${({ options }) => (options.secondary ? "48rem" : "80rem")};
-  margin-top: ${({ options }) => (options.secondary ? "8rem" : "unset")};
+  margin-top: 8rem;
   grid-column: 1 / -1;
   display: flex;
   align-items: center;

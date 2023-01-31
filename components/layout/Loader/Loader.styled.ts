@@ -22,16 +22,19 @@ export const StyledLoader = styled.div`
   .loader-dot {
     width: 24px;
     height: 24px;
-    background-color: ${({ theme }) => theme.colors.primary};
+    //background-color: ${({ theme }) => theme.colors.primary};
+    background-color: orangered;
     display: inline-block;
     animation: slide 1s infinite;
 
     &:nth-child(even) {
-      background-color: ${({ theme }) => theme.colors.primary};
+      //background-color: ${({ theme }) => theme.colors.primary};
+      background-color: orangered;
     }
 
     &:nth-child(odd) {
-      background-color: ${({ theme }) => theme.colors.secondary};
+      //background-color: ${({ theme }) => theme.colors.secondary};
+      background-color: greenyellow;
     }
   }
 

@@ -35,7 +35,7 @@ export const StyledProductItem = styled.div`
     height: 100%;
     width: 100%;
     min-width: 3rem;
-    min-height: 40rem;
+    min-height: 30rem;
     position: relative;
 
     &:after {
@@ -52,10 +52,10 @@ export const StyledProductItem = styled.div`
   }
 
   .item-content {
-    width: 75%;
+    width: 80%;
     margin: 0 auto;
     background: ${({ theme }) => theme.colors.primary};
-    padding: 7.5rem;
+    padding: 5rem 4rem;
     position: relative;
     @media only screen and ${breakpoints.device.xxl} {
       padding: 5rem 2.5rem;

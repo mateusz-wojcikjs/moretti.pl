@@ -5,6 +5,7 @@ interface HeadingProps {
   isSecondary?: boolean;
   isDecorated?: boolean;
   isCenter?: boolean;
+  mt?: string;
 }
 
 export const StyledHeading = styled.div<HeadingProps>`
@@ -12,6 +13,7 @@ export const StyledHeading = styled.div<HeadingProps>`
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.font.family.bebasNeue};
   position: relative;
+  margin-top: ${({ mt }) => mt};
 
   &:after {
     display: ${({ isDecorated }) => (isDecorated ? "block" : "none")};

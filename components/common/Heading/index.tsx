@@ -12,6 +12,7 @@ interface HeadingProps {
   isSecondary?: boolean;
   isDecorated?: boolean;
   isCenter?: boolean;
+  mt?: string;
 }
 
 interface HeadingTagProps {
@@ -40,13 +41,10 @@ const Heading: FC<HeadingProps> = ({
   isSecondary,
   isDecorated,
   isCenter,
+  mt,
 }) => {
   return (
-    <StyledHeading
-      isSecondary={isSecondary}
-      isDecorated={isDecorated}
-      isCenter={isCenter}
-    >
+    <StyledHeading {...{ isSecondary, isDecorated, isCenter, mt }}>
       <RenderHeadingTag headingLevel={headingLevel}>
         {children}
       </RenderHeadingTag>

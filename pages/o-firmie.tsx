@@ -109,7 +109,7 @@ const AboutPage: NextPage<AboutPageStaticProps> = (props) => {
               </div>
             </div>
           </Grid>
-          <Heading headingLevel="h3" isCenter>
+          <Heading headingLevel="h3" isCenter mt="5rem">
             {page.aboutContentWithImage.wideText}
           </Heading>
         </AnimatedOnScroll>

@@ -13,9 +13,6 @@ const Menu: React.FC<MenuProps> = ({ isOpen, onClick }) => {
     <MaskNav isOpen={isOpen}>
       <StyledMenu onClick={onClick}>
         <StyledNavItem>
-          <Link href={"/"}>Strona główna</Link>
-        </StyledNavItem>
-        <StyledNavItem>
           <Link href={"/o-firmie"}>O nas</Link>
         </StyledNavItem>
         <StyledNavItem>

@@ -28,7 +28,7 @@ const ContactPage: NextPage<IContactPage> = ({ page }) => {
         seoDescription={page.seoDescription}
         ogImage={heroUrl}
       />
-      <Hero img={heroUrl} secondary textCenter>
+      <Hero img={heroUrl} overlay={0.5} secondary textCenter>
         <Heading headingLevel="h1" isCenter>
           {page.title}
         </Heading>

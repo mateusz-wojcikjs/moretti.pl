@@ -7,7 +7,7 @@ const shadow = "1px 1px 1px rgba(0, 0, 0, 0.1)";
 
 export const StyledNavbar = styled.nav<{
   isScrolled: boolean;
-  isHomePage: boolean;
+  isHomePage?: boolean;
 }>`
   height: 8rem;
   background: ${({ theme, isScrolled, isHomePage }) =>

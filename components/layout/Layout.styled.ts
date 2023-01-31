@@ -176,9 +176,9 @@ export const Grid = styled.div`
 `;
 
 export const StyledGridItems = styled(Grid)`
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 40rem));
+  gap: 2.5rem;
   @media only screen and ${breakpoints.device.sm} {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    row-gap: 2.5rem;
     justify-items: center;
   }
 `;
@@ -213,8 +213,6 @@ export const InnerWrapper = styled.div`
     max-width: 100rem;
   }
 `;
-
-// export const FullSection = s;
 
 export const ImgWrapper = styled.div`
   overflow: hidden;
