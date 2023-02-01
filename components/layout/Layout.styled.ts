@@ -131,11 +131,6 @@ export const Container = styled.div<{ pt5?: boolean }>`
   }
 `;
 
-export const GridContainer = styled(Container)`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-`;
-
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: ${({ colCount }: GridProps) =>
