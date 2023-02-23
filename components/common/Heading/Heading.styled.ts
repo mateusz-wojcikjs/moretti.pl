@@ -9,7 +9,7 @@ interface HeadingProps {
 }
 
 export const StyledHeading = styled.div<HeadingProps>`
-  font-size: ${({ theme }) => theme.font.size.xxl};
+  font-size: ${({ theme }) => theme.font.size.xl};
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.font.family.bebasNeue};
   position: relative;
