@@ -4,12 +4,10 @@ import {
   Container,
   FullSectionGray,
   Grid,
-  InnerWrapper,
 } from "components/layout/Layout.styled";
-import CounterNumber from "components/common/CounterNumber";
 import Cta, { CtaProps } from "components/common/Cta";
-import Testimonials, { Testimonial } from "components/Testimonials";
-import Partners, { Partner } from "components/layout/Partners";
+import { Testimonial } from "components/Testimonials";
+import { Partner } from "components/layout/Partners";
 import Heading from "components/common/Heading";
 import ContentImg from "components/common/ContentImg";
 import Timeline from "components/common/Timeline";
@@ -45,10 +43,7 @@ interface AboutPageStaticProps {
 
 const AboutPage: NextPage<AboutPageStaticProps> = (props) => {
   const page = props.page;
-  const counters = props.counters;
   const cta = props.cta;
-  const testimonials = props.testimonials;
-  const customers = props.customers;
   const img = page.ctaImage.data.attributes.url;
   const heroImg = process.env.BASE_URL + page.ctaImage.data.attributes.url;
   return (
@@ -115,16 +110,8 @@ const AboutPage: NextPage<AboutPageStaticProps> = (props) => {
         </AnimatedOnScroll>
       </Container>
       <FullSectionGray>
-        <InnerWrapper>
-          <CounterNumber data={counters} />
-        </InnerWrapper>
         <Cta content={cta} />
       </FullSectionGray>
-
-      <Container>
-        <Testimonials data={testimonials} />
-      </Container>
-      <Partners partners={customers} />
     </>
   );
 };

@@ -7,8 +7,6 @@ import GridGallery from "components/common/GridGallery";
 import TextBox from "components/common/TextBox";
 import Slider from "components/Slider";
 import Cta from "components/common/Cta";
-import Testimonials from "components/Testimonials";
-import Partners from "components/layout/Partners";
 import Seo from "components/Seo";
 import { Container, FullSectionGray } from "components/layout/Layout.styled";
 import { ProductTemplateProps } from "interfaces/product.interface";
@@ -18,8 +16,6 @@ import React from "react";
 import { useImageViewer } from "react-image-viewer-hook";
 
 const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
-  const testimonials = data.testimonials;
-  const customers = data.customers;
   const cta = data.cta;
   const product = data.product.attributes;
   const gallery = product.gallery.data;
@@ -74,11 +70,6 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
       <FullSectionGray>
         <Cta content={cta} />
       </FullSectionGray>
-
-      <Container>
-        <Testimonials data={testimonials} />
-      </Container>
-      <Partners partners={customers} />
       <ImageViewer />
     </>
   );

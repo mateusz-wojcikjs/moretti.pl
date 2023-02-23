@@ -14,9 +14,6 @@ import Heading from "components/common/Heading";
 import ContentImg from "components/common/ContentImg";
 import Features from "components/common/Features";
 import Cta from "components/common/Cta";
-import Testimonials from "components/Testimonials";
-import Partners from "components/layout/Partners";
-import CounterNumber from "components/common/CounterNumber";
 import Text from "components/common/Text/text";
 import AnimatedOnScroll from "components/AnimatedOnScroll";
 import ProductItem from "components/common/ProductItem";
@@ -53,12 +50,9 @@ export const getStaticProps = async () => {
 const Home: NextPage<HomePageStaticProps> = (props) => {
   const products = props.products;
   const page = props.page;
-  const testimonials = props.testimonials;
-  const customers = props.customers;
   const cta = props.cta;
   const banner = props.banner;
   const features = props.features;
-  const counters = props.counters;
   const heroImg =
     process.env.BASE_URL + page.header.heroImage.data.attributes.url;
 
@@ -74,7 +68,7 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
         seoDescription={page.seoDescription}
         ogImage={heroImg}
       />
-      <Hero img={heroImg} overlay={0.33}>
+      <Hero img={heroImg} overlay={0.13}>
         <Heading headingLevel="h1">
           <span className="top">{page.header.title.top}</span>
           <span className="bottom">{page.header.title.bottom}</span>
@@ -121,14 +115,9 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
       <FullSectionGray pt5>
         <InnerWrapper>
           <Features data={features} />
-          <CounterNumber data={counters} />
         </InnerWrapper>
         <Cta content={cta} />
       </FullSectionGray>
-      <Container>
-        <Testimonials data={testimonials} />
-      </Container>
-      <Partners partners={customers} />
     </>
   );
 };
