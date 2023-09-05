@@ -78,7 +78,7 @@ export interface ProductAttributes {
   slug: string;
   descriptionTop: string;
   descriptionBottom?: string;
-  descriptionBottomWithImage: RTC[];
+  descriptionBottomWithImage?: RTC[];
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

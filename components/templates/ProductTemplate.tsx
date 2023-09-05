@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import Hero from "components/Hero";
@@ -12,7 +13,6 @@ import { Container, FullSectionGray } from "components/layout/Layout.styled";
 import { ProductTemplateProps } from "interfaces/product.interface";
 import * as Utils from "utils";
 import AnimatedOnScroll from "../AnimatedOnScroll";
-import React from "react";
 import { useImageViewer } from "react-image-viewer-hook";
 
 const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
@@ -20,8 +20,8 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
   const product = data.product.attributes;
   const gallery = product.gallery.data;
   const sliderPhotos = product.slidersPhotos.data;
-  const [{ textContent, image }] = product.descriptionBottomWithImage;
-  const url = process.env.BASE_URL + image.data.attributes.url;
+  const bottomContent = product.descriptionBottomWithImage;
+  const url = process.env.BASE_URL;
   const heroUrl = process.env.BASE_URL + product.heroImage.data.attributes.url;
   const { getOnClick, ImageViewer } = useImageViewer();
   return (
@@ -47,23 +47,33 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
         </TextBox>
         <TextBox>
           <div className="img-inside">
-            <ReactMarkdown className="with-img">{textContent}</ReactMarkdown>
-            <Image
-              src={url}
-              height={250}
-              width={250}
-              className="responsive-fill-img content-image"
-              placeholder="blur"
-              blurDataURL={Utils.placeholder}
-              alt={image.data.attributes.alternativeText}
-            />
+            {bottomContent?.length && (
+              <ReactMarkdown className="with-img">
+                {bottomContent[0].textContent}
+              </ReactMarkdown>
+            )}
+            {bottomContent?.length && url && (
+              <Image
+                src={url + bottomContent[0].image}
+                height={250}
+                width={250}
+                className="responsive-fill-img content-image"
+                placeholder="blur"
+                blurDataURL={Utils.placeholder}
+                alt={bottomContent[0].image.data.attributes.alternativeText}
+              />
+            )}
           </div>
         </TextBox>
         <AnimatedOnScroll>
-          <Heading headingLevel="h2" isDecorated>
-            Zobacz zdjęcia
-          </Heading>
-          <Slider {...{ getOnClick }} content={sliderPhotos} />
+          {sliderPhotos && (
+            <>
+              <Heading headingLevel="h2" isDecorated>
+                Zobacz zdjęcia
+              </Heading>
+              <Slider {...{ getOnClick }} content={sliderPhotos} />
+            </>
+          )}
         </AnimatedOnScroll>
       </Container>
 
