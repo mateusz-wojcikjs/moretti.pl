@@ -11,7 +11,6 @@ import {
   StyledGridItems,
 } from "components/layout/Layout.styled";
 import Heading from "components/common/Heading";
-import ContentImg from "components/common/ContentImg";
 import Features from "components/common/Features";
 import Cta from "components/common/Cta";
 import Text from "components/common/Text/text";
@@ -56,7 +55,7 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
   const heroImg =
     process.env.BASE_URL + page.header.heroImage.data.attributes.url;
 
-  const img = page.image.data.attributes.formats.large.url;
+  // const img = page.image.data.attributes.formats.large.url;
   const bannerImg =
     process.env.BASE_URL +
     banner.attributes.backgroundImage.data.attributes.url;
@@ -87,11 +86,11 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
                 Zobacz ofertę
               </ButtonLink>
             </div>
-            <ContentImg
-              isDecorated
-              img={img}
-              alt={page.image.data.attributes.alternativeText}
-            />
+            {/*<ContentImg*/}
+            {/*  isDecorated*/}
+            {/*  img={img}*/}
+            {/*  alt={page.image.data.attributes.alternativeText}*/}
+            {/*/>*/}
           </Grid>
         </AnimatedOnScroll>
       </Container>
