@@ -22,6 +22,7 @@ import type { NextPage } from "next";
 import { HomePageStaticProps } from "interfaces/page.interface";
 import { Product } from "interfaces/product.interface";
 import ButtonLink from "../components/common/ButtonLink";
+import ContentImg from "../components/common/ContentImg";
 
 export const getStaticProps = async () => {
   const page = await Utils.getPageData(Constants.PAGE_TYPES.HOME);
@@ -54,8 +55,8 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
   const features = props.features;
   const heroImg =
     process.env.BASE_URL + page.header.heroImage.data.attributes.url;
-
-  // const img = page.image.data.attributes.formats.large.url;
+  console.log(page);
+  const img = page.image.data.attributes.formats.large.url;
   const bannerImg =
     process.env.BASE_URL +
     banner.attributes.backgroundImage.data.attributes.url;
@@ -86,11 +87,11 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
                 Zobacz ofertę
               </ButtonLink>
             </div>
-            {/*<ContentImg*/}
-            {/*  isDecorated*/}
-            {/*  img={img}*/}
-            {/*  alt={page.image.data.attributes.alternativeText}*/}
-            {/*/>*/}
+            <ContentImg
+              isDecorated
+              img={img}
+              alt={page.image.data.attributes.alternativeText}
+            />
           </Grid>
         </AnimatedOnScroll>
       </Container>
