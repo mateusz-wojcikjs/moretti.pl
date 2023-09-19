@@ -52,7 +52,7 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
                 {bottomContent[0].textContent}
               </ReactMarkdown>
             )}
-            {bottomContent?.length && url && (
+            {bottomContent?.length && bottomContent[0]?.image && url && (
               <Image
                 src={url + bottomContent[0].image}
                 height={250}
