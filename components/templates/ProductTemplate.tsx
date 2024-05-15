@@ -54,7 +54,7 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
             )}
             {!!bottomContent?.length && bottomContent[0]?.image && url && (
               <Image
-                src={url + bottomContent[0].image}
+                src={url + bottomContent[0]?.image.data.attributes.url}
                 height={250}
                 width={250}
                 className="responsive-fill-img content-image"

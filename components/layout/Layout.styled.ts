@@ -170,7 +170,7 @@ export const Grid = styled.div`
 `;
 
 export const StyledGridItems = styled(Grid)`
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 36rem));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2.5rem;
   align-items: stretch;
   padding-bottom: 10rem;

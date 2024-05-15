@@ -6,7 +6,6 @@ export const StyledProductItem = styled.div`
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  min-width: 20rem;
   height: 100%;
 
   &:hover {
@@ -53,24 +52,24 @@ export const StyledProductItem = styled.div`
   }
 
   .item-content {
-    width: 80%;
-    margin: 0 auto;
-    background: ${({ theme }) => theme.colors.primary};
-    padding: 5rem 4rem;
+    width: 100%;
+    margin: 0 auto 6rem;
+    background: ${({ theme }) => theme.colors.white};
+    padding: 5rem 3rem;
     position: relative;
     height: 100%;
+    max-height: 22rem;
+    border: 1px solid ${({ theme }) => theme.colors.grayDark};
+
     @media only screen and ${breakpoints.device.xxl} {
       padding: 5rem 2.5rem;
     }
     @media only screen and ${breakpoints.device.xl} {
       padding: 5rem 1.5rem;
     }
-    @media only screen and ${breakpoints.device.m} {
-      width: 100%;
-    }
 
     p {
-      color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.lightBlack};
     }
 
     &:after {
