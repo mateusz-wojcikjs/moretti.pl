@@ -47,12 +47,12 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
         </TextBox>
         <TextBox>
           <div className="img-inside">
-            {bottomContent?.length && (
+            {!!bottomContent?.length && (
               <ReactMarkdown className="with-img">
                 {bottomContent[0].textContent}
               </ReactMarkdown>
             )}
-            {bottomContent?.length && bottomContent[0]?.image && url && (
+            {!!bottomContent?.length && bottomContent[0]?.image && url && (
               <Image
                 src={url + bottomContent[0].image}
                 height={250}

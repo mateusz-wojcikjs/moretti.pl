@@ -10,7 +10,7 @@ const Features = ({ data }: { data: FeaturesProps }) => {
   return (
     <AnimatedOnScroll>
       <StyledFeatures colCount={2} gap={1}>
-        <div>
+        <div className="features-cta">
           <Heading headingLevel="h3">{data.attributes.title}</Heading>
           <ButtonLink href="/oferta" size="l" type="primary">
             Czytaj więcej

@@ -34,7 +34,7 @@ export const Wrapper = styled.main`
 
 export const FullSectionGray = styled.section<{ pt5?: boolean }>`
   grid-column: full-start / full-end;
-  padding-top: ${({ pt5 }) => (pt5 ? "20rem" : 0)};
+  padding-top: ${({ pt5 }) => (pt5 ? "10rem" : 0)};
   width: 100%;
   background-color: ${({ theme }) => theme.colors.gray};
 `;
@@ -131,47 +131,58 @@ export const Container = styled.div<{ pt5?: boolean }>`
 `;
 
 export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: ${({ colCount }: GridProps) =>
-    `repeat(${colCount}, 1fr)`};
-  grid-column-gap: ${({ gap }: GridProps) => `${gap}rem`};
-  align-items: ${({ isCentered }: GridProps) =>
-    isCentered ? "center" : "start"};
-  @media only screen and ${breakpoints.device.sm} {
-    grid-template-columns: 1fr;
-    grid-row-gap: 2.5rem;
-  }
+    display: grid;
+    grid-template-columns: ${({ colCount }: GridProps) =>
+      `repeat(${colCount}, 1fr)`};
+    grid-column-gap: ${({ gap }: GridProps) => `${gap}rem`};
+    align-items: ${({ isCentered }: GridProps) =>
+      isCentered ? "center" : "start"};
+    @media only screen and ${breakpoints.device.sm} {
+        grid-template-columns: 1fr;
+        grid-row-gap: 2.5rem;
+    }
 }
 
 .text-box {
-  h2 {
-    font-size: ${({ theme }) => theme.font.size.xl};
-    font-weight: 400;
-    margin-bottom: 5rem;
-    font-family: ${({ theme }) => theme.font.family.bebasNeue};
-    position: relative;
+    h2 {
+        font-size: ${({ theme }) => theme.font.size.xl};
+        font-weight: 400;
+        margin-bottom: 5rem;
+        font-family: ${({ theme }) => theme.font.family.bebasNeue};
+        position: relative;
 
-    &:after {
-      content: "";
-      background: ${({ theme }) => theme.colors.secondaryAccent};
-      height: 3px;
-      width: 200px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
+        &:after {
+            content: "";
+            background: ${({ theme }) => theme.colors.secondaryAccent};
+            height: 3px;
+            width: 200px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
     }
-  }
 
-  a {
-    margin-top: 5rem;
-  }
+    a {
+        margin-top: 5rem;
+    }
 
 }
 `;
 
 export const StyledGridItems = styled(Grid)`
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 40rem));
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 36rem));
   gap: 2.5rem;
+  align-items: stretch;
+  padding-bottom: 10rem;
+
+  @media only screen and ${breakpoints.device.xl} {
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  }
+
+  @media only screen and ${breakpoints.device.lg} {
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 30rem));
+    justify-content: center;
+  }
   @media only screen and ${breakpoints.device.sm} {
     justify-items: center;
   }

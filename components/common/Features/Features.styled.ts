@@ -3,17 +3,23 @@ import { Grid } from "../../layout/Layout.styled";
 import breakpoints from "assets/theme/breakpoints";
 
 export const StyledFeatures = styled(Grid)`
+  align-items: center;
+
   @media only screen and ${breakpoints.device.sm} {
     grid-row-gap: 2.5rem;
   }
 
   .features-box {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2.5rem 0.5rem;
     @media only screen and ${breakpoints.device.xs} {
       grid-template-columns: 1fr;
     }
+  }
+
+  .features-cta h3 {
+    margin-bottom: 3rem;
   }
 
   .feature-description {
@@ -27,8 +33,8 @@ export const StyledFeatures = styled(Grid)`
 `;
 export const Feature = styled.div`
   display: grid;
+  gap: 1rem;
   grid-template-columns: 6rem 1fr;
-  grid-template-rows: 1fr 1fr;
 
   .feature-icon {
     grid-row: 1 / span 2;

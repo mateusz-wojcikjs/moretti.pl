@@ -94,7 +94,7 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
           </Grid>
         </AnimatedOnScroll>
       </Container>
-      <Container pt5 as="section">
+      <Container as="section">
         <AnimatedOnScroll>
           <Heading headingLevel="h2">Nasza oferta</Heading>
           <StyledGridItems colCount={products?.length} gap={5}>

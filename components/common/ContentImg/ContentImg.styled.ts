@@ -40,7 +40,7 @@ export const RedCross = styled.div`
   bottom: -100px;
   left: -120px;
 
-  @media only screen and ${breakpoints.device.lg} {
+  @media only screen and ${breakpoints.device.xl} {
     display: none;
   }
 

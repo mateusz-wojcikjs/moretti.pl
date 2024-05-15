@@ -37,7 +37,7 @@ const Cta = ({ content }: ICta) => {
       <div data-aos="slide-right" className="cta-container">
         <div className="cta-content">
           <Heading headingLevel="h3">{content.attributes.title}</Heading>
-          <p>{content.attributes.description}</p>
+          <p className="cta-description">{content.attributes.description}</p>
           <ButtonLink href="/kontakt" size="l" type="primary">
             Skontaktuj się
           </ButtonLink>

@@ -7,6 +7,7 @@ export const StyledProductItem = styled.div`
   cursor: pointer;
   position: relative;
   min-width: 20rem;
+  height: 100%;
 
   &:hover {
     .item-content:after {
@@ -57,6 +58,7 @@ export const StyledProductItem = styled.div`
     background: ${({ theme }) => theme.colors.primary};
     padding: 5rem 4rem;
     position: relative;
+    height: 100%;
     @media only screen and ${breakpoints.device.xxl} {
       padding: 5rem 2.5rem;
     }
