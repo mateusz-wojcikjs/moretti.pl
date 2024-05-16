@@ -50,6 +50,12 @@ export const Container = styled.div<{ pt5?: boolean }>`
     padding-bottom: ${({ pt5 }) => (pt5 ? "10rem" : 0)};
   }
 
+  .cta-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10rem;
+  }
+
   p {
     margin-bottom: 1.5rem;
   }
@@ -173,7 +179,7 @@ export const StyledGridItems = styled(Grid)`
   grid-template-columns: repeat(4, 1fr);
   gap: 2.5rem;
   align-items: stretch;
-  padding-bottom: 10rem;
+  padding-bottom: 2.5rem;
 
   @media only screen and ${breakpoints.device.xl} {
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));

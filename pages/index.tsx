@@ -98,7 +98,7 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
         <AnimatedOnScroll>
           <Heading headingLevel="h2">Nasza oferta</Heading>
           <StyledGridItems colCount={products?.length} gap={5}>
-            {products.map((product: Product) => (
+            {products.slice(0, 4).map((product: Product) => (
               <ProductItem
                 key={product.id}
                 name={product.attributes.name}
@@ -107,6 +107,14 @@ const Home: NextPage<HomePageStaticProps> = (props) => {
               />
             ))}
           </StyledGridItems>
+          {/* TODO: replace div for styled component */}
+          {products.length < 4 && (
+            <div className="cta-row">
+              <ButtonLink href="/oferta" size="l" type="primary">
+                Zobacz pełną ofertę
+              </ButtonLink>
+            </div>
+          )}
         </AnimatedOnScroll>
       </Container>
       <Banner img={bannerImg} text={banner.attributes.title} />
