@@ -19,8 +19,12 @@ const GridGallery = ({ content }: { content: ImageProps[] }) => {
               process.env.BASE_URL + image.attributes.formats.medium.url;
             const img = process.env.BASE_URL + image.attributes.url;
             return (
-              <div key={image.attributes.hash} className="gallery-item">
-                <a onClick={getOnClick(img)}>
+              <div
+                onClick={getOnClick(img)}
+                key={image.attributes.hash}
+                className="gallery-item"
+              >
+                <a>
                   <i>
                     <BsZoomIn />
                   </i>

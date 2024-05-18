@@ -29,6 +29,10 @@ export const StyledGirdGallery = styled.div`
     }
   }
 
+  .slider-gallery-item {
+    cursor: pointer;
+  }
+
   img {
     width: 100%;
     height: 100%;

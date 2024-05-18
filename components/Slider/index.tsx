@@ -59,7 +59,10 @@ const Slider = ({
               process.env.BASE_URL + image.attributes.formats.small.url;
             const original = process.env.BASE_URL + image.attributes.url;
             return (
-              <SwiperSlide key={image.attributes.hash}>
+              <SwiperSlide
+                key={image.attributes.hash}
+                style={{ cursor: "zoom-in" }}
+              >
                 <a
                   className="gallery-item slider-item"
                   onClick={getOnClick(original)}
