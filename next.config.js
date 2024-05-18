@@ -3,12 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: [
-      "localhost",
-      "moretticms.mateusz-wojcik.pl",
-      "moretti.pl",
-      "admin.moretti.pl",
-    ],
+    domains: [process.env.BASE_URL],
   },
   env: {
     API_URL: process.env.API_URL,
