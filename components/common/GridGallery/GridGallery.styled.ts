@@ -2,7 +2,7 @@ import styled from "styled-components";
 import breakpoints from "assets/theme/breakpoints";
 
 export const StyledGirdGallery = styled.div`
-  margin: 5rem 0;
+  margin-bottom: 5rem;
 
   .lg-react-element {
     display: grid;

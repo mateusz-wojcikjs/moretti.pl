@@ -13,11 +13,10 @@ export const StyledHero = styled.header<{
   position: relative;
   height: ${({ options }) => (options.secondary ? "48rem" : "80rem")};
   margin-top: 8rem;
+  margin-bottom: 5rem;
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  //align-items: flex-end;
-  //padding-bottom: 10rem;
 
   &::after {
     content: "";

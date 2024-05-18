@@ -42,8 +42,8 @@ export const FullSectionGray = styled.section<{ pt5?: boolean }>`
 export const Container = styled.div<{ pt5?: boolean }>`
   grid-column: container-start / container-end;
   position: relative;
-  padding-top: ${({ pt5 }) => (pt5 ? "20rem" : 0)};
-  padding-bottom: ${({ pt5 }) => (pt5 ? "20rem" : 0)};
+  padding-top: ${({ pt5 }) => (pt5 ? "12.5rem" : 0)};
+  padding-bottom: ${({ pt5 }) => (pt5 ? "12.5rem" : 0)};
 
   @media only screen and ${breakpoints.device.m} {
     padding-top: ${({ pt5 }) => (pt5 ? "10rem" : 0)};

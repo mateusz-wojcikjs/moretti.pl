@@ -37,9 +37,11 @@ const ProductTemplate = ({ data }: { data: ProductTemplateProps }) => {
         </Heading>
         <Breadcrumbs />
       </Hero>
-      <Container>
-        <GridGallery content={gallery} />
-      </Container>
+      {gallery && (
+        <Container>
+          <GridGallery content={gallery} />
+        </Container>
+      )}
 
       <Container>
         <TextBox>
