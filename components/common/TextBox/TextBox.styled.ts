@@ -19,7 +19,9 @@ export const StyledTextBox = styled.div`
     }
   }
 
-  p {
+  p,
+  ol,
+  ul {
     color: ${({ theme }) => theme.colors.lightBlack};
   }
 
