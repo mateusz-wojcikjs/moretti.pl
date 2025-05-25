@@ -3,13 +3,15 @@ import breakpoints from "assets/theme/breakpoints";
 
 export const StyledGirdGallery = styled.div`
   margin-bottom: 5rem;
+  max-height: 660px;
 
   .lg-react-element {
     display: grid;
     grid-template-columns: 45% 1fr;
-    grid-template-rows: 1fr 1fr;
     grid-gap: 3rem;
     cursor: pointer;
+    height: 100%;
+    max-height: 660px;
 
     @media only screen and ${breakpoints.device.sm} {
       grid-template-columns: 1fr;
@@ -22,6 +24,7 @@ export const StyledGirdGallery = styled.div`
     & :nth-child(2) {
       grid-row: 1 / 3;
       grid-column: 2;
+      max-height: 660px;
       @media only screen and ${breakpoints.device.sm} {
         grid-row: auto;
         grid-column: auto;
@@ -31,6 +34,7 @@ export const StyledGirdGallery = styled.div`
 
   .slider-gallery-item {
     cursor: pointer;
+    height: 100%;
   }
 
   img {
@@ -43,7 +47,8 @@ export const StyledGirdGallery = styled.div`
   .gallery-item {
     overflow: hidden;
     position: relative;
-    min-height: 400px;
+    height: 100%;
+    max-height: calc(660px / 2 - 3rem);
 
     i {
       position: absolute;
